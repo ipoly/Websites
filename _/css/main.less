@@ -1,0 +1,358 @@
+
+// 变量定义
+@gray1: #f6f6f6; 
+@gray2: #dedede;
+@gray3: #999;
+@gray4: #fafafa;
+@gray5: #efefef;
+
+@dark0: #000;
+@dark1: #333;
+@dark2: #585858;
+@dark3: #7C7C7C;
+
+@red1: #d82e1c;
+@red2: #F3BCBC;
+
+.border1 (@color:@gray2) {
+	border:1px solid @color;
+}
+
+.marginCenter (@bottom:0) {
+	margin:0 auto @bottom;
+}
+
+.vat {vertical-align:top; }
+.vam {vertical-align:middle; }
+.vab {vertical-align:bottom; }
+
+.tar {text-align:right;}
+.tac {text-align:center;}
+.tal {text-align:left;}
+
+.fl {float:left;}
+.fr {float:right;}
+
+.posr {position: relative;}
+.posa {position: absolute;}
+
+.boxShadow1 {
+	box-shadow: 2px 2px 2px rgba(0,0,0,.3);
+}
+
+// 标签定义
+
+body {
+	background-color:#fff;
+}
+
+a {
+	color:@dark1;
+	text-decoration:none;
+}
+
+i {
+	.vam;
+	display: inline-block;
+	background: url(../img/sprite1.png) no-repeat;
+	width: 20px;
+	height: 20px;
+}
+
+
+button {
+	.vam;
+	background: url(../img/sprite2.png) 0 -40px no-repeat;
+	border: none;
+	width: 102px;
+	height: 25px;
+	cursor: pointer;
+}
+
+// iefucker
+.ie6 {
+	.navBar {
+		.fr {padding-top:5px;}
+		i {margin:8px 0}
+		button i {
+			margin: 2px 0;
+		}
+	}
+} 
+.ie6,.ie7,.ie8,.ie9 {
+	button {line-height: 24px; }
+}
+
+
+//其他定义
+.ib {display:inline-block;}
+.ib {*display:inline;}
+
+.user {background-position:-120px 0;}
+.cart {background-position:-80px 0;}
+.hall {background-position:-40px 0;}
+.shield {background-position:0 0;}
+.arrowDown {background-position:-80px -80px;}
+
+.red {color: @red1;}
+
+.wrapper {
+	width:996px;
+	.marginCenter;
+}
+
+.topHeader {
+	.citySelector {
+		margin: 0 40px -8px 5px;
+	}
+	.navBar {
+		zoom:1;
+		overflow:visible;
+		margin: 10px 0;
+		min-width: 996px;
+		height: 38px;
+		line-height: 37px;
+		background: url(../img/nav.png) center 0 no-repeat;
+		.dropNav {
+			.vat;
+			width: 210px;
+			position: relative;
+			overflow: visible;
+			font-size: 14px;
+			display: inline-block;
+			div {
+				text-indent: 10px;
+				height:37px;
+				line-height: 37px;
+				color: #fff;
+				cursor: pointer;
+			}
+			ul {
+				display: none;
+				width: 188px;
+				padding: 0 1px;
+				border: 2px solid @red2;
+				border-top-width: 0;
+				background-color: @gray4;
+				position: absolute;
+				left: 0;
+				top: 38px;
+				overflow:visible;
+				li {
+					display: block;
+					padding: 0 5px;
+					background:url(../img/bg-index-sort-v211.png) right -80px no-repeat;
+					position: relative;
+					height: 39px;
+					overflow: visible;
+					a {
+						display: block;
+						border-bottom: 1px solid @gray5;
+						border-top: 1px solid #fff;
+						padding-left: 50px;
+						background:url(../img/ico-index-sort.png) 0 0 no-repeat;
+					}
+					.navIcon-1{background-position:15px 4px}
+					.navIcon-2{background-position:15px -96px}
+					.navIcon-3{background-position:15px -196px}
+					.navIcon-4{background-position:15px -296px}
+					.navIcon-5{background-position:15px -396px}
+					.navIcon-6{background-position:15px -496px}
+					.navIcon-7{background-position:15px -596px}
+					.navIcon-8{background-position:15px -696px}
+					nav {
+						display: none;
+						a {
+							color: @dark3;
+							height: 27px;
+							line-height: 27px;
+							font-size: 12px;
+							border-top: 0;
+							border-bottom: 0;
+							padding-left: 30px;
+							background:url(../img/bg-index-sort-v211.png) 15px -154px no-repeat;
+						}
+						a:hover {
+							background:url(../img/bg-index-sort-v211.png) 15px -181px no-repeat;
+						}
+					}
+				}
+				li.hover,li:hover {
+					background:url(../img/bg-index-sort-v211.png) 0 -37px repeat-x;
+					z-index: 1;
+					a{color: #fff;}
+					nav {
+						display: block;
+						background-color: white;
+						border: 2px solid #E51A45;
+						left: 160px;
+						margin-top: -38px;
+						width: 120px;
+						z-index: 30;
+						position: absolute;
+						height: auto;
+						overflow: hidden;
+						a {color: @dark3;}
+					} 
+					.navIcon-1{background-position:15px -46px}
+					.navIcon-2{background-position:15px -146px}
+					.navIcon-3{background-position:15px -246px}
+					.navIcon-4{background-position:15px -346px}
+					.navIcon-5{background-position:15px -446px}
+					.navIcon-6{background-position:15px -546px}
+					.navIcon-7{background-position:15px -646px}
+					.navIcon-8{background-position:15px -746px}
+				}
+			}
+		}
+		.dropNav {
+			*display: inline;
+		}
+		.dropNav:hover,.hover {ul {display: block;} }
+		.mainNav {
+			.vat;
+			display: inline-block;
+			font-size: 16px;
+			a {
+				.tac;
+				display: inline-block;
+				width: 132px;
+				height: 37px;
+				color: #fff;
+			}
+			a.current {
+				background:url(../img/nav_current.png) 0 0 no-repeat;
+			}
+		}
+		.mainNav {
+			*display: inline;
+		}
+	}
+}
+
+.toolbar {
+	.tar;
+	.border1;
+	border-width:0 0 1px;
+	height:34px;
+	line-height:34px;
+	background-color:@gray1;
+	margin-bottom:18px;
+	h1 {
+		float:left;
+	}
+	span a {
+		display: inline-block;
+		margin: 0 5px;
+	}
+}
+
+.citySelector {
+	position: relative;
+	z-index: 1;
+	strong {
+		font-size: 16px;
+		display: block;
+		padding-left: 5px;
+	}
+}
+
+.popSelector {
+	.border1;
+	display: inline-block;
+	height: 19px;
+	line-height: 19px;
+	padding: 0 25px 0 5px;
+	background:#fff url(../img/selector.png) right top no-repeat; 
+	position: relative;
+	overflow: visible;
+	cursor: pointer;
+	.pop {
+		.boxShadow1;
+		border: 2px solid @red1;
+		display: none;
+		width: 460px;
+		position: absolute;
+		top: 100%;
+		left: -1px;
+		background: #fff;
+		padding: 10px 5px 5px;
+		a {
+			display: inline-block;
+			width:6em;
+			white-space: nowrap;
+			margin: 0 5px 5px;
+			span {
+				margin: 0 0 0 5px;
+				color: @dark3;
+			}
+		}
+		a:hover {
+			color: @red1;
+		}
+	}
+	.right {
+		left: auto;
+		right: 0;
+	}
+}
+.popSelector.on {
+	background-color: @red1;
+	background-position: right -19px;
+	border: 1px solid @red1;
+	color: #fff;
+	.pop {display:inline-block;}
+}
+
+.mainSearch {
+	.vab;
+	position: relative;
+	margin-bottom: -8px;
+	form {
+		.tar;
+		width: 408px;
+		height: 32px;
+		background: url(../img/sprite2.png) 0 0 no-repeat;
+		input {
+			.vam;
+			width: 310px;
+			border: none;
+			background: none;
+		}
+		button {
+			.vam;
+			border: none;
+			background:none;
+			color:#fff;
+			width: 78px;
+			height: 32px;
+			font-weight: bold;
+			text-indent: 15px;
+			font-size:16px;
+		}
+	}
+	div	{
+		position: absolute;
+		top: 100%;
+		left: 0;
+		padding-top: 5px;
+	}
+	span {
+		color: @red1;
+	}
+}
+
+.hotline {
+	background: url(../img/sprite2.png) right top no-repeat ;
+	display:inline-block;
+	width: 165px;
+	height: 44px;
+	.posa;
+	right: 0;
+	bottom: 0;
+}
+
+
+
+
+

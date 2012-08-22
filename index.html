@@ -31,29 +31,11 @@
 	<meta name="DC.subject" content="What you're about.">
 	<meta name="DC.creator" content="Who made this site.">
 	
-	<!--  Mobile Viewport Fix
-	j.mp/mobileviewport & davidbcalhoun.com/2010/viewport-metatag 
-	device-width : Occupy full width of the screen in its current orientation
-	initial-scale = 1.0 retains dimensions instead of zooming out if page height > device height
-	maximum-scale = 1.0 retains dimensions instead of zooming in if page width < device width
-	-->
-	<!-- Uncomment to use; use thoughtfully!
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-	-->
-
 	<link rel="shortcut icon" href="_/img/favicon.ico">
-	<!-- This is the traditional favicon.
-		 - size: 16x16 or 32x32
-		 - transparency is OK
-		 - see wikipedia for info on browser support: http://mky.be/favicon/ -->
-		 
+	<!-- 站点图标,32*32 -->
 	<link rel="apple-touch-icon" href="_/img/apple-touch-icon.png">
-	<!-- The is the icon for iOS's Web Clip.
-		 - size: 57x57 for older iPhones, 72x72 for iPads, 114x114 for iPhone4's retina display (IMHO, just go ahead and use the biggest one)
-		 - To prevent iOS from applying its styles to the icon name it thusly: apple-touch-icon-precomposed.png
-		 - Transparency is not recommended (iOS will put a black BG behind the icon) -->
-	
-	<!-- CSS: screen, mobile & print are all in the same file -->
+	<!-- ios图标114*114 -->
+
 	<link rel="stylesheet" href="_/css/reset.css">
 	<link rel="stylesheet" href="_/css/main.css">
 	
@@ -63,60 +45,175 @@
 </head>
 
 <body>
-
-<div class="wrapper"><!-- not needed? up to you: http://camendesign.com/code/developpeurs_sans_frontieres -->
-
-	<header>
-		
-		<h1><a href="/">Page Title</a></h1>
-		
-		<nav>
-		
-			<ol>
-				<li><a href="">Nav Link 1</a></li>
-				<li><a href="">Nav Link 2</a></li>
-				<li><a href="">Nav Link 3</a></li>
-			</ol>
-		
-		</nav>
-	
+	<header class="topHeader">
+		<div class="toolbar">
+			<div class="wrapper">
+				<h1>立即送票务网欢迎您！</h1>
+				<span>
+					<a href=""><i class="user"></i> 我的立即送</a>
+					<a href=""><i class="cart"></i> 购物车(3)</a>
+					<a href="">注销</a>|
+					<a class="red" href="">注册</a>|
+					<a href="">登陆</a>
+				</span>
+			</div>
+		</div>
+		<div class="wrapper posr">
+			<a href="/" title="返回首页" class="ib vam"><img src="/_/img/logo.jpg" alt="logo"></a>
+			<div class="ib">
+				<span class="ib citySelector vab">
+					<strong>成都</strong>
+					<span class="popSelector" method="post">
+						切换城市
+						<span class="pop">
+							<a href="">成都<span>123</span></a>
+							<a href="">乌鲁木齐<span>123</span></a>
+							<a href="">北京<span>123</span></a>
+							<a href="">上海<span>123</span></a>
+							<a href="">深圳<span>123</span></a>
+							<a href="">广州<span>123</span></a>
+							<a href="">香港<span>123</span></a>
+							<a href="">呼和浩特<span>123</span></a>
+						</span>
+					</span>
+				</span>
+				<div class="mainSearch ib">
+					<form action="" method="post">
+						<input type="text" name="keyword" placeholder="请输入艺人、演出、场馆名称"/>
+						<button onclick="this.submit()">搜 索</button>
+					</form>
+					<div>
+						<span>热门搜索:</span>
+						<a href="">天后归来</a>
+						<a href="">猫</a>
+						<a href="">国家大剧院</a>
+						<a href="">海沙节</a>
+						<a href="">陈奕迅</a>
+						<a href="">妈妈咪呀</a>
+					</div>
+				</div>
+			</div>
+			<span class="hotline" src="/_/img/hotline.png" alt="hotline"></span>
+		</div>
+		<div class="navBar">
+			<div class="wrapper">
+				<div class="fr">
+					<button><i class="shield"></i> 在线验票</button>&nbsp;
+					<button><i class="hall"></i> 场馆库</button>
+				</div>
+				<nav class="dropNav">
+					<div><i class="arrowDown"></i>全部商品分类</div>
+					<ul>
+						<li>
+							<a href="" class="navIcon-1">演唱会</a>
+							<nav>
+								<a href="">流行</a>
+								<a href="">摇滚</a>
+								<a href="">名族</a>
+								<a href="">音乐节</a>
+								<a href="">其他</a>
+							</nav>
+						</li>
+						<li>
+							<a href="" class="navIcon-2">音乐会</a>
+							<nav>
+								<a href="">流行</a>
+								<a href="">摇滚</a>
+								<a href="">名族</a>
+								<a href="">音乐节</a>
+								<a href="">其他</a>
+							</nav>
+						</li>
+						<li>
+							<a href="" class="navIcon-3">话剧歌剧</a>
+							<nav>
+								<a href="">流行</a>
+								<a href="">摇滚</a>
+								<a href="">名族</a>
+								<a href="">音乐节</a>
+								<a href="">其他</a>
+							</nav>
+						</li>
+						<li>
+							<a href="" class="navIcon-4">舞蹈芭蕾</a>
+						</li>
+						<li>
+							<a href="" class="navIcon-5">曲苑杂谈</a>
+						</li>
+						<li>
+							<a href="" class="navIcon-6">体育比赛</a>
+						</li>
+						<li>
+							<a href="" class="navIcon-7">休闲度假</a>
+						</li>
+						<li>
+							<a href="" class="navIcon-8">儿童亲子</a>
+						</li>
+					</ul>
+				</nav>
+				<nav class="mainNav">
+					<a class="current" href="">首页</a>
+					<a href="">票务大厅</a>
+					<a href="">活动</a>
+					<a href="">专题</a>
+				</nav>
+				
+			</div>
+		</div>
 	</header>
-	
-	<article>
-		
-		<h1>Article Header</h1>
-		
-		<p>Etiam pretium odio eu mi convallis vitae varius neque pharetra. Nulla vestibulum nisi ut sem cursus sed mattis nisi egestas.</p>
-		
-		<h2>Article Subhead</h2>
-		
-		<p>Vestibulum lacus erat, volutpat vel dignissim at, fringilla ut felis.</p>
-	
-	</article>
-	
-	<aside>
-	
-		<h2>Sidebar Content</h2>
-	
-	</aside>
-	
-	<footer>
-		
-		<p><small>&copy; Copyright Your Name Here 2011. All Rights Reserved.</small></p>
-		
-	</footer>
+	<div class="wrapper" style="height:1000px;">
 
-</div>
+		<header>
 
-<!-- here comes the javascript -->
+			<h1><a href="/">Page Title</a></h1>
 
-<!-- Grab Google CDN's jQuery. fall back to local if necessary -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
-<script>window.jQuery || document.write("<script src='_/js/jquery.js'>\x3C/script>")</script>
+			<nav>
 
-<!-- this is where we put our custom functions -->
-<script src="_/js/import-ck.js"></script>
-<script src="_/js/main.js"></script>
+				<ol>
+					<li><a href="">Nav Link 1</a></li>
+					<li><a href="">Nav Link 2</a></li>
+					<li><a href="">Nav Link 3</a></li>
+				</ol>
+
+			</nav>
+
+		</header>
+
+		<article>
+
+			<h1>Article Header</h1>
+
+			<p>Etiam pretium odio eu mi convallis vitae varius neque pharetra. Nulla vestibulum nisi ut sem cursus sed mattis nisi egestas.</p>
+
+			<h2>Article Subhead</h2>
+
+			<p>Vestibulum lacus erat, volutpat vel dignissim at, fringilla ut felis.</p>
+
+		</article>
+
+		<aside>
+
+			<h2>Sidebar Content</h2>
+
+		</aside>
+
+		<footer>
+
+			<p><small>&copy; Copyright Your Name Here 2011. All Rights Reserved.</small></p>
+
+		</footer>
+
+	</div>
+
+	<!-- here comes the javascript -->
+
+	<!-- Grab Google CDN's jQuery. fall back to local if necessary -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+	<script>window.jQuery || document.write("<script src='_/js/jquery.js'>\x3C/script>")</script>
+
+	<!-- this is where we put our custom functions -->
+	<script src="_/js/import-ck.js"></script>
+	<script src="_/js/main.js"></script>
 
 <!-- Asynchronous google analytics; this is the official snippet.
 	 Replace UA-XXXXXX-XX with your site's ID and uncomment to enable.
@@ -135,6 +232,6 @@
 
 </script>
 -->
-  
+
 </body>
 </html>

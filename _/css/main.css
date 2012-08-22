@@ -1,0 +1,394 @@
+.vat {
+  vertical-align: top;
+}
+.vam {
+  vertical-align: middle;
+}
+.vab {
+  vertical-align: bottom;
+}
+.tar {
+  text-align: right;
+}
+.tac {
+  text-align: center;
+}
+.tal {
+  text-align: left;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.posr {
+  position: relative;
+}
+.posa {
+  position: absolute;
+}
+.boxShadow1 {
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+}
+body {
+  background-color: #fff;
+}
+a {
+  color: #333333;
+  text-decoration: none;
+}
+i {
+  vertical-align: middle;
+  display: inline-block;
+  background: url(../img/sprite1.png) no-repeat;
+  width: 20px;
+  height: 20px;
+}
+button {
+  vertical-align: middle;
+  background: url(../img/sprite2.png) 0 -40px no-repeat;
+  border: none;
+  width: 102px;
+  height: 25px;
+  cursor: pointer;
+}
+.ie6 .navBar .fr {
+  padding-top: 5px;
+}
+.ie6 .navBar i {
+  margin: 8px 0;
+}
+.ie6 .navBar button i {
+  margin: 2px 0;
+}
+.ie6 button,
+.ie7 button,
+.ie8 button,
+.ie9 button {
+  line-height: 24px;
+}
+.ib {
+  display: inline-block;
+}
+.ib {
+  *display: inline;
+}
+.user {
+  background-position: -120px 0;
+}
+.cart {
+  background-position: -80px 0;
+}
+.hall {
+  background-position: -40px 0;
+}
+.shield {
+  background-position: 0 0;
+}
+.arrowDown {
+  background-position: -80px -80px;
+}
+.red {
+  color: #d82e1c;
+}
+.wrapper {
+  width: 996px;
+  margin: 0 auto 0;
+}
+.topHeader .citySelector {
+  margin: 0 40px -8px 5px;
+}
+.topHeader .navBar {
+  zoom: 1;
+  overflow: visible;
+  margin: 10px 0;
+  min-width: 996px;
+  height: 38px;
+  line-height: 37px;
+  background: url(../img/nav.png) center 0 no-repeat;
+}
+.topHeader .navBar .dropNav {
+  vertical-align: top;
+  width: 210px;
+  position: relative;
+  overflow: visible;
+  font-size: 14px;
+  display: inline-block;
+}
+.topHeader .navBar .dropNav div {
+  text-indent: 10px;
+  height: 37px;
+  line-height: 37px;
+  color: #fff;
+  cursor: pointer;
+}
+.topHeader .navBar .dropNav ul {
+  display: none;
+  width: 188px;
+  padding: 0 1px;
+  border: 2px solid #f3bcbc;
+  border-top-width: 0;
+  background-color: #fafafa;
+  position: absolute;
+  left: 0;
+  top: 38px;
+  overflow: visible;
+}
+.topHeader .navBar .dropNav ul li {
+  display: block;
+  padding: 0 5px;
+  background: url(../img/bg-index-sort-v211.png) right -80px no-repeat;
+  position: relative;
+  height: 39px;
+  overflow: visible;
+}
+.topHeader .navBar .dropNav ul li a {
+  display: block;
+  border-bottom: 1px solid #efefef;
+  border-top: 1px solid #fff;
+  padding-left: 50px;
+  background: url(../img/ico-index-sort.png) 0 0 no-repeat;
+}
+.topHeader .navBar .dropNav ul li .navIcon-1 {
+  background-position: 15px 4px;
+}
+.topHeader .navBar .dropNav ul li .navIcon-2 {
+  background-position: 15px -96px;
+}
+.topHeader .navBar .dropNav ul li .navIcon-3 {
+  background-position: 15px -196px;
+}
+.topHeader .navBar .dropNav ul li .navIcon-4 {
+  background-position: 15px -296px;
+}
+.topHeader .navBar .dropNav ul li .navIcon-5 {
+  background-position: 15px -396px;
+}
+.topHeader .navBar .dropNav ul li .navIcon-6 {
+  background-position: 15px -496px;
+}
+.topHeader .navBar .dropNav ul li .navIcon-7 {
+  background-position: 15px -596px;
+}
+.topHeader .navBar .dropNav ul li .navIcon-8 {
+  background-position: 15px -696px;
+}
+.topHeader .navBar .dropNav ul li nav {
+  display: none;
+}
+.topHeader .navBar .dropNav ul li nav a {
+  color: #7c7c7c;
+  height: 27px;
+  line-height: 27px;
+  font-size: 12px;
+  border-top: 0;
+  border-bottom: 0;
+  padding-left: 30px;
+  background: url(../img/bg-index-sort-v211.png) 15px -154px no-repeat;
+}
+.topHeader .navBar .dropNav ul li nav a:hover {
+  background: url(../img/bg-index-sort-v211.png) 15px -181px no-repeat;
+}
+.topHeader .navBar .dropNav ul li.hover,
+.topHeader .navBar .dropNav ul li:hover {
+  background: url(../img/bg-index-sort-v211.png) 0 -37px repeat-x;
+  z-index: 1;
+}
+.topHeader .navBar .dropNav ul li.hover a,
+.topHeader .navBar .dropNav ul li:hover a {
+  color: #fff;
+}
+.topHeader .navBar .dropNav ul li.hover nav,
+.topHeader .navBar .dropNav ul li:hover nav {
+  display: block;
+  background-color: white;
+  border: 2px solid #E51A45;
+  left: 160px;
+  margin-top: -38px;
+  width: 120px;
+  z-index: 30;
+  position: absolute;
+  height: auto;
+  overflow: hidden;
+}
+.topHeader .navBar .dropNav ul li.hover nav a,
+.topHeader .navBar .dropNav ul li:hover nav a {
+  color: #7c7c7c;
+}
+.topHeader .navBar .dropNav ul li.hover .navIcon-1,
+.topHeader .navBar .dropNav ul li:hover .navIcon-1 {
+  background-position: 15px -46px;
+}
+.topHeader .navBar .dropNav ul li.hover .navIcon-2,
+.topHeader .navBar .dropNav ul li:hover .navIcon-2 {
+  background-position: 15px -146px;
+}
+.topHeader .navBar .dropNav ul li.hover .navIcon-3,
+.topHeader .navBar .dropNav ul li:hover .navIcon-3 {
+  background-position: 15px -246px;
+}
+.topHeader .navBar .dropNav ul li.hover .navIcon-4,
+.topHeader .navBar .dropNav ul li:hover .navIcon-4 {
+  background-position: 15px -346px;
+}
+.topHeader .navBar .dropNav ul li.hover .navIcon-5,
+.topHeader .navBar .dropNav ul li:hover .navIcon-5 {
+  background-position: 15px -446px;
+}
+.topHeader .navBar .dropNav ul li.hover .navIcon-6,
+.topHeader .navBar .dropNav ul li:hover .navIcon-6 {
+  background-position: 15px -546px;
+}
+.topHeader .navBar .dropNav ul li.hover .navIcon-7,
+.topHeader .navBar .dropNav ul li:hover .navIcon-7 {
+  background-position: 15px -646px;
+}
+.topHeader .navBar .dropNav ul li.hover .navIcon-8,
+.topHeader .navBar .dropNav ul li:hover .navIcon-8 {
+  background-position: 15px -746px;
+}
+.topHeader .navBar .dropNav {
+  *display: inline;
+}
+.topHeader .navBar .dropNav:hover ul,
+.topHeader .navBar .hover ul {
+  display: block;
+}
+.topHeader .navBar .mainNav {
+  vertical-align: top;
+  display: inline-block;
+  font-size: 16px;
+}
+.topHeader .navBar .mainNav a {
+  text-align: center;
+  display: inline-block;
+  width: 132px;
+  height: 37px;
+  color: #fff;
+}
+.topHeader .navBar .mainNav a.current {
+  background: url(../img/nav_current.png) 0 0 no-repeat;
+}
+.topHeader .navBar .mainNav {
+  *display: inline;
+}
+.toolbar {
+  text-align: right;
+  border: 1px solid #dedede;
+  border-width: 0 0 1px;
+  height: 34px;
+  line-height: 34px;
+  background-color: #f6f6f6;
+  margin-bottom: 18px;
+}
+.toolbar h1 {
+  float: left;
+}
+.toolbar span a {
+  display: inline-block;
+  margin: 0 5px;
+}
+.citySelector {
+  position: relative;
+  z-index: 1;
+}
+.citySelector strong {
+  font-size: 16px;
+  display: block;
+  padding-left: 5px;
+}
+.popSelector {
+  border: 1px solid #dedede;
+  display: inline-block;
+  height: 19px;
+  line-height: 19px;
+  padding: 0 25px 0 5px;
+  background: #ffffff url(../img/selector.png) right top no-repeat;
+  position: relative;
+  overflow: visible;
+  cursor: pointer;
+}
+.popSelector .pop {
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+  border: 2px solid #d82e1c;
+  display: none;
+  width: 460px;
+  position: absolute;
+  top: 100%;
+  left: -1px;
+  background: #fff;
+  padding: 10px 5px 5px;
+}
+.popSelector .pop a {
+  display: inline-block;
+  width: 6em;
+  white-space: nowrap;
+  margin: 0 5px 5px;
+}
+.popSelector .pop a span {
+  margin: 0 0 0 5px;
+  color: #7c7c7c;
+}
+.popSelector .pop a:hover {
+  color: #d82e1c;
+}
+.popSelector .right {
+  left: auto;
+  right: 0;
+}
+.popSelector.on {
+  background-color: #d82e1c;
+  background-position: right -19px;
+  border: 1px solid #d82e1c;
+  color: #fff;
+}
+.popSelector.on .pop {
+  display: inline-block;
+}
+.mainSearch {
+  vertical-align: bottom;
+  position: relative;
+  margin-bottom: -8px;
+}
+.mainSearch form {
+  text-align: right;
+  width: 408px;
+  height: 32px;
+  background: url(../img/sprite2.png) 0 0 no-repeat;
+}
+.mainSearch form input {
+  vertical-align: middle;
+  width: 310px;
+  border: none;
+  background: none;
+}
+.mainSearch form button {
+  vertical-align: middle;
+  border: none;
+  background: none;
+  color: #fff;
+  width: 78px;
+  height: 32px;
+  font-weight: bold;
+  text-indent: 15px;
+  font-size: 16px;
+}
+.mainSearch div {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  padding-top: 5px;
+}
+.mainSearch span {
+  color: #d82e1c;
+}
+.hotline {
+  background: url(../img/sprite2.png) right top no-repeat;
+  display: inline-block;
+  width: 165px;
+  height: 44px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
