@@ -12,6 +12,11 @@
       $(".dropNav,.dropNav li").on("hover", function(e) {
         return $(this).toggleClass("hover", e.type === "mouseenter");
       });
+      $(window).on("scroll", function() {
+        return $("#sideBar").stop(true).animate({
+          "top": $(this).scrollTop() + 400
+        }, 800, "easeOutQuad");
+      });
     }
     if ($.browser.msie) {
       $("li:has(footer),.imgMetro a").on("hover", function(e) {

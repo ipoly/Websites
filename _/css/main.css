@@ -1406,6 +1406,38 @@ button {
   display: inline-block;
   margin: 0 5px;
 }
+#sideBar {
+  position: fixed;
+  _position: absolute;
+  z-index: 1;
+  top: 400px;
+  width: 100%;
+  overflow: visible;
+}
+#sideBar .wrapper {
+  position: relative;
+}
+#sideBar .wrapper div {
+  position: absolute;
+  left: 100%;
+  padding-left: 10px;
+}
+#sideBar a {
+  background: url(../img/sprite1.png) no-repeat;
+  margin-bottom: 10px;
+  width: 124px;
+  height: 48px;
+  display: inline-block;
+}
+#sideBar .wangwang {
+  background-position: -300px 0;
+}
+#sideBar .qq {
+  background-position: -300px -60px;
+}
+#sideBar .msn {
+  background-position: -300px -120px;
+}
 .citySelector {
   position: relative;
   z-index: 1;

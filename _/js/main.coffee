@@ -4,10 +4,13 @@ $(->
 	$(".popSelector").on("click",-> $(@).toggleClass("on"))
 	.on("mouseleave",-> $(@).removeClass("on"))
 
-	# 为ie6初始化下拉导航
+	# ie6初始化
 	if $.browser.msie and $.browser.version is "6.0"
 		$(".dropNav,.dropNav li").on("hover",(e)-> 
 			$(@).toggleClass("hover",e.type is "mouseenter");
+		)
+		$(window).on("scroll",->
+			$("#sideBar").stop(true).animate({"top":$(this).scrollTop()+400},800,"easeOutQuad")
 		)
 
 	# 初始化列表项滑动遮罩
