@@ -23,6 +23,13 @@ $(->
 			$("footer",this).stop(true).animate({"top":pos[e.type]},400,"easeOutQuad")
 		)
 
+	# 初始化ol序号
+	$("ol").each(->
+		$("i",@).each((i)->
+			$(@).addClass("o"+(i+1))
+		)
+	)
+
 	# 初始化tab标签模块
 	$(".tab").on("mouseenter","header > :header",(e)->
 		that = $(@)
@@ -31,6 +38,20 @@ $(->
 		root.find(".content > *").removeClass("on").eq(that.index()).addClass("on")
 	).find("header>*:first").trigger("mouseenter")
 
+	# 初始化日期区间选择器
+	$(".dateEnd").datepicker({minDate:+1})
+
+	$(".dateBegin").datepicker({
+		minDate: 0,
+		onSelect: (dateText,inst) ->
+			$(@).siblings(".dateEnd").datepicker("option", "minDate", new Date(dateText))
+	})
+
+	# 初始化价格区间选择器
+	$(".priceBegin,.priceEnd").on("change", (e)->
+		that = $(@)
+		that.val(parseInt(that.val(),10) || 0)
+	)
 
 	# 初始化首页日历选择器
 	$("#calendarBig").datepicker({

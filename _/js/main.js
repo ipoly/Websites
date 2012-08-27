@@ -30,6 +30,11 @@
         }, 400, "easeOutQuad");
       });
     }
+    $("ol").each(function() {
+      return $("i", this).each(function(i) {
+        return $(this).addClass("o" + (i + 1));
+      });
+    });
     $(".tab").on("mouseenter", "header > :header", function(e) {
       var root, that;
       that = $(this);
@@ -37,6 +42,20 @@
       that.addClass("on").siblings().removeClass("on");
       return root.find(".content > *").removeClass("on").eq(that.index()).addClass("on");
     }).find("header>*:first").trigger("mouseenter");
+    $(".dateEnd").datepicker({
+      minDate: +1
+    });
+    $(".dateBegin").datepicker({
+      minDate: 0,
+      onSelect: function(dateText, inst) {
+        return $(this).siblings(".dateEnd").datepicker("option", "minDate", new Date(dateText));
+      }
+    });
+    $(".priceBegin,.priceEnd").on("change", function(e) {
+      var that;
+      that = $(this);
+      return that.val(parseInt(that.val(), 10) || 0);
+    });
     $("#calendarBig").datepicker({
       dateFormat: "yy/mm/dd",
       beforeShowDay: function(date) {

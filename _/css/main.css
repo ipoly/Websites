@@ -1,3 +1,4 @@
+@charset "utf-8";
 /*!
  * jQuery UI CSS Framework 1.8.23
  *
@@ -1150,6 +1151,27 @@ button,
   color: #fff;
   background-position: 0 -300px;
 }
+.btnGray1 {
+  border: 1px solid #abadb3;
+  background-position: 0 -340px;
+  background-repeat: repeat-x;
+  color: #000000;
+  height: 24px;
+  overflow: hidden;
+  _margin-top: -8px;
+}
+.btn_sit,
+.btn_ticket {
+  background: url(../img/sprite2.png) no-repeat;
+  display: inline-block;
+  width: 78px;
+  height: 20px;
+  background-position: 0 -260px;
+  margin-right: 5px;
+}
+.btn_ticket {
+  background-position: -100px -260px;
+}
 .red {
   color: #d82e1c;
 }
@@ -1159,6 +1181,9 @@ button,
 }
 .mb10 {
   margin-bottom: 10px;
+}
+.p10 {
+  padding: 10px;
 }
 .w760 {
   width: 760px;
@@ -1172,6 +1197,11 @@ button,
 }
 .w226 .adlink img {
   width: 226px;
+}
+.text {
+  border: 1px solid #abadb3;
+  height: 20px;
+  line-height: 20px;
 }
 .header1 {
   line-height: 34px;
@@ -1193,9 +1223,48 @@ button,
   font-weight: normal;
   color: #06a6db;
 }
+.header4 {
+  border-bottom: 2px solid #a6a6a6;
+  margin-bottom: 10px;
+  font-size: 12px;
+  line-height: 30px;
+}
+.header4 a {
+  vertical-align: middle;
+  display: inline-block;
+  padding: 4px 8px;
+  line-height: 100%;
+}
+.header4 .on:hover {
+  color: #fff;
+}
+.header4 .on {
+  background-color: #01afec;
+  color: #fff;
+}
 .borderblock1 {
   border: 1px solid #dedede;
   padding: 10px;
+}
+.borderblock2 {
+  border: 1px solid #dfdfdf;
+  background-color: #f9f9f9;
+  color: #000000;
+}
+.borderblock2 b {
+  color: #d82e1c;
+}
+.borderblock3 {
+  border: 1px solid #dedede;
+}
+.borderblock3 header {
+  border: 1px solid #dedede;
+  margin-bottom: 10px;
+  border-width: 0 0 1px;
+  padding: 0 10px;
+  line-height: 36px;
+  font-size: 18px;
+  color: #70ccf3;
 }
 .ol1 {
   list-style: none;
@@ -1229,6 +1298,44 @@ button,
   text-overflow: ellipsis;
   display: inline-block;
   width: 80%;
+}
+.ol2 {
+  list-style: none;
+  margin: -10px 0 -1px;
+}
+.ol2 li {
+  border-bottom: 1px dashed #dedede;
+  padding: 5px;
+}
+.ol2 .o1 {
+  background-position: -40px -220px;
+}
+.ol2 .o2 {
+  background-position: -40px -240px;
+}
+.ol2 .o3 {
+  background-position: -40px -260px;
+}
+.ol2 .o4 {
+  background-position: -40px -280px;
+}
+.ol2 .o5 {
+  background-position: -40px -300px;
+}
+.ol2 .o6 {
+  background-position: -40px -320px;
+}
+.ol2 .o7 {
+  background-position: -40px -340px;
+}
+.ol2 .o8 {
+  background-position: -40px -360px;
+}
+.ol2 .o9 {
+  background-position: -40px -380px;
+}
+.ol2 .o10 {
+  background-position: -40px -400px;
 }
 .clearfix:after {
   content: ¡°.¡±;
@@ -1989,18 +2096,6 @@ button,
   padding-left: 10px;
   line-height: 200%;
 }
-.ul3 div .btn_sit,
-.ul3 div .btn_ticket {
-  background: url(../img/sprite2.png) no-repeat;
-  display: inline-block;
-  width: 78px;
-  height: 20px;
-  background-position: 0 -260px;
-  margin-right: 5px;
-}
-.ul3 div .btn_ticket {
-  background-position: -100px -260px;
-}
 .ul3 div {
   *display: inline;
 }
@@ -2011,6 +2106,126 @@ button,
 }
 .ul3 h2 a {
   color: #333333;
+}
+.ul4 {
+  margin-right: -15px;
+}
+.ul4 li {
+  display: inline-block;
+  margin: 0 15px 15px 0 ;
+}
+.ul4 li {
+  *display: inline;
+}
+.ul4 a {
+  display: inline-block;
+}
+.ul4 img {
+  border: 1px solid #dedede;
+  display: inline-block;
+  width: 120px;
+  height: 164px;
+  padding: 2px;
+}
+.ul4 div {
+  vertical-align: top;
+  position: relative;
+  display: inline-block;
+  color: #8f8f8f;
+  width: 180px;
+  padding-left: 10px;
+  line-height: 200%;
+}
+.ul4 div {
+  *display: inline;
+}
+.ul4 h2 {
+  margin-bottom: 10px;
+  font-size: 12px;
+  line-height: 150%;
+}
+.ul4 h2 a {
+  color: #333333;
+}
+.ul4 li {
+  position: relative;
+  display: block;
+  border-bottom: 1px dotted #dedede;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+.ul4 div {
+  width: auto;
+}
+.ul4 h2 {
+  font-size: 14px;
+}
+.ul4 span {
+  font-size: 12px;
+  position: absolute;
+  right: 0;
+  bottom: 20px;
+}
+.ul5 a {
+  display: inline-block;
+  line-height: 150%;
+  margin: 0 10px 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #dedede;
+}
+.ul5 img {
+  vertical-align: top;
+  display: inline-block;
+  width: 75px;
+  height: 75px;
+  padding: 1px;
+  border: 1px solid #dedede;
+  margin-right: 10px;
+}
+.ul5 div {
+  vertical-align: top;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+  width: 110px;
+  color: #999999;
+}
+.ul5 div {
+  *display: inline;
+}
+.ul5 h2 {
+  color: #70ccf3;
+}
+.ul5 b {
+  color: #d82e1c;
+}
+.table1 {
+  width: 100%;
+}
+.table1 th,
+.table1 td {
+  vertical-align: middle;
+  border-bottom: 1px dotted #c2c2c2;
+  line-height: 40px;
+  color: #515151;
+}
+.table1 th {
+  color: #333333;
+  white-space: nowrap;
+}
+.table1 a {
+  vertical-align: middle;
+  display: inline-block;
+  padding: 4px 8px;
+  line-height: 100%;
+}
+.table1 .on:hover {
+  color: #fff;
+}
+.table1 .on {
+  background-color: #01afec;
+  color: #fff;
 }
 #latestAction div {
   border: 1px solid #dedede;
@@ -2188,4 +2403,16 @@ button,
 #searchTicket p {
   margin-bottom: 10px;
   padding-left: 2em;
+}
+#crumbs {
+  color: #656565;
+  line-height: 36px;
+}
+#crumbs * {
+  color: #656565;
+}
+#searchMsg {
+  margin-bottom: 10px;
+  padding: 0 10px;
+  line-height: 30px;
 }
