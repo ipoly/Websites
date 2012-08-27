@@ -1087,7 +1087,8 @@ i {
   width: 20px;
   height: 20px;
 }
-button {
+button,
+.btn {
   vertical-align: middle;
   background: url(../img/sprite2.png) no-repeat;
   background-position: 0 -40px;
@@ -1138,6 +1139,17 @@ button {
 .arrowDown {
   background-position: -80px -80px;
 }
+.search {
+  width: 23px;
+  height: 24px;
+  background-position: 0 -60px;
+}
+.btnBlue1 {
+  width: 85px;
+  height: 26px;
+  color: #fff;
+  background-position: 0 -300px;
+}
 .red {
   color: #d82e1c;
 }
@@ -1154,6 +1166,13 @@ button {
 .w226 {
   width: 226px;
 }
+.w226 .adlink {
+  margin-bottom: 10px;
+  display: block;
+}
+.w226 .adlink img {
+  width: 226px;
+}
 .header1 {
   line-height: 34px;
   height: 37px;
@@ -1166,6 +1185,17 @@ button {
   font-size: 20px;
   color: #494949;
   font-weight: normal;
+}
+.header3 {
+  line-height: 38px;
+  font-size: 20px;
+  color: #494949;
+  font-weight: normal;
+  color: #06a6db;
+}
+.borderblock1 {
+  border: 1px solid #dedede;
+  padding: 10px;
 }
 .ol1 {
   list-style: none;
@@ -1201,7 +1231,7 @@ button {
   width: 80%;
 }
 .clearfix:after {
-  content: ��.��;
+  content: ¡°.¡±;
   display: block;
   height: 0;
   clear: both;
@@ -1410,7 +1440,7 @@ button {
   position: fixed;
   _position: absolute;
   z-index: 1;
-  top: 400px;
+  top: 187px;
   width: 100%;
   overflow: visible;
 }
@@ -1765,6 +1795,43 @@ button {
   right: 0;
   bottom: 2px;
 }
+.tab3 header {
+  height: 37px;
+  font-size: 0;
+}
+.tab3 .content .on {
+  display: block;
+}
+.tab3 h1 {
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  display: inline-block;
+  height: 34px;
+  line-height: 34px;
+  font-size: 18px;
+  padding: 0 15px;
+  background: #fff;
+  font-weight: normal;
+  cursor: default;
+  margin-right: 5px;
+}
+.tab3 h1 {
+  *display: inline;
+}
+.tab3 header .on {
+  color: #fff;
+  background-color: #01afec;
+}
+.tab3 h1 {
+  font-size: 16px;
+}
+.tab3 header {
+  border-bottom: 2px solid #a6a6a6;
+  margin-bottom: 10px;
+}
 .ul1 {
   border: 1px solid #dedede;
   font-size: 0;
@@ -1846,26 +1913,6 @@ button {
 .ul1 li {
   *display: inline;
 }
-#latestAction div {
-  border: 1px solid #dedede;
-  padding: 10px 10px 5px;
-  height: 275px;
-  overflow: hidden;
-}
-#latestAction .topImg {
-  display: block;
-  margin: 0 auto 10px;
-}
-#latestAction .topImg img {
-  width: 210px;
-  height: 100px;
-}
-#latestAction li:hover footer {
-  top: 0;
-}
-#latestAction footer {
-  padding: 5px 0 0;
-}
 .ul2 {
   font-size: 0;
   padding: 10px;
@@ -1912,6 +1959,78 @@ button {
   color: #d82e1c;
   font-size: 24px;
   line-height: 100%;
+}
+.ul3 {
+  margin-right: -15px;
+}
+.ul3 li {
+  display: inline-block;
+  margin: 0 15px 15px 0 ;
+}
+.ul3 li {
+  *display: inline;
+}
+.ul3 a {
+  display: inline-block;
+}
+.ul3 img {
+  border: 1px solid #dedede;
+  display: inline-block;
+  width: 120px;
+  height: 164px;
+  padding: 2px;
+}
+.ul3 div {
+  vertical-align: top;
+  position: relative;
+  display: inline-block;
+  color: #8f8f8f;
+  width: 180px;
+  padding-left: 10px;
+  line-height: 200%;
+}
+.ul3 div .btn_sit,
+.ul3 div .btn_ticket {
+  background: url(../img/sprite2.png) no-repeat;
+  display: inline-block;
+  width: 78px;
+  height: 20px;
+  background-position: 0 -260px;
+  margin-right: 5px;
+}
+.ul3 div .btn_ticket {
+  background-position: -100px -260px;
+}
+.ul3 div {
+  *display: inline;
+}
+.ul3 h2 {
+  margin-bottom: 10px;
+  font-size: 12px;
+  line-height: 150%;
+}
+.ul3 h2 a {
+  color: #333333;
+}
+#latestAction div {
+  border: 1px solid #dedede;
+  padding: 10px 10px 5px;
+  height: 275px;
+  overflow: hidden;
+}
+#latestAction .topImg {
+  display: block;
+  margin: 0 auto 10px;
+}
+#latestAction .topImg img {
+  width: 210px;
+  height: 100px;
+}
+#latestAction li:hover footer {
+  top: 0;
+}
+#latestAction footer {
+  padding: 5px 0 0;
 }
 .areaHot {
   display: none;
@@ -2048,4 +2167,25 @@ button {
 }
 .imgMetro .mid {
   width: 281px;
+}
+#searchTicket {
+  border: 1px solid #dedede;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+#searchTicket .btnBlue1 {
+  position: relative;
+  font-size: 14px;
+  left: 3em;
+  font-weight: bold;
+}
+#searchTicket h2 {
+  color: #70ccf3;
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+#searchTicket p {
+  margin-bottom: 10px;
+  padding-left: 2em;
 }

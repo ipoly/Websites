@@ -10,7 +10,7 @@ $(->
 			$(@).toggleClass("hover",e.type is "mouseenter");
 		)
 		$(window).on("scroll",->
-			$("#sideBar").stop(true).animate({"top":$(this).scrollTop()+400},800,"easeOutQuad")
+			$("#sideBar").stop(true).animate({"top":$(this).scrollTop() + 187},800,"easeOutQuad")
 		)
 
 	# 初始化列表项滑动遮罩
@@ -29,7 +29,7 @@ $(->
 		root = that.parents(".tab")
 		that.addClass("on").siblings().removeClass("on")
 		root.find(".content > *").removeClass("on").eq(that.index()).addClass("on")
-	)
+	).find("header>*:first").trigger("mouseenter")
 
 
 	# 初始化首页日历选择器

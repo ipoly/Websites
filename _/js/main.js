@@ -14,7 +14,7 @@
       });
       $(window).on("scroll", function() {
         return $("#sideBar").stop(true).animate({
-          "top": $(this).scrollTop() + 400
+          "top": $(this).scrollTop() + 187
         }, 800, "easeOutQuad");
       });
     }
@@ -36,7 +36,7 @@
       root = that.parents(".tab");
       that.addClass("on").siblings().removeClass("on");
       return root.find(".content > *").removeClass("on").eq(that.index()).addClass("on");
-    });
+    }).find("header>*:first").trigger("mouseenter");
     $("#calendarBig").datepicker({
       dateFormat: "yy/mm/dd",
       beforeShowDay: function(date) {
