@@ -1,0 +1,15 @@
+{
+	"list": [{
+		"price": 80
+	}, {
+		"disabled": "disabled",
+		"price": 180
+	}, {
+		"price": 280
+	}, {
+		"disabled": "disabled",
+		"price": 380
+	}, {
+		"price": 480
+	}]
+}

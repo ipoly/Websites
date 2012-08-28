@@ -1088,6 +1088,9 @@ i {
   width: 20px;
   height: 20px;
 }
+label {
+  cursor: pointer;
+}
 button,
 .btn {
   vertical-align: middle;
@@ -1119,11 +1122,21 @@ button,
 .ie9 .imgMetro a:hover footer {
   top: 100%;
 }
+.articleBody {
+  padding: 0 10px 30px;
+  line-height: 180%;
+}
+.articleBody p {
+  margin-bottom: 1em;
+}
 .ib {
   display: inline-block;
 }
 .ib {
   *display: inline;
+}
+.dn {
+  display: none;
 }
 .user {
   background-position: -120px 0;
@@ -1151,6 +1164,13 @@ button,
   color: #fff;
   background-position: 0 -300px;
 }
+.btnBlue2 {
+  width: 96px;
+  height: 34px;
+  color: #fff;
+  font-size: 14px;
+  background-position: -100px -300px;
+}
 .btnGray1 {
   border: 1px solid #abadb3;
   background-position: 0 -340px;
@@ -1172,8 +1192,29 @@ button,
 .btn_ticket {
   background-position: -100px -260px;
 }
+.btn_sit_map {
+  width: 96px;
+  height: 29px;
+  background-position: -180px -40px;
+}
+.btn_sit_big,
+.btn_buy_now,
+.btn_order {
+  width: 138px;
+  height: 36px;
+  background-position: -180px -80px;
+}
+.btn_buy_now {
+  background-position: -180px -140px;
+}
+.btn_order {
+  background-position: -180px -200px;
+}
 .red {
   color: #d82e1c;
+}
+.blue {
+  color: #01afec;
 }
 .wrapper {
   width: 996px;
@@ -1184,6 +1225,9 @@ button,
 }
 .p10 {
   padding: 10px;
+}
+.p20 {
+  padding: 20px;
 }
 .w760 {
   width: 760px;
@@ -1266,6 +1310,25 @@ button,
   font-size: 18px;
   color: #70ccf3;
 }
+.borderblock4 {
+  border: 1px solid #e1e1e1;
+  background-color: #f6f6f6;
+}
+.borderblock5 {
+  border: 1px solid #e1e1e1;
+  background-color: #f6f6f6;
+  background-color: #fcfcfc;
+  position: relative;
+  border-radius: 5px;
+  overflow: visible;
+  _zoom: 1;
+}
+.borderblock5 i {
+  position: absolute;
+  bottom: 100%;
+  left: 40px;
+  background-position: -40px -60px;
+}
 .ol1 {
   list-style: none;
 }
@@ -1338,7 +1401,7 @@ button,
   background-position: -40px -400px;
 }
 .clearfix:after {
-  content: ¡°.¡±;
+  content: ".";
   display: block;
   height: 0;
   clear: both;
@@ -1938,6 +2001,7 @@ button,
 .tab3 header {
   border-bottom: 2px solid #a6a6a6;
   margin-bottom: 10px;
+  height: 35px;
 }
 .ul1 {
   border: 1px solid #dedede;
@@ -2015,7 +2079,6 @@ button,
   display: block;
   width: 145px;
   height: 50px;
-  text-indent: -1000px;
 }
 .ul1 li {
   *display: inline;
@@ -2200,6 +2263,50 @@ button,
 .ul5 b {
   color: #d82e1c;
 }
+.ul6 li {
+  margin-bottom: 40px;
+}
+.ul6 p {
+  margin-bottom: 10px;
+  padding: 10px;
+  line-height: 150%;
+}
+.ul6 div h2 {
+  border: 1px solid #e1e1e1;
+  background-color: #f6f6f6;
+  position: relative;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-weight: normal;
+}
+.ul6 div h2 span {
+  position: absolute;
+  color: #999999;
+  right: 10px;
+}
+.ul6 section {
+  border: 1px solid #e1e1e1;
+  background-color: #f6f6f6;
+  background-color: #fcfcfc;
+  position: relative;
+  border-radius: 5px;
+  overflow: visible;
+  _zoom: 1;
+  padding: 10px;
+}
+.ul6 section i {
+  position: absolute;
+  bottom: 100%;
+  left: 40px;
+  background-position: -40px -60px;
+}
+.ul6 section p {
+  border-bottom: 1px dashed #dedede;
+}
+.ul6 section div {
+  color: #d82e1c;
+  text-align: right;
+}
 .table1 {
   width: 100%;
 }
@@ -2226,6 +2333,23 @@ button,
 .table1 .on {
   background-color: #01afec;
   color: #fff;
+}
+.table2 {
+  width: 100%;
+  margin-top: -10px;
+  line-height: 40px;
+}
+.table2 thead th {
+  border: 1px solid #cdcdcd;
+  background: url(../img/sprite2.png) no-repeat;
+  border-width: 0 1px 1px;
+  background-position: 0 -440px;
+  font-size: 14px;
+}
+.table2 tbody td,
+.table2 tbody th {
+  text-align: center;
+  border-bottom: 1px dashed #dedede;
 }
 #latestAction div {
   border: 1px solid #dedede;
@@ -2415,4 +2539,186 @@ button,
   margin-bottom: 10px;
   padding: 0 10px;
   line-height: 30px;
+}
+.ticketHeader {
+  border: 1px solid #dedede;
+  padding: 10px;
+  position: relative;
+  margin-bottom: 10px;
+  padding: 20px 20px 20px 330px;
+  color: #000000;
+  _zoom: 1;
+}
+.ticketHeader .imgLayer {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+.ticketHeader .imgLayer img {
+  border: 1px solid #dedede;
+  display: block;
+  background-color: #fff;
+  width: 280px;
+  height: 375px;
+  padding: 4px;
+}
+.ticketHeader .imgLayer .action {
+  background: url(../img/sprite2.png) no-repeat;
+  width: 290px;
+  height: 32px;
+  background-position: 0 -400px;
+  font-size: 0;
+  white-space: nowrap;
+}
+.ticketHeader .imgLayer .action a {
+  display: inline-block;
+  height: 100%;
+  width: 50%;
+}
+.ticketHeader .mark {
+  background: url(../img/sprite2.png) no-repeat;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: inline-block;
+  width: 130px;
+  height: 94px;
+}
+.ticketHeader .zongdai {
+  background-position: -520px -200px;
+}
+.ticketHeader h1 {
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+.ticketHeader a {
+  color: #70ccf3;
+}
+.ticketHeader p {
+  margin-bottom: 1em;
+}
+.ticketHeader b {
+  color: #d82e1c;
+}
+.ticketHeader strong {
+  color: #d82e1c;
+  vertical-align: middle;
+  font-size: 18px;
+}
+.ticketHeader form {
+  padding: 20px;
+}
+.ticketHeader table {
+  width: 100%;
+}
+.ticketHeader table strong {
+  margin-bottom: 10px;
+  font-size: 14px;
+  display: block;
+}
+.ticketHeader th,
+.ticketHeader td {
+  vertical-align: middle;
+  padding: 10px;
+}
+.ticketHeader th {
+  text-align: right;
+  vertical-align: top;
+  white-space: nowrap;
+  width: 1%;
+}
+.ticketHeader button,
+.ticketHeader .btn {
+  margin: 0 5px;
+}
+.ticketHeader input {
+  vertical-align: middle;
+}
+.ticketHeader label {
+  border: 1px solid #c2c2c2;
+  display: inline-block;
+  width: 88px;
+  height: 28px;
+  padding: 5px;
+  margin: 0 5px 5px 0 ;
+}
+.ticketHeader label span {
+  display: block;
+  white-space: nowrap;
+}
+.ticketHeader label input {
+  display: none;
+}
+.ticketHeader .on {
+  background: url(../img/sprite1.png) no-repeat;
+  border: 1px solid #d82e1c;
+  background-position: right bottom;
+}
+.ticketHeader .datetime .on {
+  background-color: #fff5ec;
+}
+.ticketHeader .price label {
+  text-align: center;
+  line-height: 28px;
+}
+.ticketHeader .price .disabled {
+  border-style: dashed;
+  background-color: #efefef;
+  cursor: not-allowed;
+}
+.ticketHeader .price .on {
+  background-color: #fff;
+}
+.questForm {
+  margin-bottom: 20px;
+}
+.questForm header {
+  border: 1px solid #dfdfdf;
+  background-color: #f9f9f9;
+  color: #000000;
+  font-size: 12px;
+  line-height: 28px;
+  height: 28px;
+  padding: 0 10px;
+}
+.questForm header b {
+  color: #d82e1c;
+}
+.questForm table {
+  width: 100%;
+  margin-top: -11px;
+  border: 1px solid #dedede;
+  padding: 10px;
+}
+.questForm th,
+.questForm td {
+  padding: 5px;
+}
+.questForm th {
+  text-align: right;
+  vertical-align: middle;
+  width: 5em;
+}
+.questForm p {
+  margin-bottom: 10px;
+}
+.questForm .vat {
+  vertical-align: top;
+}
+.questForm textarea {
+  width: 600px;
+  height: 100px;
+}
+.contactPanel {
+  background: url(../img/sprite2.png) no-repeat;
+  margin-bottom: 10px;
+  width: 226px;
+  height: 121px;
+  background-position: -560px -60px;
+  font-size: 0;
+}
+.contactPanel a {
+  display: inline-block;
+  width: 50%;
+  height: 80px;
 }

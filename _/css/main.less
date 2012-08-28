@@ -15,6 +15,9 @@
 @gray12: #dfdfdf;
 @gray13: #C2C2C2;
 @gray14: #ABADB3;
+@gray15: #CDCDCD;
+@gray16: #fcfcfc;
+@gray17: #e1e1e1;
 
 @dark0: #000;
 @dark1: #333;
@@ -28,6 +31,7 @@
 
 @red1: #d82e1c;
 @red2: #F3BCBC;
+@red3: #FFF5EC;
 
 @blue1: #01AFEC;
 @blue2: #70CCF3;
@@ -101,6 +105,9 @@ i {
 	height: 20px;
 }
 
+label {
+	cursor: pointer;
+}
 
 button,.btn {
 	.vam;
@@ -132,8 +139,17 @@ button,.btn {
 
 
 // 其他
+.articleBody {
+	padding: 0 10px 30px;
+	line-height: 180%;
+	p {
+		margin-bottom: 1em;
+	}
+}
+
 .ib {display:inline-block;}
 .ib {*display:inline;}
+.dn {display:none;}
 
 .user {background-position:-120px 0;}
 .cart {background-position:-80px 0;}
@@ -147,6 +163,14 @@ button,.btn {
 	height: 26px;
 	color: #fff;
 	background-position: 0 -300px;
+}
+
+.btnBlue2 {
+	width: 96px;
+	height: 34px;
+	color: #fff;
+	font-size: 14px;
+	background-position: -100px -300px;
 }
 
 .btnGray1 {
@@ -172,7 +196,28 @@ button,.btn {
 	background-position: -100px -260px;
 }
 
+.btn_sit_map {
+	width: 96px;
+	height: 29px;
+	background-position: -180px -40px;
+}
+
+.btn_sit_big,.btn_buy_now,.btn_order {
+	width: 138px;
+	height: 36px;
+	background-position: -180px -80px;
+}
+
+.btn_buy_now {
+	background-position: -180px -140px;
+}
+
+.btn_order {
+	background-position: -180px -200px;
+}
+
 .red {color: @red1;}
+.blue {color: @blue1;}
 
 .wrapper {
 	width:996px;
@@ -181,6 +226,7 @@ button,.btn {
 
 .mb10 {margin-bottom:10px;}
 .p10 {padding: 10px;}
+.p20 {padding: 20px;}
 
 .w760 {width: 760px;}
 .w226 {
@@ -270,6 +316,26 @@ button,.btn {
 	}
 }
 
+.borderblock4 {
+	.border1(@gray17);
+	background-color: @gray1;
+}
+
+.borderblock5 {
+	.borderblock4;
+	background-color: @gray16;
+	.posr;
+	border-radius: 5px;
+	overflow: visible;
+	_zoom:1;
+	i {
+		.posa;
+		bottom: 100%;
+		left: 40px;
+		background-position: -40px -60px;
+	}
+}
+
 .ol1 {
 	list-style: none;
 	i {margin-right:5px;}
@@ -311,7 +377,7 @@ button,.btn {
 
 
 .clearfix:after {
-	content: ¡°.¡±;
+	content: ".";
 	display: block;
 	height: 0;
 	clear: both;
@@ -814,6 +880,7 @@ button,.btn {
 	header {
 		.border2;
 		.mb10;
+		height: 35px;
 	}
 }
 
@@ -891,7 +958,6 @@ button,.btn {
 				display: block;
 				width: 145px;
 				height: 50px;
-				text-indent: -1000px;
 			}
 		}
 	}
@@ -1064,6 +1130,44 @@ button,.btn {
 	}
 }
 
+.ul6 {
+	li {
+		margin-bottom: 40px;
+	}
+	p {
+		.mb10;
+		.p10;
+		line-height: 150%;
+	}
+
+	div {
+		h2 {
+			.borderblock4;
+			.posr;
+			.mb10;
+			.p10;
+			font-weight: normal;
+			span {
+				.posa;
+				color: @gray3;
+				right: 10px;
+			}
+		}
+	}
+
+	section	{
+		.borderblock5;
+		.p10;
+		p {
+			border-bottom: 1px dashed @gray2;
+		}
+		div {
+			.red;
+			.tar;
+		}
+	}
+}
+
 .table1 {
 	width: 100%;
 	th,td {
@@ -1092,6 +1196,26 @@ button,.btn {
 	.on {
 		background-color: @blue1;
 		color: #fff;
+	}
+}
+
+.table2 {
+	width: 100%;
+	margin-top: -10px;
+	line-height: 40px;
+	thead th {
+		.border1(@gray15);
+		.sprite2;
+		border-width: 0 1px 1px;
+		background-position: 0 -440px;
+		font-size: 14px;
+	}
+
+	tbody {
+		td,th {
+			.tac;
+			border-bottom: 1px dashed @gray2;
+		}
 	}
 }
 
@@ -1300,4 +1424,200 @@ button,.btn {
 	.mb10;
 	padding: 0 10px;
 	line-height: 30px;
+}
+
+.ticketHeader {
+	.borderblock1;
+	.posr;
+	.mb10;
+	padding: 20px 20px 20px 330px;
+	color: @dark0;
+	_zoom: 1;
+	.imgLayer {
+		.posa;
+		top: 20px;
+		left: 20px;
+		img {
+			.border1;
+			display: block;
+			background-color: #fff;
+			width: 280px;
+			height: 375px;
+			padding: 4px;
+		}
+		.action {
+			.sprite2;
+			width: 290px;
+			height: 32px;
+			background-position: 0 -400px;
+			font-size: 0;
+			white-space: nowrap;
+			a {
+				display: inline-block;
+				height: 100%;
+				width: 50%;
+			}
+		}
+	}
+
+	.mark {
+		.sprite2;
+		.posa;
+		top: 20px;
+		right: 20px;
+		display: inline-block;
+		width: 130px;
+		height: 94px;
+	}
+
+	.zongdai {
+		background-position: -520px -200px;
+	}
+
+	h1 {
+		font-size: 16px;
+		margin-bottom: 30px;
+	}
+
+	a {
+		color: @blue2;
+	}
+
+	p {
+		margin-bottom: 1em;
+	}
+
+	b {.red}
+	strong {
+		.red;
+		.vam;
+		font-size: 18px;
+	}
+
+	form {
+		padding: 20px;
+	}
+
+	table {
+		width: 100%;
+		strong {
+			.mb10;
+			font-size: 14px;
+			display: block;
+		}
+	}
+	th,td {
+		.vam;
+		padding: 10px;
+	}
+
+	th {
+		.tar;
+		.vat;
+		white-space: nowrap;
+		width: 1%;
+	}
+
+	button,.btn {
+		margin: 0 5px;
+	}
+
+	input {
+		.vam;
+	}
+
+	label  {
+		.border1(@gray13);
+		display: inline-block;
+		width: 88px;
+		height: 28px;
+		padding: 5px;
+		margin: 0 5px 5px 0 ;
+		span {
+			display: block;
+			white-space: nowrap;
+		}
+		input {
+			display: none;
+		}
+	}
+
+	.on {
+		.sprite1;
+		.border1(@red1);
+		background-position: right bottom;
+	}
+
+	.datetime .on {
+		background-color: @red3;
+	}
+
+	.price {
+		label {
+			.tac;
+			line-height: 28px;
+		}
+		.disabled {
+			border-style: dashed;
+			background-color: @gray5;
+			cursor: not-allowed;
+		}
+		.on {
+			background-color: #fff;
+		}
+	}
+}
+
+.questForm {
+	margin-bottom: 20px;
+	header {
+		.borderblock2;
+		font-size: 12px;
+		line-height: 28px;
+		height: 28px;
+		padding: 0 10px;
+	}
+
+	table {
+		width: 100%;
+		margin-top: -11px;
+		.borderblock1;
+	}
+
+	th,td {
+		padding: 5px;
+	}
+
+	th {
+		.tar;
+		.vam;
+		width: 5em;
+	}
+
+	p {
+		.mb10;
+	}
+
+	.vat {
+		vertical-align: top;
+	}
+
+	textarea {
+		width: 600px;
+		height: 100px;
+	}
+}
+
+.contactPanel {
+	.sprite2;
+	.mb10;
+	width: 226px;
+	height: 121px;
+	background-position: -560px -60px;
+	font-size: 0;
+	a {
+		display: inline-block;
+		width: 50%;
+		height: 80px;
+	}
 }

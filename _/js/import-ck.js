@@ -468,14 +468,14 @@ jQuery(function($){
 		});
 
 		//为所有data-template-name属性的元素绑定模板渲染事件
-		root.on("dataRender.observer", "[data-template-name]", function(e, data) {
+		root.on("dataRender.observer", "[data-template-name],[data-item-name]", function(e, data) {
 			var that = $(this);
 			if (!data) {
 				return false;
 			}
-			var tpl = $("script[name=" + that.data("template-name") + "]").html();
+			var tpl = $("script[name=" + (that.data("template-name") || that.data("item-name")) + "]").html();
 			if (tpl) {
-				that.html(juicer(tpl, data));
+				that[that.is("[data-template-name]")?"html":"append"](juicer(tpl, data));
 				setTimeout(function(){that.trigger("change");},0);
 			}
 		});

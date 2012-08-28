@@ -6,11 +6,20 @@ $(->
 
 	# ie6初始化
 	if $.browser.msie and $.browser.version is "6.0"
+
+		# 副菜单
 		$(".dropNav,.dropNav li").on("hover",(e)-> 
 			$(@).toggleClass("hover",e.type is "mouseenter");
 		)
+
+		# 侧边栏滑动
 		$(window).on("scroll",->
 			$("#sideBar").stop(true).animate({"top":$(this).scrollTop() + 187},800,"easeOutQuad")
+		)
+
+		$("label:has(input)").on("click",(e)->
+			if !$(e.target).is("input")
+				$("input",@).click();
 		)
 
 	# 初始化列表项滑动遮罩
@@ -38,6 +47,12 @@ $(->
 		root.find(".content > *").removeClass("on").eq(that.index()).addClass("on")
 	).find("header>*:first").trigger("mouseenter")
 
+	# 初始化数字选择器
+	$("input[type=number]").on("change", (e)->
+		that = $(@)
+		that.val(parseInt(that.val(),10) || that.attr("min") || 0)
+	)
+
 	# 初始化日期区间选择器
 	$(".dateEnd").datepicker({minDate:+1})
 
@@ -46,12 +61,6 @@ $(->
 		onSelect: (dateText,inst) ->
 			$(@).siblings(".dateEnd").datepicker("option", "minDate", new Date(dateText))
 	})
-
-	# 初始化价格区间选择器
-	$(".priceBegin,.priceEnd").on("change", (e)->
-		that = $(@)
-		that.val(parseInt(that.val(),10) || 0)
-	)
 
 	# 初始化首页日历选择器
 	$("#calendarBig").datepicker({
@@ -89,7 +98,17 @@ $(->
 			,0)
 	).trigger("dataChange")
 
-
+	$("#ticketOrder").on("click","button",(e)-> e.preventDefault())
+	.on("change",(e)->
+		if !$(e.target).is("[data-template-name]")
+			$("label.on",@).removeClass("on")
+			activeLabel = $("label:has(:checked)",@).addClass("on")
+			dateTime = activeLabel.eq(0).text()
+			price = activeLabel.eq(1).text()
+			number = $("input[type=number]",@).val()
+			data = {dateTime, price, number} 
+			$("#selectInfo",@).trigger("dataRender",data)
+	).find("label:not(:has(input))").addClass("disabled")
 
 	# 初始化首页滑动图片
 	slider = $("#slider")

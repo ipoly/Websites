@@ -17,6 +17,11 @@
           "top": $(this).scrollTop() + 187
         }, 800, "easeOutQuad");
       });
+      $("label:has(input)").on("click", function(e) {
+        if (!$(e.target).is("input")) {
+          return $("input", this).click();
+        }
+      });
     }
     if ($.browser.msie) {
       $("li:has(footer),.imgMetro a").on("hover", function(e) {
@@ -42,6 +47,11 @@
       that.addClass("on").siblings().removeClass("on");
       return root.find(".content > *").removeClass("on").eq(that.index()).addClass("on");
     }).find("header>*:first").trigger("mouseenter");
+    $("input[type=number]").on("change", function(e) {
+      var that;
+      that = $(this);
+      return that.val(parseInt(that.val(), 10) || that.attr("min") || 0);
+    });
     $(".dateEnd").datepicker({
       minDate: +1
     });
@@ -50,11 +60,6 @@
       onSelect: function(dateText, inst) {
         return $(this).siblings(".dateEnd").datepicker("option", "minDate", new Date(dateText));
       }
-    });
-    $(".priceBegin,.priceEnd").on("change", function(e) {
-      var that;
-      that = $(this);
-      return that.val(parseInt(that.val(), 10) || 0);
     });
     $("#calendarBig").datepicker({
       dateFormat: "yy/mm/dd",
@@ -103,6 +108,24 @@
         }, 0);
       }
     }).trigger("dataChange");
+    $("#ticketOrder").on("click", "button", function(e) {
+      return e.preventDefault();
+    }).on("change", function(e) {
+      var activeLabel, data, dateTime, number, price;
+      if (!$(e.target).is("[data-template-name]")) {
+        $("label.on", this).removeClass("on");
+        activeLabel = $("label:has(:checked)", this).addClass("on");
+        dateTime = activeLabel.eq(0).text();
+        price = activeLabel.eq(1).text();
+        number = $("input[type=number]", this).val();
+        data = {
+          dateTime: dateTime,
+          price: price,
+          number: number
+        };
+        return $("#selectInfo", this).trigger("dataRender", data);
+      }
+    }).find("label:not(:has(input))").addClass("disabled");
     slider = $("#slider");
     if (slider.length) {
       lis = slider.find("li");
