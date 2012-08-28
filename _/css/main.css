@@ -2307,6 +2307,66 @@ button,
   color: #d82e1c;
   text-align: right;
 }
+.ul7 {
+  list-style: none;
+  margin: -10px 0 -1px;
+}
+.ul7 li {
+  border-bottom: 1px dashed #dedede;
+  padding: 5px;
+}
+.ul7 .o1 {
+  background-position: -40px -220px;
+}
+.ul7 .o2 {
+  background-position: -40px -240px;
+}
+.ul7 .o3 {
+  background-position: -40px -260px;
+}
+.ul7 .o4 {
+  background-position: -40px -280px;
+}
+.ul7 .o5 {
+  background-position: -40px -300px;
+}
+.ul7 .o6 {
+  background-position: -40px -320px;
+}
+.ul7 .o7 {
+  background-position: -40px -340px;
+}
+.ul7 .o8 {
+  background-position: -40px -360px;
+}
+.ul7 .o9 {
+  background-position: -40px -380px;
+}
+.ul7 .o10 {
+  background-position: -40px -400px;
+}
+.ul7 i {
+  background-position: 0 -100px;
+}
+.ul8 a {
+  text-align: center;
+  display: block;
+  line-height: 150%;
+  margin: 0 10px 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #dedede;
+}
+.ul8 img {
+  display: block;
+  margin: 0 auto 10px;
+  width: 170px;
+  height: 215px;
+  padding: 3px;
+  background-color: #e1e1e1;
+}
+.ul8 p {
+  color: #999999;
+}
 .table1 {
   width: 100%;
 }
