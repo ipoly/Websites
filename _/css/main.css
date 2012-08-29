@@ -1280,6 +1280,30 @@ button,
   height: 20px;
   line-height: 20px;
 }
+.textmin {
+  border: 1px solid #abadb3;
+  height: 20px;
+  line-height: 20px;
+  width: 3em;
+}
+.textshort {
+  border: 1px solid #abadb3;
+  height: 20px;
+  line-height: 20px;
+  width: 10em;
+}
+.textmed {
+  border: 1px solid #abadb3;
+  height: 20px;
+  line-height: 20px;
+  width: 20em;
+}
+.textlong {
+  border: 1px solid #abadb3;
+  height: 20px;
+  line-height: 20px;
+  width: 40em;
+}
 .header1 {
   line-height: 34px;
   height: 37px;
@@ -2637,6 +2661,27 @@ button,
 .table4 span {
   margin: 0;
   white-space: nowrap;
+}
+.table5 {
+  margin: 20px 0 20px 30px;
+}
+.table5 * {
+  vertical-align: middle;
+}
+.table5 b {
+  color: #d82e1c;
+}
+.table5 th {
+  text-align: right;
+  padding: 10px 0;
+  white-space: nowrap;
+  width: 1%;
+}
+.table5 td {
+  padding: 5px 0;
+}
+.table5 label {
+  margin-right: 10px;
 }
 #latestAction div {
   border: 1px solid #dedede;
