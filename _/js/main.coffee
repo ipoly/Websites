@@ -53,6 +53,13 @@ $(->
 		that.val(parseInt(that.val(),10) || that.attr("min") || 0)
 	)
 
+	# 初始化全选按钮
+	$("table").on("click",(e)->
+		tango = $(e.target)
+		if tango.is(".selectAll")
+			$(":checkbox",@).attr("checked",!!tango.attr("checked"))
+	)
+
 	# 初始化日期区间选择器
 	$(".dateEnd").datepicker({minDate:+1})
 

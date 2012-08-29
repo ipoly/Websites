@@ -52,6 +52,13 @@
       that = $(this);
       return that.val(parseInt(that.val(), 10) || that.attr("min") || 0);
     });
+    $("table").on("click", function(e) {
+      var tango;
+      tango = $(e.target);
+      if (tango.is(".selectAll")) {
+        return $(":checkbox", this).attr("checked", !!tango.attr("checked"));
+      }
+    });
     $(".dateEnd").datepicker({
       minDate: +1
     });

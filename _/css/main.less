@@ -37,6 +37,9 @@
 @blue2: #70CCF3;
 @blue3: #06a6db;
 
+@yellow1: #F4E4B4;
+@yellow2: #FFFFE9;
+
 .border1 (@color:@gray2) {
 	border:1px solid @color;
 }
@@ -155,8 +158,17 @@ button,.btn {
 .cart {background-position:-80px 0;}
 .hall {background-position:-40px 0;}
 .shield {background-position:0 0;}
-.arrowDown {background-position:-80px -80px;}
+.arrowDown {background-position:-80px -100px;}
+.arrowRight {background-position: -60px -100px}
 .search {width: 23px;height: 24px;background-position:0 -60px;}
+.pass {background-position: -20px -100px;}
+.decline {background-position: -40px -100px;}
+
+.asLink {
+	border: none;
+	background: transparent;
+	color: @blue1;
+}
 
 .btnBlue1 {
 	width: 85px;
@@ -229,6 +241,7 @@ button,.btn {
 .p20 {padding: 20px;}
 
 .w760 {width: 760px;}
+.w779 {width: 779px;}
 .w226 {
 	width: 226px;
 	.adlink {
@@ -239,6 +252,7 @@ button,.btn {
 		}
 	}
 }
+.w208 {width: 208px}
 
 .text {
 	.border1(@gray14);
@@ -289,6 +303,13 @@ button,.btn {
 	}
 }
 
+.header5 {
+	.border2;
+	color: @blue1;
+	font-size: 16px;
+	line-height: 35px;
+}
+
 .borderblock1 {
 	.border1;
 	padding: 10px;
@@ -335,6 +356,33 @@ button,.btn {
 		background-position: -40px -60px;
 	}
 }
+
+.borderblock6 {
+	.border1(@yellow1);
+	background-color: @yellow2;
+}
+
+.borderblock7 {
+	.border1;
+	border-width: 0 1px 1px;
+	padding: 5px;
+	a {
+		.vam;
+		display: inline-block;		
+		padding: 4px 8px;
+		line-height: 100%;
+	}
+
+	.on:hover {
+		color: #fff;
+	}
+
+	.on {
+		background-color: @blue1;
+		color: #fff;
+	}	
+}
+
 
 .ol1 {
 	list-style: none;
@@ -884,11 +932,19 @@ button,.btn {
 	}
 }
 
+.tab {
+	.ul1 {
+		display:none;
+	}
+	.content .on {
+		display:block;
+	}
+}
+
 .ul1 {
 	.border1;
 	font-size: 0;
 	padding: 10px;
-	display: none;
 	height: 270px;
 
 	li {
@@ -929,6 +985,7 @@ button,.btn {
 		}
 
 		footer {
+			.transition;
 			.posa;
 			top: 100%;
 			left: 0;
@@ -958,12 +1015,17 @@ button,.btn {
 				display: block;
 				width: 145px;
 				height: 50px;
+				text-indent: -1000px;
 			}
 		}
 	}
 
 	li {
 		*display:inline;
+	}
+
+	li:hover footer {
+		top: 0;
 	}
 
 }
@@ -1246,6 +1308,67 @@ button,.btn {
 			.tac;
 			border-bottom: 1px dashed @gray2;
 		}
+	}
+}
+
+.table3 {
+	.border1;
+	input {.vam;}
+	thead,tfoot {
+		th,td {
+			.border1;
+			.sprite2;
+			.vam;
+			border-width: 1px 0;
+			padding: 0 5px;
+			height: 32px;
+			line-height: 32px;
+			background-position: 0 -540px;
+			background-repeat: repeat-x;
+		}
+		th {
+			width: 1%;
+			padding: 0;
+			white-space: nowrap;
+		}
+	}
+
+	tbody {
+		th,td {
+			border-bottom: 1px dotted @gray2;
+			padding: 10px;
+		}
+		th {
+			.vam;
+			width: 1%;
+			padding: 10px 5px;
+		}
+		td {
+			.vat;
+		}
+		img {
+			.border1;
+			display: inline-block;
+			width: 109px;
+			height: 144px;
+			padding: 1px;
+		}
+		h2 {
+			.mb10;
+			font-size: 16px;
+		}
+		p {
+			.mb10;
+			color: @gray3;
+		}
+	}
+
+	a {
+		color: @blue1;
+	}
+
+	span {
+		margin-right: 20px;
 	}
 }
 
@@ -1650,4 +1773,58 @@ button,.btn {
 		width: 50%;
 		height: 80px;
 	}
+}
+
+.sideNav {
+	text-indent: 40px;
+	header {
+		background-color: @blue1;
+		color: #fff;
+		font-size: 20px;
+		height: 45px;
+		line-height: 45px;
+	}
+
+	dl {
+		*zoom:1 ;
+		.border1;
+	}
+
+	dt {
+		.sprite2;
+		.border1;
+		height: 34px;
+		line-height: 34px;
+		font-size: 16px;
+		background-position: 0 -500px;
+		border-width: 1px 0;
+	}
+
+	dd {
+		a{
+			display: block;
+			border-bottom: 1px dashed @gray2;
+			height: 34px;
+			line-height: 34px;
+			margin-bottom: -1px;
+			i {
+				background-position: 0 -100px;
+				margin: 7px 5px 7px 0;
+			}
+		}
+
+		.on {
+			.red;
+		}
+	}
+}
+
+#usrPanel {
+	.mb10;
+	h1 {
+		.mb10;
+		font-size: 20px;
+		b {.red}
+	}
+	p {.mb10;}
 }
