@@ -69,6 +69,22 @@ $(->
 			$(@).siblings(".dateEnd").datepicker("option", "minDate", new Date(dateText))
 	})
 
+	# 表单验证的提示
+	$(":input").on("invalid",->
+		that = $(@)
+		@focus()
+		if !@validityMsg
+			@validityMsg = $('<span class="validityMsg"><span> <i></i> <strong></strong></span></span>') 
+			if that.is(":checkbox,:radio")
+				$("[name="+that.attr("name")+"]:last").after(@validityMsg)
+			else
+				that.after(@validityMsg)
+		@validityMsg.addClass("invalid").find("strong").html(@validationMessage)
+	).on("change",->
+		@validityMsg?.removeClass("invalid")
+		@checkValidity()
+	)
+
 	# 初始化首页日历选择器
 	$("#calendarBig").datepicker({
 		dateFormat: "yy/mm/dd"

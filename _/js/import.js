@@ -5,3 +5,4 @@
 //@codekit-append "jquery.ui.CN.js";
 //@codekit-append "juicer.js";
 //@codekit-append "observer.js";
+//@codekit-append "formvalidate.js";

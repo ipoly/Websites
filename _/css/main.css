@@ -3104,3 +3104,27 @@ button,
 #usrPanel p {
   margin-bottom: 10px;
 }
+.validityMsg {
+  position: relative;
+  vertical-align: top;
+  display: inline-block;
+  overflow: visible;
+  left: 5px;
+  *zoom: 1;
+}
+.validityMsg i {
+  background-position: -40px -100px;
+}
+.validityMsg span {
+  border: 1px solid #d82e1c;
+  vertical-align: middle;
+  position: absolute;
+  white-space: nowrap;
+  color: #d82e1c;
+  padding: 1px 5px;
+  background-color: #fff5ec;
+  display: none;
+}
+.invalid span {
+  display: block;
+}

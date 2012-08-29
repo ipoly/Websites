@@ -68,6 +68,26 @@
         return $(this).siblings(".dateEnd").datepicker("option", "minDate", new Date(dateText));
       }
     });
+    $(":input").on("invalid", function() {
+      var that;
+      that = $(this);
+      this.focus();
+      if (!this.validityMsg) {
+        this.validityMsg = $('<span class="validityMsg"><span> <i></i> <strong></strong></span></span>');
+        if (that.is(":checkbox,:radio")) {
+          $("[name=" + that.attr("name") + "]:last").after(this.validityMsg);
+        } else {
+          that.after(this.validityMsg);
+        }
+      }
+      return this.validityMsg.addClass("invalid").find("strong").html(this.validationMessage);
+    }).on("change", function() {
+      var _ref;
+      if ((_ref = this.validityMsg) != null) {
+        _ref.removeClass("invalid");
+      }
+      return this.checkValidity();
+    });
     $("#calendarBig").datepicker({
       dateFormat: "yy/mm/dd",
       beforeShowDay: function(date) {

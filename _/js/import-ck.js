@@ -5,6 +5,7 @@
 //@codekit-append "jquery.ui.CN.js";
 //@codekit-append "juicer.js";
 //@codekit-append "observer.js";
+//@codekit-append "formvalidate.js";
 
 
 /* **********************************************
@@ -462,7 +463,7 @@ jQuery(function($){
 		//为所有有data-source属性的元素在dataChange时发起ajax请求
 		root.on("dataChange.observer", "[data-source]", function(e, data) {
 			var that = $(this);
-			$.get(that.data("source"), data, null, "json").done(function(data) {
+			$.post(that.data("source"), data, null, "json").done(function(data) {
 				that.trigger("dataRender", data);
 			});
 		});
@@ -481,3 +482,235 @@ jQuery(function($){
 		});
 	});
 })(jQuery);
+
+/* **********************************************
+     Begin formvalidate.js
+********************************************** */
+
+(function($, exports) {
+
+	//表单验证,传入一个form
+	$.fn.formvalidate = function() {
+
+		//验证状态对象，用于扩展input
+		var ValidityState = function() {
+				var o = {
+					customError: false,
+					patternMismatch: false,
+					rangeOverflow: false,
+					rangeUnderflow: false,
+					stepMismatch: false,
+					tooLong: false,
+					typeMismatch: false,
+					valueMissing: false,
+					valid: true
+				};
+				$.extend(this, o);
+			};
+
+		//扩展input的构造对象
+		var Validity = function(dom) {
+				this.init.apply(this, arguments);
+				return dom;
+			};
+
+		var v = Validity.prototype;
+
+		//初始化input
+		v.init = function(dom) {
+			dom.validity = new ValidityState();
+			dom.checkValidity = this._checkValidity;
+			dom.setCustomValidity = this._setCustomValidity;
+			// $.extend(dom,pattern);
+			$(dom).on("changeVState", this._changeVState);
+			$(dom).on("blur checkValidity", this._checkValidity);
+		};
+
+		//设置customError状态
+		v._setCustomValidity = function(str) {
+			var that = $(this);
+			if (str) {
+				that.trigger({
+					type: "invalid",
+					validationType: "customError",
+					validationMessage: str
+				});
+			} else {
+				this.validity.customError = false;
+				this.validationMessage = "";
+			}
+		};
+
+		//设置validityState
+		v._changeVState = function(e) {
+			this.validity[e.validationType] = true;
+			this.validity.valid = false;
+			this.validationMessage = e.validationMessage;
+			$(this).trigger("invalid");
+		};
+
+		//有效性检查
+		v._checkValidity = function(e) {
+			var that = $(this);
+			that.val($.trim(that.val()));
+
+			//重置验证属性
+			for (var vProp in this.validity) {
+				this.validity[vProp] = (vProp === "valid");
+			}
+
+			this.validationMessage = "";
+
+			var self = this;
+			$.each(this.attributes, $.proxy(function(i, n) {
+				var prop = "_check_" + n.nodeValue;
+				if (pattern[prop]) {
+					pattern[prop].apply(this);
+				}
+			}, this));
+
+			var type = $(this).attr("type");
+
+			if (pattern["_check_" + type]) {
+				pattern["_check_" + type].apply(this);
+			}
+
+			//如果不是直接调用检查方法，则静默检查
+			if (!e && !this.validity.valid) {
+				$(this).trigger("invalid");
+			}
+		};
+
+		//验证模式对象
+		var pattern = {};
+
+		//验证必填
+		pattern._check_required = function() {
+			var that = $(this);
+			if (that.is(":checkbox,:radio,select")) {
+				var group = $("[name=" + that.attr("name") + "]");
+				var groupVal = group.serialize();
+				if (!groupVal) {
+					that.trigger({
+						type: "changeVState",
+						validationType: "valueMissing",
+						validationMessage: "请选择一项。"
+					});
+				}
+			} else if (!$.trim(that.val())) {
+				that.trigger({
+					type: "changeVState",
+					validationType: "valueMissing",
+					validationMessage: "请填写此字段。"
+				});
+			}
+		};
+
+		//验证正则
+		pattern._check_pattern = function() {
+			var that = $(this);
+			var reg = new RegExp(that.attr("pattern"));
+			if (!reg.test(that.val())) {
+				that.trigger({
+					type: "changeVState",
+					validationType: "patternMismatch",
+					validationMessage: "请与所请求的格式保持一致。"
+				});
+			}
+		};
+
+		//验证maxlength
+		pattern._check_maxlength = function() {
+			var that = $(this);
+			if (that.val().length > that.attr("maxlength")) {
+				that.trigger({
+					type: "changeVState",
+					validationType: "tooLong",
+					validationMessage: "输入超过长度。"
+				});
+			}
+		};
+
+		//验证email
+		pattern._check_email = function() {
+			var that = $(this);
+			if (!/\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/.test(that.val())) {
+				that.trigger({
+					type: "changeVState",
+					validationType: "typeMismatch",
+					validationMessage: "请输入电子邮件地址。"
+				});
+			}
+		};
+
+		//验证number
+		pattern._check_number = function() {
+			var that = $(this);
+			if (isNaN(parseInt(that.val(), 10))) {
+				that.trigger({
+					type: "changeVState",
+					validationType: "typeMismatch",
+					validationMessage: "请输入数字。"
+				});
+			}
+		};
+
+		//验证date
+		pattern._check_date = function() {
+			var that = $(this);
+			if (!/^((((1[6-9]|[2-9]\d)\d{2})-(0?[13578]|1[02])-(0?[1-9]|[12]\d|3[01]))|(((1[6-9]|[2-9]\d)\d{2})-(0?[13456789]|1[012])-(0?[1-9]|[12]\d|30))|(((1[6-9]|[2-9]\d)\d{2})-0?2-(0?[1-9]|1\d|2[0-8]))|(((1[6-9]|[2-9]\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))-0?2-29-))$/.test(that.val())) {
+				that.trigger({
+					type: "changeVState",
+					validationType: "typeMismatch",
+					validationMessage: "请输入日期格式：YY-MM-DD。"
+				});
+			}
+		};
+
+		//验证url
+		pattern._check_url = function() {
+			var that = $(this);
+			if (!/[a-zA-z]+:\/\/\S*/.test(that.val())) {
+				that.trigger({
+					type: "changeVState",
+					validationType: "typeMismatch",
+					validationMessage: "请输入URL。"
+				});
+			}
+		};
+
+		this.each(function() {
+			var form = $(this);
+			this.noValidate = true;
+
+			form.on("submit", function() {
+				var that = this;
+				var input = $(":input", this);
+				for(var i=0;i<input.length;i++){
+					input[i].checkValidity();
+					if(!input[i].validity.valid){
+						return false;
+					}
+				}
+				return false;
+			});
+
+			if (!$("<input/>")[0].validity) {
+
+				form.find(":input").each(function() {
+					var that = $(this);
+					var dom = new Validity(this);
+					that.trigger("checkValidity");
+
+				});
+			}
+
+
+		});
+		return this;
+	};
+
+	$(function() {
+		$("form").formvalidate();
+	});
+})(jQuery, window);
