@@ -1361,6 +1361,27 @@ button,
 .header5 span input {
   vertical-align: middle;
 }
+.header6 {
+  border: 1px solid #dedede;
+  background: url(../img/sprite2.png) no-repeat;
+  padding: 0 20px;
+  height: 32px;
+  line-height: 32px;
+  background-position: 0 -540px;
+  background-repeat: repeat-x;
+}
+.header6 a {
+  vertical-align: top;
+  display: inline-block;
+  height: 31px;
+  line-height: 31px;
+  padding: 0 20px;
+  margin-right: 10px;
+}
+.header6 .on {
+  color: #fff;
+  background-color: #01afec;
+}
 .borderblock1 {
   border: 1px solid #dedede;
   padding: 10px;
@@ -2682,6 +2703,20 @@ button,
 }
 .table5 label {
   margin-right: 10px;
+}
+.table6 {
+  border: 1px solid #dedede;
+}
+.table6 th,
+.table6 td {
+  border: 1px solid #dedede;
+  padding: 5px;
+}
+.table6 thead th {
+  background-color: #dae6f7;
+  white-space: nowrap;
+  height: 22px;
+  line-height: 22px;
 }
 #latestAction div {
   border: 1px solid #dedede;
