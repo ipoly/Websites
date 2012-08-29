@@ -1095,11 +1095,14 @@ button,
 .btn {
   vertical-align: middle;
   background: url(../img/sprite2.png) no-repeat;
+  text-align: center;
+  display: inline-block;
   background-position: 0 -40px;
   border: none;
   width: 102px;
   height: 25px;
   cursor: pointer;
+  overflow: hidden;
 }
 .ie6 .navBar .fr {
   padding-top: 5px;
@@ -1184,6 +1187,13 @@ button,
   color: #fff;
   font-size: 14px;
   background-position: -100px -300px;
+}
+.btnBlue3 {
+  width: 49px;
+  height: 24px;
+  line-height: 24px;
+  color: #fff;
+  background-position: -220px -300px;
 }
 .btnGray1 {
   border: 1px solid #abadb3;
@@ -2532,6 +2542,76 @@ button,
 }
 .table3 span {
   margin-right: 20px;
+}
+.table4 {
+  border: 1px solid #dedede;
+  line-height: 150%;
+}
+.table4 input {
+  vertical-align: middle;
+}
+.table4 thead th,
+.table4 tfoot th,
+.table4 thead td,
+.table4 tfoot td {
+  border: 1px solid #dedede;
+  background: url(../img/sprite2.png) no-repeat;
+  vertical-align: middle;
+  border-width: 1px 0;
+  padding: 0 5px;
+  height: 32px;
+  line-height: 32px;
+  background-position: 0 -540px;
+  background-repeat: repeat-x;
+}
+.table4 thead th,
+.table4 tfoot th {
+  width: 1%;
+  padding: 0;
+  white-space: nowrap;
+}
+.table4 tbody th,
+.table4 tbody td {
+  border-bottom: 1px dotted #dedede;
+  padding: 10px;
+}
+.table4 tbody th {
+  vertical-align: middle;
+  width: 1%;
+  padding: 10px 5px;
+}
+.table4 tbody td {
+  vertical-align: top;
+}
+.table4 tbody img {
+  border: 1px solid #dedede;
+  display: inline-block;
+  width: 109px;
+  height: 144px;
+  padding: 1px;
+}
+.table4 tbody h2 {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+.table4 tbody p {
+  margin-bottom: 10px;
+  color: #999999;
+}
+.table4 a {
+  color: #01afec;
+}
+.table4 span {
+  margin-right: 20px;
+}
+.table4 tbody td {
+  text-align: center;
+}
+.table4 .btn {
+  color: #fff;
+}
+.table4 b {
+  color: #d82e1c;
 }
 #latestAction div {
   border: 1px solid #dedede;
