@@ -1321,9 +1321,21 @@ button,
 }
 .header5 {
   border-bottom: 2px solid #a6a6a6;
+  position: relative;
   color: #01afec;
   font-size: 16px;
   line-height: 35px;
+  *zoom: 1;
+}
+.header5 span {
+  position: absolute;
+  font-size: 12px;
+  color: #999999;
+  right: 0;
+  bottom: 0;
+}
+.header5 span input {
+  vertical-align: middle;
 }
 .borderblock1 {
   border: 1px solid #dedede;
