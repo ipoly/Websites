@@ -1247,6 +1247,9 @@ button,
 .mb10 {
   margin-bottom: 10px;
 }
+.mt10 {
+  margin-top: 10px;
+}
 .p10 {
   padding: 10px;
 }
@@ -2604,14 +2607,24 @@ button,
 .table4 span {
   margin-right: 20px;
 }
+.table4 thead th {
+  width: auto;
+}
 .table4 tbody td {
   text-align: center;
+}
+.table4 tbody .tal {
+  text-align: left;
 }
 .table4 .btn {
   color: #fff;
 }
 .table4 b {
   color: #d82e1c;
+}
+.table4 span {
+  margin: 0;
+  white-space: nowrap;
 }
 #latestAction div {
   border: 1px solid #dedede;

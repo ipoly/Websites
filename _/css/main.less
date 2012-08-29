@@ -247,7 +247,8 @@ button,.btn {
 	.marginCenter;
 }
 
-.mb10 {margin-bottom:10px;}
+.mb10 {margin-bottom: 10px;}
+.mt10 {margin-top: 10px;}
 .p10 {padding: 10px;}
 .p20 {padding: 20px;}
 
@@ -1386,13 +1387,23 @@ button,.btn {
 .table4 {
 	.table3;
 	line-height: 150%;
+	thead {
+		th {width:auto;}
+	}
 	tbody {
 		td {
 			.tac;
 		}
+		.tal {
+			text-align: left;
+		}
 	}
 	.btn {color: #fff; }
 	b {.red; }
+	span {
+		margin:0;
+		white-space: nowrap;
+	}
 }
 
 #latestAction {
