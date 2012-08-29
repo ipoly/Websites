@@ -463,7 +463,7 @@ jQuery(function($){
 		//为所有有data-source属性的元素在dataChange时发起ajax请求
 		root.on("dataChange.observer", "[data-source]", function(e, data) {
 			var that = $(this);
-			$.post(that.data("source"), data, null, "json").done(function(data) {
+			$.get(that.data("source"), data, null, "json").done(function(data) {
 				that.trigger("dataRender", data);
 			});
 		});
@@ -523,7 +523,7 @@ jQuery(function($){
 			dom.setCustomValidity = this._setCustomValidity;
 			// $.extend(dom,pattern);
 			$(dom).on("changeVState", this._changeVState);
-			$(dom).on("blur checkValidity", this._checkValidity);
+			$(dom).on("checkValidity", this._checkValidity);
 		};
 
 		//设置customError状态
@@ -563,7 +563,7 @@ jQuery(function($){
 
 			var self = this;
 			$.each(this.attributes, $.proxy(function(i, n) {
-				var prop = "_check_" + n.nodeValue;
+				var prop = "_check_" + n.nodeName;
 				if (pattern[prop]) {
 					pattern[prop].apply(this);
 				}
@@ -587,7 +587,7 @@ jQuery(function($){
 		//验证必填
 		pattern._check_required = function() {
 			var that = $(this);
-			if (that.is(":checkbox,:radio,select")) {
+			if (that.is(":checkbox,:radio")) {
 				var group = $("[name=" + that.attr("name") + "]");
 				var groupVal = group.serialize();
 				if (!groupVal) {
@@ -610,6 +610,7 @@ jQuery(function($){
 		pattern._check_pattern = function() {
 			var that = $(this);
 			var reg = new RegExp(that.attr("pattern"));
+			if (!that.val()){return ; }
 			if (!reg.test(that.val())) {
 				that.trigger({
 					type: "changeVState",
@@ -622,6 +623,7 @@ jQuery(function($){
 		//验证maxlength
 		pattern._check_maxlength = function() {
 			var that = $(this);
+			if (!that.val()){return ; }
 			if (that.val().length > that.attr("maxlength")) {
 				that.trigger({
 					type: "changeVState",
@@ -634,6 +636,7 @@ jQuery(function($){
 		//验证email
 		pattern._check_email = function() {
 			var that = $(this);
+			if (!that.val()){return ; }
 			if (!/\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/.test(that.val())) {
 				that.trigger({
 					type: "changeVState",
@@ -646,6 +649,7 @@ jQuery(function($){
 		//验证number
 		pattern._check_number = function() {
 			var that = $(this);
+			if (!that.val()){return ; }
 			if (isNaN(parseInt(that.val(), 10))) {
 				that.trigger({
 					type: "changeVState",
@@ -658,6 +662,7 @@ jQuery(function($){
 		//验证date
 		pattern._check_date = function() {
 			var that = $(this);
+			if (!that.val()){return ; }
 			if (!/^((((1[6-9]|[2-9]\d)\d{2})-(0?[13578]|1[02])-(0?[1-9]|[12]\d|3[01]))|(((1[6-9]|[2-9]\d)\d{2})-(0?[13456789]|1[012])-(0?[1-9]|[12]\d|30))|(((1[6-9]|[2-9]\d)\d{2})-0?2-(0?[1-9]|1\d|2[0-8]))|(((1[6-9]|[2-9]\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))-0?2-29-))$/.test(that.val())) {
 				that.trigger({
 					type: "changeVState",
@@ -670,6 +675,7 @@ jQuery(function($){
 		//验证url
 		pattern._check_url = function() {
 			var that = $(this);
+			if (!that.val()){return ; }
 			if (!/[a-zA-z]+:\/\/\S*/.test(that.val())) {
 				that.trigger({
 					type: "changeVState",
@@ -692,7 +698,6 @@ jQuery(function($){
 						return false;
 					}
 				}
-				return false;
 			});
 
 			if (!$("<input/>")[0].validity) {

@@ -81,8 +81,10 @@ $(->
 				that.after(@validityMsg)
 		@validityMsg.addClass("invalid").find("strong").html(@validationMessage)
 	).on("change",->
-		@validityMsg?.removeClass("invalid")
-		@checkValidity()
+		setTimeout($.proxy(->
+			@validityMsg?.removeClass("invalid")
+			@checkValidity()
+		,@),0)
 	)
 
 	# 初始化首页日历选择器

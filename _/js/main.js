@@ -82,11 +82,13 @@
       }
       return this.validityMsg.addClass("invalid").find("strong").html(this.validationMessage);
     }).on("change", function() {
-      var _ref;
-      if ((_ref = this.validityMsg) != null) {
-        _ref.removeClass("invalid");
-      }
-      return this.checkValidity();
+      return setTimeout($.proxy(function() {
+        var _ref;
+        if ((_ref = this.validityMsg) != null) {
+          _ref.removeClass("invalid");
+        }
+        return this.checkValidity();
+      }, this), 0);
     });
     $("#calendarBig").datepicker({
       dateFormat: "yy/mm/dd",

@@ -14,7 +14,7 @@
 	<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-	<title>帐户信息－会员中心－立即送票务</title>
+	<title>收货地址－会员中心－立即送票务</title>
 	
 	<meta name="title" content=""/>
 	<meta name="description" content=""/>
@@ -206,85 +206,35 @@
 				</div>
 				<div class="w779 fr">
 					<div class="borderblock1">
-						<h1 class="header5">帐户信息</h1>
+						<h1 class="header5">收货地址</h1>
 						<form action="">
-							<table class="table5">
+							<table class="table5 mb20">
 								<tbody>
 									<tr>
-										<th><b>*</b>昵称：</th>
+										<th><b>*</b>收货人：</th>
 										<td> <input type="text" class="text" required="required"/> </td>
 									</tr>
 									<tr>
-										<th>真实姓名：</th>
-										<td><input type="text" class="text"/></td>
-									</tr>
-									<tr>
-										<th><b>*</b>性别：</th>
+										<th><b>*</b>所在地区：</th>
 										<td>
-											<label><input name="radio" type="radio" required="required"/>男</label>
-											<label><input name="radio" type="radio"/>女</label>
-										</td>
-									</tr>
-									<tr>
-										<th><b>*</b>出生日期：</th>
-										<td>
-											<select required="required" name="">
-												<option value="">选择年份</option>
-												<option value="2">1991</option>
-												<option value="3">1992</option>
-												<option value="4">1993</option>
-											</select>
-											<select required="required" name="">
-												<option value="">选择月份</option>
-												<option value="2">1</option>
-												<option value="3">2</option>
-												<option value="4">3</option>
-											</select>
-											<select required="required" name="">
-												<option value="">选择日期</option>
-												<option value="2">1</option>
-												<option value="3">2</option>
-												<option value="4">3</option>
-											</select>
-										</td>
-									</tr>
-									<tr>
-										<th>婚姻状况：</th>
-										<td>
-											<select name=""></select>
-										</td>
-									</tr>
-									<tr>
-										<th>子女状况：</th>
-										<td>
-											<label><input name="radio1" type="radio"/>有</label>
-											<label><input name="radio1" type="radio"/>无</label>
-										</td>
-									</tr>
-									<tr>
-										<th>教育程度：</th>
-										<td><select name=""></select></td>
-									</tr>
-									<tr>
-										<th>从事行业：</th>
-										<td><select name=""></select></td>
-									</tr>
-									<tr>
-										<th>月收入：</th>
-										<td><select name=""></select></td>
-									</tr>
-									<tr>
-										<th>家乡：</th>
-										<td>
-											<select name="" data-observer="#shi1">
+											<select name="" data-observer="#shi" required="required">
 												<option value="">选择省</option>
-												<option value="">省1</option>
-												<option value="">省2</option>
-												<option value="">省3</option>
+												<option value="1">省1</option>
+												<option value="2">省2</option>
+												<option value="3">省3</option>
 											</select>
-											<select name="" id="shi1" data-source="/json/shi.json" data-template-name="listItem">
+											省
+											<select name="" id="shi" data-observer="#qu" data-source="/json/shi.json" data-template-name="listItem"  required="required">
 												<option value="">请先选择省</option>
+												<option value="1">省1</option>
+												<option value="2">省2</option>
+												<option value="3">省3</option>
 											</select>
+											市
+											<select name="" id="qu" data-source="/json/shi.json" data-template-name="listItem"  required="required">
+												<option value="">请先选择市</option>
+											</select>
+											区
 											<script type="text/juicer" name="listItem">
 												{@each list as item}
 													<option value="${item.value}">${item.text}</option>
@@ -293,38 +243,30 @@
 										</td>
 									</tr>
 									<tr>
-										<th>现居住地：</th>
+										<th><b>*</b>街道地址：</th>
+										<td><input type="text" class="textlong" required="required"/></td>
+									</tr>
+									<tr>
+										<th>邮政编码：</th>
+										<td><input type="text" class="text"/></td>
+									</tr>
+									<tr>
+										<th>邮件：</th>
+										<td><input type="mail" class="text"/></td>
+									</tr>
+									<tr>
+										<th><b>*</b>手机：</th>
 										<td>
-											<select name="" data-observer="#shi2">
-												<option value="">选择省</option>
-												<option value="">省1</option>
-												<option value="">省2</option>
-												<option value="">省3</option>
-											</select>
-											<select name="" id="shi2" data-source="/json/shi.json" data-template-name="listItem">
-												<option value="">请先选择省</option>
-											</select>
+											<input type="phone" class="text" required="required"/>
+											<b>小提醒：本订单相关的服务短信都将发往此手机</b>
 										</td>
 									</tr>
 									<tr>
-										<th>详细地址：</th>
-										<td><input type="text" class="textlong"/></td>
-									</tr>
-									<tr>
-										<th>身份证号：</th>
-										<td><input type="text" class="text"/></td>
-									</tr>
-									<tr>
-										<th>QQ：</th>
-										<td><input type="text" class="text"/></td>
-									</tr>
-									<tr>
-										<th>MSN：</th>
-										<td><input type="text" class="text"/></td>
-									</tr>
-									<tr>
-										<th>主页／微博：</th>
-										<td><input type="text" class="text"/></td>
+										<th>固定电话：</th>
+										<td>
+											<input type="tel" class="text" id="test" pattern="\d{3}-\d{8}(-\d{}4)?"/>
+											格式：028-87435810-400
+										</td>
 									</tr>
 									<tr>
 										<th></th>
@@ -335,6 +277,29 @@
 								</tbody>
 							</table>
 						</form>
+						<h2 class="header7">已保存的收货地址</h2>
+						<table class="table4">
+								<thead>
+									<tr>
+										<th>姓名</th>
+										<th>地址</th>
+										<th>操作</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th>
+											张三
+										</th>
+										<td class="tal">
+											我的提问： 我买的票拿到了，票上说核对票面编号和钱币编号是否一致，则为真票，但我真心没发现票面上的编号在哪？票面上哪有编号啊？ 
+										</td>
+										<th>
+											<a href="">编辑</a> <a href="">删除</a>
+										</th>
+									</tr>
+								</tbody>
+							</table>
 					</div>
 				</div>
 			</div>

@@ -1382,6 +1382,13 @@ button,
   color: #fff;
   background-color: #01afec;
 }
+.header7 {
+  border: 1px solid #dedede;
+  border-top-width: 2px;
+  padding: 10px;
+  font-size: 14px;
+  margin-bottom: -1px;
+}
 .borderblock1 {
   border: 1px solid #dedede;
   padding: 10px;
@@ -2666,6 +2673,9 @@ button,
 }
 .table4 thead th {
   width: auto;
+}
+.table4 tbody th {
+  white-space: nowrap;
 }
 .table4 tbody td {
   text-align: center;
