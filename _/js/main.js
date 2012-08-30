@@ -68,10 +68,22 @@
         return $(this).siblings(".dateEnd").datepicker("option", "minDate", new Date(dateText));
       }
     });
+    $(".dialogBtn").on("click", function() {
+      if (this.dialog) {
+        return this.dialog.dialog("open");
+      } else {
+        this.dialog = $(this).next(".dialog").dialog({
+          modal: true,
+          show: "fade",
+          hide: "fade"
+        });
+        return this.dialog.dialog("option", "dialogClass", this.dialog.data("dialogclass"));
+      }
+    });
     $(":input").on("invalid", function() {
       var that;
       that = $(this);
-      this.focus();
+      this.select();
       if (!this.validityMsg) {
         this.validityMsg = $('<span class="validityMsg"><span> <i></i> <strong></strong></span></span>');
         if (that.is(":checkbox,:radio")) {
@@ -82,13 +94,22 @@
       }
       return this.validityMsg.addClass("invalid").find("strong").html(this.validationMessage);
     }).on("change", function() {
+      var _ref;
+      if ((_ref = this.validityMsg) != null) {
+        _ref.removeClass("invalid");
+      }
       return setTimeout($.proxy(function() {
-        var _ref;
-        if ((_ref = this.validityMsg) != null) {
-          _ref.removeClass("invalid");
-        }
         return this.checkValidity();
       }, this), 0);
+    });
+    $("input[type=password]").on("change", function() {
+      var group, that, validation;
+      that = $(this);
+      group = that.parents("form").find("input[type=password][name=" + that.attr("name") + "]");
+      if (group.length > 1 && this === group[1]) {
+        validation = group.eq(0).val() === group.eq(1).val() ? "" : "两次输入密码不一致";
+        return this.setCustomValidity(validation);
+      }
     });
     $("#calendarBig").datepicker({
       dateFormat: "yy/mm/dd",

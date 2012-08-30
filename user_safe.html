@@ -14,7 +14,7 @@
 	<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-	<title>收货地址－会员中心－立即送票务</title>
+	<title>帐户安全－会员中心－立即送票务</title>
 	
 	<meta name="title" content=""/>
 	<meta name="description" content=""/>
@@ -206,102 +206,107 @@
 				</div>
 				<div class="w779 fr">
 					<div class="borderblock1">
-						<h1 class="header5">收货地址</h1>
-						<form action="">
-							<table class="table5 mb20">
-								<tbody>
-									<tr>
-										<th><b>*</b>收货人：</th>
-										<td> <input type="text" class="text" required/> </td>
-									</tr>
-									<tr>
-										<th><b>*</b>所在地区：</th>
-										<td>
-											<select name="" data-observer="#shi" required>
-												<option value="">选择省</option>
-												<option value="1">省1</option>
-												<option value="2">省2</option>
-												<option value="3">省3</option>
-											</select>
-											省
-											<select name="" id="shi" data-observer="#qu" data-source="/json/shi.json" data-template-name="listItem"  required>
-												<option value="">请先选择省</option>
-												<option value="1">省1</option>
-												<option value="2">省2</option>
-												<option value="3">省3</option>
-											</select>
-											市
-											<select name="" id="qu" data-source="/json/shi.json" data-template-name="listItem"  required>
-												<option value="">请先选择市</option>
-											</select>
-											区
-
-											<a class="blue" href="">[查看货到付款范围]</a>
-											<script type="text/juicer" name="listItem">
-												{@each list as item}
-													<option value="${item.value}">${item.text}</option>
-												{@/each}
-											</script>
-										</td>
-									</tr>
-									<tr>
-										<th><b>*</b>街道地址：</th>
-										<td><input type="text" class="textlong" required/></td>
-									</tr>
-									<tr>
-										<th>邮政编码：</th>
-										<td><input type="text" class="text"/></td>
-									</tr>
-									<tr>
-										<th>邮件：</th>
-										<td><input type="mail" class="text"/></td>
-									</tr>
-									<tr>
-										<th><b>*</b>手机：</th>
-										<td>
-											<input type="phone" class="text" required/>
-											<b>小提醒：本订单相关的服务短信都将发往此手机</b>
-										</td>
-									</tr>
-									<tr>
-										<th>固定电话：</th>
-										<td>
-											<input type="tel" class="text" id="test" pattern="\d{3}-\d{8}(-\d{}4)?"/>
-											格式：028-87435810-400
-										</td>
-									</tr>
-									<tr>
-										<th></th>
-										<td>
-											<input type="submit" class="btn btnBlue2" value="确定"/>
-										</td>
-									</tr>
-								</tbody>
-							</table>
-						</form>
-						<h2 class="header7">已保存的收货地址</h2>
-						<table class="table4">
-								<thead>
-									<tr>
-										<th>姓名</th>
-										<th>地址</th>
-										<th>操作</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<th>
-											张三
-										</th>
-										<td class="tal">
-											我的提问： 我买的票拿到了，票上说核对票面编号和钱币编号是否一致，则为真票，但我真心没发现票面上的编号在哪？票面上哪有编号啊？ 
-										</td>
-										<th>
-											<a href="">编辑</a> <a href="">删除</a>
-										</th>
-									</tr>
-								</tbody>
-							</table>
+						<h1 class="header5 mb10">帐户安全</h1>
+						<div class="borderblock6 p10 mb20">
+							<span class="f14">安全级别：<b class="red">极低</b> </span>
+							&nbsp; &nbsp; &nbsp; &nbsp;
+							建议您通过以下方式提高账户安全性
+						</div>
+						<table class="table7 mb10">
+							<tr>
+								<th>
+									<i class="note"></i>
+									登录密码
+								</th>
+								<td>
+									安全程度：
+									<span class="safelvl_0"></span>
+									建议您设置更高强度的密码
+								</td>
+								<td>
+									<button class="asLink dialogBtn">修改</button>
+									<form class="dialog ovv" title="修改密码" data-dialogclass="ovv">
+										<table class="table5">
+											<tr>
+												<th><b>*</b>原密码：</th>
+												<td> <input type="password" name="oldpass" class="text" required/> </td>
+											</tr>
+											<tr>
+												<th><b>*</b>新密码：</th>
+												<td> <input type="password" name="newpass" class="text" required/> </td>
+											</tr>
+											<tr>
+												<th><b>*</b>确认密码：</th>
+												<td> <input type="password" name="newpass" class="text" required/> </td>
+											</tr>
+											<tr>
+												<th></th>
+												<td><input type="submit" class="btn btnBlue4" value="确认"/></td>
+											</tr>
+										</table>
+									</form>
+								</td>
+							</tr>
+						</table>
+						<table class="table7 mb10">
+							<tr>
+								<th>
+									<i class="ok"></i>
+									邮箱验证
+								</th>
+								<td>
+									<p>您的邮箱：12432343@qq.com</p>
+									<p>验证邮箱可帮助您快速找回密码，并可接收订单、演出通知、促销活动等提醒</p>
+								</td>
+								<td>
+									<button class="btnBlue4 dialogBtn">立即验证</button>
+									<form class="dialog ovv" title="验证邮箱" data-dialogclass="ovv">
+										<table class="table5">
+											<tr>
+												<th><b>*</b>邮箱：</th>
+												<td> <input type="email" class="text" required/> </td>
+											</tr>
+											<tr>
+												<th></th>
+												<td><input type="submit" class="btn btnBlue4" value="发送确认邮件"/></td>
+											</tr>
+										</table>
+									</form>
+								</td>
+							</tr>
+						</table>
+						<table class="table7 mb10">
+							<tr>
+								<th>
+									<i class="note"></i>
+									手机验证
+								</th>
+								<td> 验证手机可帮助您快速找回密码，并可接收订单、演出通知、促销活动等提醒 </td>
+								<td>
+									<button class="btnBlue4 dialogBtn">立即验证</button>
+									<form class="dialog ovv" title="验证邮箱" data-dialogclass="ovv">
+										<table class="table5">
+											<tr>
+												<th><b>*</b>手机号：</th>
+												<td> <input type="phone" class="text" required/> </td>
+											</tr>
+											<tr>
+												<th><b>*</b>校验码号：</th>
+												<td>
+													<input type="text" class="textmin" required/>
+													<button class="btnBlue4">获取校验码</button>
+												</td>
+											</tr>
+											<tr>
+												<th></th>
+												<td><input type="submit" class="btn btnBlue4" value="验证"/></td>
+											</tr>
+										</table>
+									</form>
+								
+								</td>
+							</tr>
+						</table>
 					</div>
 				</div>
 			</div>

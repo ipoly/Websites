@@ -69,10 +69,19 @@ $(->
 			$(@).siblings(".dateEnd").datepicker("option", "minDate", new Date(dateText))
 	})
 
+	# 初始化dialog
+	$(".dialogBtn").on("click",->
+		if @dialog
+			@dialog.dialog("open")
+		else
+			@dialog = $(@).next(".dialog").dialog({modal:true,show:"fade",hide:"fade"})
+			@dialog.dialog("option","dialogClass",@dialog.data("dialogclass"))
+	)
+
 	# 表单验证的提示
 	$(":input").on("invalid",->
 		that = $(@)
-		@focus()
+		@select()
 		if !@validityMsg
 			@validityMsg = $('<span class="validityMsg"><span> <i></i> <strong></strong></span></span>') 
 			if that.is(":checkbox,:radio")
@@ -81,10 +90,19 @@ $(->
 				that.after(@validityMsg)
 		@validityMsg.addClass("invalid").find("strong").html(@validationMessage)
 	).on("change",->
+		@validityMsg?.removeClass("invalid")
 		setTimeout($.proxy(->
-			@validityMsg?.removeClass("invalid")
 			@checkValidity()
 		,@),0)
+	)
+
+	# 密码匹配验证
+	$("input[type=password]").on("change",->
+		that = $(@)
+		group = that.parents("form").find("input[type=password][name="+that.attr("name")+"]")
+		if group.length > 1 and @ is group[1]
+			validation = if group.eq(0).val() is group.eq(1).val() then "" else "两次输入密码不一致"
+			@setCustomValidity(validation)
 	)
 
 	# 初始化首页日历选择器
