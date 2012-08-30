@@ -1266,6 +1266,12 @@ button,
 .cart {
   background-position: -80px 0;
 }
+.cartBig {
+  background: url(../img/sprite2.png) no-repeat;
+  width: 100px;
+  height: 100px;
+  background-position: -700px -440px;
+}
 .hall {
   background-position: -40px 0;
 }
@@ -1751,7 +1757,7 @@ button,
   display: block;
 }
 .topHeader {
-  background: #d82e1c url(../img/headerbg.png) 0 35px repeat-x;
+  background: url(../img/headerbg.png) 0 35px repeat-x;
   min-height: 148px;
   _height: 148px;
 }
@@ -3481,4 +3487,42 @@ button,
 #login th,
 #login td {
   padding: 15px 0;
+}
+#cartNav {
+  overflow: hidden;
+  margin-bottom: 10px;
+  height: 34px;
+  font-size: 0;
+  white-space: nowrap;
+  width: 100%;
+}
+#cartNav i {
+  text-align: center;
+  height: 34px;
+  line-height: 34px;
+  width: 267px;
+  margin: 0 3px 0 -17px;
+  font-size: 14px;
+  background-position: 0 -160px;
+}
+#cartNav .on {
+  color: #fff;
+  background-position: 0 -120px;
+}
+.centerContent {
+  text-align: center;
+  line-height: 150%;
+  padding: 30px 40px;
+}
+.centerContent section {
+  vertical-align: middle;
+  text-align: left;
+  display: inline-block;
+}
+.centerContent h1 {
+  font-size: 14px;
+  margin-bottom: 1em;
+}
+.centerContent a {
+  color: #01afec;
 }
