@@ -80,10 +80,13 @@ $(->
 
 	# 初始化dialog
 	$(".dialogBtn").on("click",->
+		that = $(@)
 		if @dialog
 			@dialog.dialog("open")
 		else
-			@dialog = $(@).next(".dialog").dialog({modal:true,show:"fade",hide:"fade"})
+			@dialog = $(that.data("dialog-obj"))
+			@dialog = if @dialog.length then @dialog else that.next(".dialog") 
+			@dialog.dialog({modal:true,show:"fade",hide:"fade",width:@dialog.css("width")})
 			@dialog.dialog("option","dialogClass",@dialog.data("dialogclass"))
 	)
 	$(".dialogDef").dialog({modal:true,show:"fade",hide:"fade",buttons: { "Ok": -> $(@).dialog("close")}})

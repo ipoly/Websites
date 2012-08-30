@@ -250,7 +250,7 @@
 							<tr>
 								<th>购买数量：</th>
 								<td>
-									<input name="" type="number" class="text" min="1" value="1"/> 张
+									<input name="" type="number" class="textmin" min="1" value="1"/> 张
 								</td>
 							</tr>
 							<tr>
@@ -262,8 +262,51 @@
 									</script>
 									<button class="btn_sit_big"></button>
 									<input type="submit" class="btn btn_buy_now" value=""/>
-									<button class="btn_order"></button>
+									<!-- dialogBtn会将其后紧跟的dialog作为弹窗显示 -->
+									<button class="btn_order dialogBtn" data-dialog-obj="#orderForm"></button>
 								</td>
+							</tr>
+						</table>
+					</form>
+					<form action="" class="dialog" id="orderForm" title="预定" data-dialogclass="ovv" style="width:400px;">
+						<div class="borderblock6 mb10 p10">
+							<p>注意事项 注意事项 注意事项 注意事项 注意事项</p>
+							<p>注意事项 注意事项 注意事项 注意事项 注意事项</p>
+							<p>注意事项 注意事项 注意事项 注意事项 注意事项</p>
+							<p>注意事项 注意事项 注意事项 注意事项 注意事项</p>
+						</div>
+						<table class="table5">
+							<tr>
+								<th><b>*</b>联 系 人：</th>
+								<td><input type="text" class="text" required/></td>
+							</tr>
+							<tr>
+								<th><b>*</b>所在城市：</th>
+								<td><input type="text" class="text" required/></td>
+							</tr>
+							<tr>
+								<th><b>*</b>手机号码：</th>
+								<td><input type="phone" class="text" required/></td>
+							</tr>
+							<tr>
+								<th>邮    箱：</th>
+								<td><input type="text" class="text" /></td>
+							</tr>
+							<tr>
+								<th>心理价位：</th>
+								<td><input type="number" class="textmin" step="10" min="10" /></td>
+							</tr>
+							<tr>
+								<th>票品数量：</th>
+								<td><input type="number" class="textmin" min="1" /></td>
+							</tr>
+							<tr>
+								<th>附    言：</th>
+								<td><input type="text" class="textmed"/></td>
+							</tr>
+							<tr>
+								<th></th>
+								<td><input type="submit" class="btn btnBlue2" value="立即预定"/></td>
 							</tr>
 						</table>
 					</form>

@@ -1219,6 +1219,32 @@ button,
   padding: 0 10px 30px;
   line-height: 180%;
 }
+.articleBody h1,
+.articleBody h2,
+.articleBody h3,
+.articleBody h4,
+.articleBody h5,
+.articleBody h6 {
+  margin-bottom: 1em;
+}
+.articleBody h1 {
+  font-size: 24px;
+}
+.articleBody h2 {
+  font-size: 20px;
+}
+.articleBody h3 {
+  font-size: 18px;
+}
+.articleBody h4 {
+  font-size: 16px;
+}
+.articleBody h5 {
+  font-size: 14px;
+}
+.articleBody h6 {
+  font-size: 12px;
+}
 .articleBody p {
   margin-bottom: 1em;
 }
@@ -1452,7 +1478,7 @@ button,
   border: 1px solid #abadb3;
   height: 20px;
   line-height: 20px;
-  width: 3em;
+  width: 4em;
 }
 .textshort {
   border: 1px solid #abadb3;

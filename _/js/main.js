@@ -86,13 +86,18 @@
       }
     };
     $(".dialogBtn").on("click", function() {
+      var that;
+      that = $(this);
       if (this.dialog) {
         return this.dialog.dialog("open");
       } else {
-        this.dialog = $(this).next(".dialog").dialog({
+        this.dialog = $(that.data("dialog-obj"));
+        this.dialog = this.dialog.length ? this.dialog : that.next(".dialog");
+        this.dialog.dialog({
           modal: true,
           show: "fade",
-          hide: "fade"
+          hide: "fade",
+          width: this.dialog.css("width")
         });
         return this.dialog.dialog("option", "dialogClass", this.dialog.data("dialogclass"));
       }
