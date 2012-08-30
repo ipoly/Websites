@@ -34,6 +34,39 @@
           "top": pos[e.type]
         }, 400, "easeOutQuad");
       });
+      $("input[type=number]").each(function() {
+        var that, wrapper;
+        that = $(this);
+        wrapper = $("<span class='number'><i class='less'/><i class='more'/></span>");
+        that.after(wrapper);
+        return wrapper.find(".less").after(that);
+      });
+      $(".number").on("click", function(e) {
+        var input, tango, val;
+        tango = $(e.target);
+        input = $("input", this);
+        val = parseInt(input.val(), 10) || 0;
+        if (tango.is(".less")) {
+          val--;
+        } else if (tango.is(".more")) {
+          val++;
+        }
+        return input.val(val).trigger("change");
+      });
+      $("input[type=number]").on("change", function(e) {
+        var max, min, that, val;
+        that = $(this);
+        val = parseInt(that.val(), 10) || 0;
+        max = parseInt(that.attr("max"), 10);
+        if (isNaN(max)) {
+          max = +Infinity;
+        }
+        min = parseInt(that.attr("min"), 10);
+        if (isNaN(min)) {
+          min = -Infinity;
+        }
+        return that.val(Math.max(Math.min(val, max), min));
+      });
     }
     $("ol").each(function() {
       return $("i", this).each(function(i) {
@@ -47,11 +80,6 @@
       that.addClass("on").siblings().removeClass("on");
       return root.find(".content > *").removeClass("on").eq(that.index()).addClass("on");
     }).find("header>*:first").trigger("mouseenter");
-    $("input[type=number]").on("change", function(e) {
-      var that;
-      that = $(this);
-      return that.val(parseInt(that.val(), 10) || that.attr("min") || 0);
-    });
     $("table").on("click", function(e) {
       var tango;
       tango = $(e.target);
@@ -59,6 +87,22 @@
         return $(":checkbox", this).attr("checked", !!tango.attr("checked"));
       }
     });
+    $(".cartGrid").on("change", function() {
+      var each, total, x, _i, _len;
+      total = 0;
+      each = $("tbody .total", this).text().split(/\D+/g);
+      for (_i = 0, _len = each.length; _i < _len; _i++) {
+        x = each[_i];
+        total += parseInt(x, 10) || 0;
+      }
+      return $("tfoot .total", this).html(total);
+    }).on("change", "tbody tr", function(e) {
+      if (!this.price) {
+        this.price = parseInt($(".price", this).text(), 10);
+        this.price || (this.price = 0);
+      }
+      return $(".total", this).html(this.price * ($(e.target).val() || 0) + "元");
+    }).find(":input").trigger("change");
     $(".dateEnd").datepicker({
       minDate: +1
     });

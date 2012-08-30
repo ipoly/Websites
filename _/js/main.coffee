@@ -22,8 +22,9 @@ $(->
 				$("input",@).click();
 		)
 
-	# 初始化列表项滑动遮罩
+	# ie系列初始化
 	if $.browser.msie 
+		# 初始化列表项滑动遮罩
 		$("li:has(footer),.imgMetro a").on("hover",(e)-> 
 			pos = {
 				"mouseenter":0,
@@ -31,6 +32,37 @@ $(->
 			}
 			$("footer",this).stop(true).animate({"top":pos[e.type]},400,"easeOutQuad")
 		)
+
+		# 初始化number控件
+		$("input[type=number]").each(->
+			that = $(@)
+			wrapper = $("<span class='number'><i class='less'/><i class='more'/></span>")
+			that.after(wrapper)
+			wrapper.find(".less").after(that)
+		)
+		$(".number").on("click",(e)->
+			tango = $(e.target)
+			input = $("input",@)
+			val = parseInt(input.val(),10)||0
+			if tango.is(".less")
+				val--
+			else if tango.is(".more")
+				val++
+			input.val(val).trigger("change")
+		)
+		
+		# 限定上下限
+		$("input[type=number]").on("change", (e)->
+			that = $(@)
+			val = parseInt(that.val(),10) || 0
+			max = parseInt(that.attr("max"),10)
+			max = +Infinity if isNaN(max)
+			min = parseInt(that.attr("min"),10)
+			min = -Infinity if isNaN(min)
+			that.val(Math.max(Math.min(val,max),min))
+		)
+
+
 
 	# 初始化ol序号
 	$("ol").each(->
@@ -47,18 +79,26 @@ $(->
 		root.find(".content > *").removeClass("on").eq(that.index()).addClass("on")
 	).find("header>*:first").trigger("mouseenter")
 
-	# 初始化数字选择器
-	$("input[type=number]").on("change", (e)->
-		that = $(@)
-		that.val(parseInt(that.val(),10) || that.attr("min") || 0)
-	)
-
 	# 初始化全选按钮
 	$("table").on("click",(e)->
 		tango = $(e.target)
 		if tango.is(".selectAll")
 			$(":checkbox",@).attr("checked",!!tango.attr("checked"))
 	)
+
+	# 初始化购物车计算器
+	$(".cartGrid").on("change",->
+		total = 0
+		each = $("tbody .total",@).text().split(/\D+/g)
+		total += parseInt(x,10)||0 for x in each
+		$("tfoot .total",@).html(total)
+	)
+	.on("change","tbody tr",(e) ->
+		if !@price
+			@price = parseInt($(".price",@).text(),10) 
+			@price or= 0
+		$(".total",@).html(@price * ($(e.target).val() || 0)+"元")
+	).find(":input").trigger("change")
 
 	# 初始化日期区间选择器
 	$(".dateEnd").datepicker({minDate:+1})

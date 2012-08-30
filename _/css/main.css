@@ -1295,6 +1295,12 @@ button,
 .decline {
   background-position: -40px -100px;
 }
+.more {
+  background-position: -140px -100px;
+}
+.less {
+  background-position: -160px -100px;
+}
 .note {
   background: url(../img/sprite2.png) no-repeat;
   width: 40px;
@@ -3001,6 +3007,101 @@ button,
 .table8 td {
   padding: 10px 0;
 }
+.table9 {
+  border: 1px solid #dedede;
+  line-height: 150%;
+  width: 100%;
+}
+.table9 input {
+  vertical-align: middle;
+}
+.table9 thead th,
+.table9 tfoot th,
+.table9 thead td,
+.table9 tfoot td {
+  border: 1px solid #dedede;
+  background: url(../img/sprite2.png) no-repeat;
+  vertical-align: middle;
+  border-width: 1px 0;
+  padding: 0 5px;
+  height: 32px;
+  line-height: 32px;
+  background-position: 0 -540px;
+  background-repeat: repeat-x;
+}
+.table9 thead th,
+.table9 tfoot th {
+  width: 1%;
+  padding: 0;
+  white-space: nowrap;
+}
+.table9 tbody th,
+.table9 tbody td {
+  border-bottom: 1px dotted #dedede;
+  padding: 10px;
+}
+.table9 tbody th {
+  vertical-align: middle;
+  width: 1%;
+  padding: 10px 5px;
+}
+.table9 tbody td {
+  vertical-align: top;
+}
+.table9 tbody img {
+  border: 1px solid #dedede;
+  display: inline-block;
+  width: 109px;
+  height: 144px;
+  padding: 1px;
+}
+.table9 tbody h2 {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+.table9 tbody p {
+  margin-bottom: 10px;
+  color: #999999;
+}
+.table9 a {
+  color: #01afec;
+}
+.table9 span {
+  margin-right: 20px;
+}
+.table9 thead th {
+  width: auto;
+}
+.table9 tbody th {
+  white-space: nowrap;
+}
+.table9 tbody td {
+  text-align: center;
+}
+.table9 tbody .tal {
+  text-align: left;
+}
+.table9 .btn {
+  color: #fff;
+}
+.table9 b {
+  color: #d82e1c;
+}
+.table9 span {
+  margin: 0;
+  white-space: nowrap;
+}
+.table9 tfoot td {
+  text-align: right;
+  background: none;
+  padding: 20px 10px;
+}
+.table9 tfoot section {
+  display: inline-block;
+}
+.table9 b {
+  font-size: 14px;
+}
 #latestAction div {
   border: 1px solid #dedede;
   padding: 10px 10px 5px;
@@ -3525,4 +3626,7 @@ button,
 }
 .centerContent a {
   color: #01afec;
+}
+.number i {
+  cursor: pointer;
 }
