@@ -70,8 +70,9 @@
 .posa {position: absolute;}
 .posc {position: static;}
 
-.ovv {overflow:visible;}
-.ovh {overflow:hidden;}
+.ovv {overflow: visible;}
+.ovh {overflow: hidden;}
+.ova {overflow: auto;}
 
 .ovv .ui-dialog-content {
 	.ovv;
@@ -452,6 +453,13 @@ button,.btn {
 	line-height: 36px;
 }
 
+.header9 {
+	.border2;
+	.blue;
+	font-size: 24px;
+	padding: 10px 0;
+}
+
 .borderblock0 {
 	.border1;
 }
@@ -582,6 +590,9 @@ button,.btn {
 .clearfix {display: block;}
 
 .topHeader {
+	background:@red1 url(../img/headerbg.png) 0 35px repeat-x;
+	min-height: 148px;
+	_height:148px;
 	.citySelector {
 		margin: 0 40px -8px 5px;
 	}
@@ -1598,6 +1609,14 @@ button,.btn {
 	a {.blue;}
 }
 
+.table8 {
+	.table5;
+	font-size: 14px;
+	th,td {
+		padding: 10px 0;
+	}
+}
+
 #latestAction {
 	div {
 		.border1;
@@ -2078,5 +2097,20 @@ button,.btn {
 .invalid {
 	span {
 		display: block;
+	}
+}
+
+#reg {
+	.fl{
+		width: 40%;
+	}
+	.fr {
+		width: 46%;
+		margin: 20px 30px 10px 0;
+		article {
+			.ova;
+			.mb10;
+			height: 180px;
+		}
 	}
 }

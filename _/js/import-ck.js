@@ -619,7 +619,7 @@ jQuery(function($){
 					that.trigger({
 						type: "changeVState",
 						validationType: "valueMissing",
-						validationMessage: "请选择一项。"
+						validationMessage: "如果要继续，请选中此项。"
 					});
 				}
 			} else if (!$.trim(that.val())) {
@@ -753,7 +753,7 @@ jQuery(function($){
 
 	$(function() {
 		$("form").formvalidate();
-		
+
 		// 密码匹配验证
 		$("input[type=password]").on("change", function() {
 			var that = $(this);

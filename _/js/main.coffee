@@ -95,7 +95,7 @@ $(->
 	# 表单验证的提示
 	$(":input").on("invalid",->
 		that = $(@)
-		@select()
+		that.focus().select()
 		if !@validityMsg
 			@validityMsg = $('<span class="validityMsg"><span> <i></i> <strong></strong></span></span>') 
 			if that.is(":checkbox,:radio")

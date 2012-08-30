@@ -1130,6 +1130,9 @@
 .ovh {
   overflow: hidden;
 }
+.ova {
+  overflow: auto;
+}
 .ovv .ui-dialog-content {
   overflow: visible;
 }
@@ -1589,6 +1592,12 @@ button,
   font-size: 14px;
   line-height: 36px;
 }
+.header9 {
+  border-bottom: 2px solid #a6a6a6;
+  color: #01afec;
+  font-size: 24px;
+  padding: 10px 0;
+}
 .borderblock0 {
   border: 1px solid #dedede;
 }
@@ -1740,6 +1749,11 @@ button,
 }
 .clearfix {
   display: block;
+}
+.topHeader {
+  background: #d82e1c url(../img/headerbg.png) 0 35px repeat-x;
+  min-height: 148px;
+  _height: 148px;
 }
 .topHeader .citySelector {
   margin: 0 40px -8px 5px;
@@ -2955,6 +2969,32 @@ button,
 .table7 a {
   color: #01afec;
 }
+.table8 {
+  margin: 20px 0 20px 30px;
+  font-size: 14px;
+}
+.table8 * {
+  vertical-align: middle;
+}
+.table8 b {
+  color: #d82e1c;
+}
+.table8 th {
+  text-align: right;
+  padding: 10px 0;
+  white-space: nowrap;
+  width: 1%;
+}
+.table8 td {
+  padding: 5px 0;
+}
+.table8 label {
+  margin-right: 10px;
+}
+.table8 th,
+.table8 td {
+  padding: 10px 0;
+}
 #latestAction div {
   border: 1px solid #dedede;
   padding: 10px 10px 5px;
@@ -3399,4 +3439,16 @@ button,
 }
 .invalid span {
   display: block;
+}
+#reg .fl {
+  width: 40%;
+}
+#reg .fr {
+  width: 46%;
+  margin: 20px 30px 10px 0;
+}
+#reg .fr article {
+  overflow: auto;
+  margin-bottom: 10px;
+  height: 180px;
 }

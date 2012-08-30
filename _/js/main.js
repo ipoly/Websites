@@ -115,7 +115,7 @@
     $(":input").on("invalid", function() {
       var that;
       that = $(this);
-      this.select();
+      that.focus().select();
       if (!this.validityMsg) {
         this.validityMsg = $('<span class="validityMsg"><span> <i></i> <strong></strong></span></span>');
         if (that.is(":checkbox,:radio")) {
