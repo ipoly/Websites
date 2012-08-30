@@ -1557,6 +1557,15 @@ button,
   font-size: 14px;
   margin-bottom: -1px;
 }
+.header8 {
+  border-bottom: 2px solid #a6a6a6;
+  padding: 0 10px;
+  font-size: 14px;
+  line-height: 36px;
+}
+.borderblock0 {
+  border: 1px solid #dedede;
+}
 .borderblock1 {
   border: 1px solid #dedede;
   padding: 10px;

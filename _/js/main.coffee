@@ -72,11 +72,11 @@ $(->
 
 	# 重载alert
 	window.alert = (str) ->
-		wraper = $("<div/>")
-		content = $(str).show()
-		wraper.append(content).attr("title", if content.attr("title") then "注意")
-		wraper.dialog({modal:true,show:"fade",hide:"fade",buttons: { "Ok": -> $(@).dialog("close")}})
-	alert(".dialogDef")
+		if str
+			wraper = $("<div/>")
+			wraper.append(str).attr("title", if $(str).attr("title") then "注意")
+			wraper.dialog({modal:true,show:"fade",hide:"fade",buttons: { "Ok": -> $(@).dialog("close")}})
+
 
 	# 初始化dialog
 	$(".dialogBtn").on("click",->
@@ -86,6 +86,7 @@ $(->
 			@dialog = $(@).next(".dialog").dialog({modal:true,show:"fade",hide:"fade"})
 			@dialog.dialog("option","dialogClass",@dialog.data("dialogclass"))
 	)
+	$(".dialogDef").dialog({modal:true,show:"fade",hide:"fade",buttons: { "Ok": -> $(@).dialog("close")}})
 
 
 	# 表单验证的提示

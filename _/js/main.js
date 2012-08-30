@@ -69,22 +69,22 @@
       }
     });
     window.alert = function(str) {
-      var content, wraper;
-      wraper = $("<div/>");
-      content = $(str).show();
-      wraper.append(content).attr("title", content.attr("title") ? "注意" : void 0);
-      return wraper.dialog({
-        modal: true,
-        show: "fade",
-        hide: "fade",
-        buttons: {
-          "Ok": function() {
-            return $(this).dialog("close");
+      var wraper;
+      if (str) {
+        wraper = $("<div/>");
+        wraper.append(str).attr("title", $(str).attr("title") ? "注意" : void 0);
+        return wraper.dialog({
+          modal: true,
+          show: "fade",
+          hide: "fade",
+          buttons: {
+            "Ok": function() {
+              return $(this).dialog("close");
+            }
           }
-        }
-      });
+        });
+      }
     };
-    alert(".dialogDef");
     $(".dialogBtn").on("click", function() {
       if (this.dialog) {
         return this.dialog.dialog("open");
@@ -95,6 +95,16 @@
           hide: "fade"
         });
         return this.dialog.dialog("option", "dialogClass", this.dialog.data("dialogclass"));
+      }
+    });
+    $(".dialogDef").dialog({
+      modal: true,
+      show: "fade",
+      hide: "fade",
+      buttons: {
+        "Ok": function() {
+          return $(this).dialog("close");
+        }
       }
     });
     $(":input").on("invalid", function() {
