@@ -3452,3 +3452,33 @@ button,
   margin-bottom: 10px;
   height: 180px;
 }
+#login {
+  background: url(../img/loginbg.png) top center no-repeat;
+}
+#login .wrapper {
+  background-color: transparent;
+}
+#login form {
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+  width: 336px;
+  background-color: #fff;
+  margin: 0 0 40px 40px;
+}
+#login table {
+  margin: 10px 10px 20px;
+}
+#login h1 {
+  line-height: 58px;
+  font-size: 24px;
+  color: #fff;
+  background-color: #01afec;
+  padding: 0 20px;
+}
+#login p {
+  padding: 10px 0;
+  font-size: 12px;
+}
+#login th,
+#login td {
+  padding: 15px 0;
+}
