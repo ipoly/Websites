@@ -68,6 +68,23 @@
         return $(this).siblings(".dateEnd").datepicker("option", "minDate", new Date(dateText));
       }
     });
+    window.alert = function(str) {
+      var content, wraper;
+      wraper = $("<div/>");
+      content = $(str).show();
+      wraper.append(content).attr("title", content.attr("title") ? "注意" : void 0);
+      return wraper.dialog({
+        modal: true,
+        show: "fade",
+        hide: "fade",
+        buttons: {
+          "Ok": function() {
+            return $(this).dialog("close");
+          }
+        }
+      });
+    };
+    alert(".dialogDef");
     $(".dialogBtn").on("click", function() {
       if (this.dialog) {
         return this.dialog.dialog("open");

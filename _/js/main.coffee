@@ -69,6 +69,15 @@ $(->
 			$(@).siblings(".dateEnd").datepicker("option", "minDate", new Date(dateText))
 	})
 
+
+	# 重载alert
+	window.alert = (str) ->
+		wraper = $("<div/>")
+		content = $(str).show()
+		wraper.append(content).attr("title", if content.attr("title") then "注意")
+		wraper.dialog({modal:true,show:"fade",hide:"fade",buttons: { "Ok": -> $(@).dialog("close")}})
+	alert(".dialogDef")
+
 	# 初始化dialog
 	$(".dialogBtn").on("click",->
 		if @dialog
@@ -77,6 +86,7 @@ $(->
 			@dialog = $(@).next(".dialog").dialog({modal:true,show:"fade",hide:"fade"})
 			@dialog.dialog("option","dialogClass",@dialog.data("dialogclass"))
 	)
+
 
 	# 表单验证的提示
 	$(":input").on("invalid",->
