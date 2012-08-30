@@ -96,14 +96,6 @@ $(->
 		,@),0)
 	)
 
-	# 密码匹配验证
-	$("input[type=password]").on("change",->
-		that = $(@)
-		group = that.parents("form").find("input[type=password][name="+that.attr("name")+"]")
-		if group.length > 1 and @ is group[1]
-			validation = if group.eq(0).val() is group.eq(1).val() then "" else "两次输入密码不一致"
-			@setCustomValidity(validation)
-	)
 
 	# 初始化首页日历选择器
 	$("#calendarBig").datepicker({

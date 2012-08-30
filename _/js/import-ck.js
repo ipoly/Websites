@@ -567,8 +567,8 @@ jQuery(function($){
 			this.validity.valid = false;
 			this.validationMessage = e.validationMessage;
 			$(this).trigger("invalid");
-			if(this.id=="test"){
-				window.aaa=this;
+			if (this.id == "test") {
+				window.aaa = this;
 			}
 		};
 
@@ -579,14 +579,13 @@ jQuery(function($){
 
 			//重置验证属性
 			for (var vProp in this.validity) {
-				if(vProp != "customError"){
+				if (vProp != "customError") {
 					this.validity[vProp] = false;
 				}
 			}
 			this.validity.valid = !this.validity.customError;
 
 			// this.validationMessage = "";
-
 			var self = this;
 			$.each(this.attributes, $.proxy(function(i, n) {
 				var prop = "_check_" + n.nodeName;
@@ -636,7 +635,9 @@ jQuery(function($){
 		pattern._check_pattern = function() {
 			var that = $(this);
 			var reg = new RegExp(that.attr("pattern"));
-			if (!that.val()){return ; }
+			if (!that.val()) {
+				return;
+			}
 			if (!reg.test(that.val())) {
 				that.trigger({
 					type: "changeVState",
@@ -649,7 +650,9 @@ jQuery(function($){
 		//验证maxlength
 		pattern._check_maxlength = function() {
 			var that = $(this);
-			if (!that.val()){return ; }
+			if (!that.val()) {
+				return;
+			}
 			if (that.val().length > that.attr("maxlength")) {
 				that.trigger({
 					type: "changeVState",
@@ -662,7 +665,9 @@ jQuery(function($){
 		//验证email
 		pattern._check_email = function() {
 			var that = $(this);
-			if (!that.val()){return ; }
+			if (!that.val()) {
+				return;
+			}
 			if (!/\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/.test(that.val())) {
 				that.trigger({
 					type: "changeVState",
@@ -675,7 +680,9 @@ jQuery(function($){
 		//验证number
 		pattern._check_number = function() {
 			var that = $(this);
-			if (!that.val()){return ; }
+			if (!that.val()) {
+				return;
+			}
 			if (isNaN(parseInt(that.val(), 10))) {
 				that.trigger({
 					type: "changeVState",
@@ -688,7 +695,9 @@ jQuery(function($){
 		//验证date
 		pattern._check_date = function() {
 			var that = $(this);
-			if (!that.val()){return ; }
+			if (!that.val()) {
+				return;
+			}
 			if (!/^((((1[6-9]|[2-9]\d)\d{2})-(0?[13578]|1[02])-(0?[1-9]|[12]\d|3[01]))|(((1[6-9]|[2-9]\d)\d{2})-(0?[13456789]|1[012])-(0?[1-9]|[12]\d|30))|(((1[6-9]|[2-9]\d)\d{2})-0?2-(0?[1-9]|1\d|2[0-8]))|(((1[6-9]|[2-9]\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))-0?2-29-))$/.test(that.val())) {
 				that.trigger({
 					type: "changeVState",
@@ -701,7 +710,9 @@ jQuery(function($){
 		//验证url
 		pattern._check_url = function() {
 			var that = $(this);
-			if (!that.val()){return ; }
+			if (!that.val()) {
+				return;
+			}
 			if (!/[a-zA-z]+:\/\/\S*/.test(that.val())) {
 				that.trigger({
 					type: "changeVState",
@@ -718,9 +729,9 @@ jQuery(function($){
 			form.on("submit", function() {
 				var that = this;
 				var input = $(":input", this);
-				for(var i=0;i<input.length;i++){
+				for (var i = 0; i < input.length; i++) {
 					input[i].checkValidity();
-					if(!input[i].validity.valid){
+					if (!input[i].validity.valid) {
 						return false;
 					}
 				}
@@ -736,12 +747,21 @@ jQuery(function($){
 				});
 			}
 
-
 		});
 		return this;
 	};
 
 	$(function() {
 		$("form").formvalidate();
+		
+		// 密码匹配验证
+		$("input[type=password]").on("change", function() {
+			var that = $(this);
+			var group = that.parents("form").find("input[type=password][name=" + that.attr("name") + "]");
+			if (group.length > 1 && this == group[1]) {
+				var validation = group.eq(0).val() == group.eq(1).val() ? "" : "两次输入密码不一致";
+				this.setCustomValidity(validation);
+			}
+		});
 	});
 })(jQuery, window);
