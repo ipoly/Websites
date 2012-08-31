@@ -1169,6 +1169,12 @@
 body {
   background-color: #fff;
 }
+input::-webkit-input-placeholder {
+  color: #dedede;
+}
+input:-moz-placeholder {
+  color: #dedede;
+}
 a {
   color: #333333;
   text-decoration: none;
@@ -1196,6 +1202,12 @@ button,
   cursor: pointer;
   overflow: hidden;
   outline: none;
+}
+textarea {
+  border: 1px solid #abadb3;
+  width: 70%;
+  height: 6em;
+  line-height: 150%;
 }
 .ie6 .navBar .fr {
   padding-top: 5px;
@@ -1295,6 +1307,15 @@ button,
 .decline {
   background-position: -40px -100px;
 }
+.attention {
+  background-position: -100px -100px;
+}
+.attention_yellow {
+  background-position: -180px -100px;
+}
+.mail {
+  background-position: -120px -100px;
+}
 .more {
   background-position: -140px -100px;
 }
@@ -1314,11 +1335,42 @@ button,
   background-position: -340px -160px;
   background-position: -380px -160px;
 }
+.bad {
+  background: url(../img/sprite2.png) no-repeat;
+  width: 40px;
+  height: 40px;
+  background-position: -340px -160px;
+  background-position: -420px -160px;
+}
+.note_yellow {
+  background: url(../img/sprite2.png) no-repeat;
+  width: 40px;
+  height: 40px;
+  background-position: -340px -160px;
+  background-position: -340px -200px;
+}
+.ok_yellow {
+  background: url(../img/sprite2.png) no-repeat;
+  width: 40px;
+  height: 40px;
+  background-position: -340px -160px;
+  background-position: -380px -200px;
+}
+.bad_yellow {
+  background: url(../img/sprite2.png) no-repeat;
+  width: 40px;
+  height: 40px;
+  background-position: -340px -160px;
+  background-position: -420px -200px;
+}
 .asLink {
   border: none;
   background: transparent;
   color: #01afec;
   width: auto;
+}
+.btnOpacity {
+  background: none;
 }
 .btnBlue1 {
   width: 85px;
@@ -1349,6 +1401,13 @@ button,
 .btnBlue4:hover {
   border: 1px solid #01afec;
   background: #01afec;
+  color: #fff;
+}
+.btnBlue5 {
+  width: 125px;
+  height: 40px;
+  background-position: -280px -300px;
+  font-size: 14px;
   color: #fff;
 }
 .btnGray1 {
@@ -1579,13 +1638,22 @@ button,
   background-position: 0 -540px;
   background-repeat: repeat-x;
 }
-.header6 a {
+.header6 a,
+.header6 label {
   vertical-align: top;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
   display: inline-block;
   height: 31px;
   line-height: 31px;
   padding: 0 20px;
   margin-right: 10px;
+}
+.header6 label input {
+  display: none;
 }
 .header6 .on {
   color: #fff;
@@ -1609,6 +1677,28 @@ button,
   color: #01afec;
   font-size: 24px;
   padding: 10px 0;
+}
+.header10 {
+  border-bottom: 2px solid #a6a6a6;
+  color: #01afec;
+  font-size: 24px;
+  padding: 10px 0;
+  font-size: 16px;
+}
+.header11 {
+  margin-bottom: 10px;
+  position: relative;
+  border-bottom: 1px solid #dedede;
+  font-size: 16px;
+  line-height: 34px;
+  color: #999999;
+  *zoom: 1;
+}
+.header11 .fr {
+  position: absolute;
+  line-height: 100%;
+  right: 0;
+  bottom: 5px;
 }
 .borderblock0 {
   border: 1px solid #dedede;
@@ -1677,6 +1767,26 @@ button,
 .borderblock7 .on {
   background-color: #01afec;
   color: #fff;
+}
+.borderblock8 {
+  border: 1px solid #d82e1c;
+  white-space: nowrap;
+  color: #d82e1c;
+  padding: 1px 5px;
+  background-color: #fff5ec;
+}
+.borderblock9 {
+  border: 1px solid #dedede;
+  padding: 10px;
+  background-color: #fff;
+}
+.borderblock9 label {
+  display: inline-block;
+  margin: 15px;
+}
+.borderblock10 {
+  border-top: 1px dashed #dedede;
+  padding: 30px 0;
 }
 .ol1 {
   list-style: none;
@@ -1762,7 +1872,14 @@ button,
 .clearfix {
   display: block;
 }
+#logo {
+  display: inline-block;
+  width: 208px;
+  height: 74px;
+}
 .topHeader {
+  position: relative;
+  z-index: 1;
   background: url(../img/headerbg.png) 0 35px repeat-x;
   min-height: 148px;
   _height: 148px;
@@ -1803,7 +1920,7 @@ button,
   border-top-width: 0;
   background-color: #fafafa;
   left: 0;
-  top: 38px;
+  top: 37px;
   overflow: visible;
 }
 .topHeader .navBar .dropNav ul li {
@@ -2357,6 +2474,9 @@ button,
   margin-bottom: 10px;
   height: 35px;
 }
+.tab4 .content section {
+  display: none;
+}
 .tab .ul1 {
   display: none;
 }
@@ -2734,6 +2854,26 @@ button,
 }
 .ul8 p {
   color: #999999;
+}
+.ul9 {
+  font-size: 0;
+  margin: 0 -10px;
+}
+.ul9 input {
+  vertical-align: middle;
+}
+.ul9 img {
+  vertical-align: middle;
+  display: inline-block;
+  width: 110px;
+  height: 30px;
+  margin-left: 5px;
+}
+.ul9 label {
+  vertical-align: top;
+  white-space: nowrap;
+  display: inline-block;
+  margin: 0 10px 10px;
 }
 .table1 {
   width: 100%;
@@ -3535,9 +3675,9 @@ button,
   background-position: -40px -100px;
 }
 .validityMsg span {
-  border: 1px solid #d82e1c;
   vertical-align: middle;
   position: absolute;
+  border: 1px solid #d82e1c;
   white-space: nowrap;
   color: #d82e1c;
   padding: 1px 5px;
@@ -3627,6 +3767,124 @@ button,
 .centerContent a {
   color: #01afec;
 }
+.centerContent1 {
+  text-align: center;
+  line-height: 150%;
+  padding: 30px 40px;
+  padding: 20px 10px 0;
+}
+.centerContent1 section {
+  vertical-align: middle;
+  text-align: left;
+  display: inline-block;
+}
+.centerContent1 h1 {
+  font-size: 14px;
+  margin-bottom: 1em;
+}
+.centerContent1 a {
+  color: #01afec;
+}
+.centerContent1 i {
+  vertical-align: top;
+}
+.centerContent1 p {
+  color: #999999;
+}
+.centerContent1 h1 {
+  font-size: 24px;
+  line-height: 150%;
+}
+.centerContent1 span {
+  margin-right: 10px;
+}
+.centerContent1 b {
+  color: #d82e1c;
+}
+.centerContent1 footer {
+  border-top: 1px dashed #dedede;
+  padding: 30px 0;
+  text-align: left;
+  position: relative;
+  margin-top: 10px;
+  padding: 10px 0;
+}
+.centerContent1 footer .fr {
+  position: absolute;
+  right: 0px;
+  bottom: 10px;
+}
 .number i {
   cursor: pointer;
+}
+.fadeHide {
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  margin-bottom: 0;
+}
+.confirm {
+  display: none;
+}
+.edit {
+  display: inline-block;
+}
+.valueHolder {
+  vertical-align: middle;
+  display: inline-block;
+}
+.onEdit .confirm {
+  display: inline-block;
+}
+.onEdit .edit {
+  display: none;
+}
+.onEdit .valueHolder {
+  display: none;
+}
+#ticketCheck {
+  padding: 20px;
+}
+#ticketCheck .fl {
+  width: 45%;
+  min-height: 200px;
+  _height: 200px;
+  border-right: 1px solid #dedede;
+}
+#ticketCheck .fr {
+  width: 50%;
+}
+#ticketCheck .fr h1 {
+  margin-bottom: 10px;
+  padding: 0;
+  font-size: 14px;
+}
+#ticketCheck .fr p {
+  color: #999999;
+  line-height: 180%;
+  margin-bottom: 1em;
+}
+#ticketCheck form {
+  margin-bottom: 20px;
+  background-color: #01afec;
+  padding: 4px;
+  width: 358px;
+  white-space: nowrap;
+}
+#ticketCheck .text {
+  border: 1px solid #ffffff;
+  width: 280px;
+}
+#ticketCheck .btnOpacity {
+  font-size: 14px;
+  color: #fff;
+  font-weight: bold;
+  width: 60px;
+}
+#ticketCheck .borderblock6 {
+  padding: 20px;
+  width: 324px;
+  font-size: 24px;
+  font-weight: bold;
 }

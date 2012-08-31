@@ -1,10 +1,10 @@
 {
 	"list":[
 	{"value":1, "text":"北京"},
-	{"value":2, "text":"天津"},
+	{"value":2, "text":"四川"},
 	{"value":3, "text":"上海"},
-	{"value":4, "text":"chengdu"},
-	{"value":5, "text":"shenzhen"},
-	{"value":6, "text":"东京"}
+	{"value":4, "text":"ziyang"},
+	{"value":"q12", "text":"深圳"},
+	{"value":6, "text":"东京","selected":"selected"}
 	]
 }

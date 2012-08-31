@@ -2,7 +2,7 @@
 (function() {
 
   $(function() {
-    var lis, slider;
+    var lis, slider, tabMethod;
     $(".popSelector").on("click", function() {
       return $(this).toggleClass("on");
     }).on("mouseleave", function() {
@@ -73,13 +73,14 @@
         return $(this).addClass("o" + (i + 1));
       });
     });
-    $(".tab").on("mouseenter", "header > :header", function(e) {
+    tabMethod = function(e) {
       var root, that;
       that = $(this);
       root = that.parents(".tab");
       that.addClass("on").siblings().removeClass("on");
       return root.find(".content > *").removeClass("on").eq(that.index()).addClass("on");
-    }).find("header>*:first").trigger("mouseenter");
+    };
+    $(".tab").on("mouseenter", "header > :header", tabMethod).on("click", "header > label", tabMethod).find("header>*:first").trigger("click").trigger("mouseenter");
     $("table").on("click", function(e) {
       var tango;
       tango = $(e.target);
@@ -95,7 +96,7 @@
         x = each[_i];
         total += parseInt(x, 10) || 0;
       }
-      return $("tfoot .total", this).html(total);
+      return $("tfoot .total", this).html(total + "元");
     }).on("change", "tbody tr", function(e) {
       if (!this.price) {
         this.price = parseInt($(".price", this).text(), 10);
@@ -156,7 +157,7 @@
         }
       }
     });
-    $(":input").on("invalid", function() {
+    $("form").on("invalid", ":input", function() {
       var that;
       that = $(this);
       that.focus().select();
@@ -169,13 +170,16 @@
         }
       }
       return this.validityMsg.addClass("invalid").find("strong").html(this.validationMessage);
-    }).on("change", function() {
+    }).on("change", ":input", function() {
       var _ref;
       if ((_ref = this.validityMsg) != null) {
         _ref.removeClass("invalid");
       }
       return setTimeout($.proxy(function() {
-        return this.checkValidity();
+        this.checkValidity();
+        if (!this.validity.valid) {
+          return $(this).trigger("invalid");
+        }
       }, this), 0);
     });
     $("#calendarBig").datepicker({

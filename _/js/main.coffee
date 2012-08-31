@@ -50,7 +50,7 @@ $(->
 				val++
 			input.val(val).trigger("change")
 		)
-		
+
 		# 限定上下限
 		$("input[type=number]").on("change", (e)->
 			that = $(@)
@@ -72,12 +72,13 @@ $(->
 	)
 
 	# 初始化tab标签模块
-	$(".tab").on("mouseenter","header > :header",(e)->
+	tabMethod = (e)->
 		that = $(@)
 		root = that.parents(".tab")
 		that.addClass("on").siblings().removeClass("on")
 		root.find(".content > *").removeClass("on").eq(that.index()).addClass("on")
-	).find("header>*:first").trigger("mouseenter")
+	$(".tab").on("mouseenter","header > :header",tabMethod)
+	.on("click","header > label",tabMethod).find("header>*:first").trigger("click").trigger("mouseenter")
 
 	# 初始化全选按钮
 	$("table").on("click",(e)->
@@ -91,7 +92,7 @@ $(->
 		total = 0
 		each = $("tbody .total",@).text().split(/\D+/g)
 		total += parseInt(x,10)||0 for x in each
-		$("tfoot .total",@).html(total)
+		$("tfoot .total",@).html(total+"元")
 	)
 	.on("change","tbody tr",(e) ->
 		if !@price
@@ -133,7 +134,7 @@ $(->
 
 
 	# 表单验证的提示
-	$(":input").on("invalid",->
+	$("form").on("invalid",":input",->
 		that = $(@)
 		that.focus().select()
 		if !@validityMsg
@@ -143,10 +144,11 @@ $(->
 			else
 				that.after(@validityMsg)
 		@validityMsg.addClass("invalid").find("strong").html(@validationMessage)
-	).on("change",->
+	).on("change",":input",->
 		@validityMsg?.removeClass("invalid")
 		setTimeout($.proxy(->
 			@checkValidity()
+			if !@validity.valid then $(@).trigger("invalid")
 		,@),0)
 	)
 

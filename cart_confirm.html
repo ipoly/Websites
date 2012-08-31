@@ -14,7 +14,7 @@
 	<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-	<title>购物清单－立即送票务</title>
+	<title>确认订单－立即送票务</title>
 	
 	<meta name="title" content=""/>
 	<meta name="description" content=""/>
@@ -111,15 +111,15 @@
 		<div class="wrapper">
 			<!-- 主内容区 -->
 			<nav id="cartNav">
-				<i class="on">1.我的购物车</i>
-				<i>2.确认订单信息</i>
+				<i>1.我的购物车</i>
+				<i class="on">2.确认订单信息</i>
 				<i>3.选择支付方式</i>
 				<i>4.追踪订单</i>
 			</nav>
 			<div class="borderblock1">
-				<h1 class="header10">商品清单</h1>
 				<form action="">
-					<table class="table9 cartGrid">
+					<h1 class="header10">商品清单</h1>
+					<table class="table9 cartGrid mb10">
 						<thead>
 							<tr>
 								<th>商品名称</th>
@@ -188,14 +188,227 @@
 						<tfoot>
 							<tr>
 								<td colspan="5">
-									<section class="tal">
-										<p>共计 <b class="total"></b></p>
-										<input type="submit" class="btn btnBlue2" value="提交订单"/>
-									</section>
+									<section class="tal"> <p>共计 <b class="total"></b></p> </section>
 								</td>
 							</tr>
 						</tfoot>
 					</table>
+					<h1 class="header10">选择配送方式</h1>
+					<div class="tab tab4">
+						<header class="header6">
+							<label class="on"><input type="radio" name="testRadio" checked/>快递配送</label>
+							<label><input type="radio" name="testRadio" checked/>上门自取</label>
+							<label><input type="radio" name="testRadio" checked/>电子票</label>
+						</header>
+						<div class="content">
+							<section class="borderblock2 p20">
+								<h2 class="header11">
+									收货人信息
+									<div class="fr">
+										<select name="address" data-observer="#addressForm">
+											<option value="">选择其他收货人</option>
+											<option value="ad1">收货人1</option>
+											<option value="ad2">收货人2</option>
+											<option value="ad3">收货人3</option>
+										</select>
+									</div>
+								</h2>
+								<!-- onEdit显示编辑状态 -->
+								<table class="table5 mb20 onEdit">
+									<tbody id="addressForm" data-source="/json/formfill.json" data-method="get" data-template-name="addressTemplate"></tbody>
+									<tfoot>
+										<tr>
+											<th></th>
+											<td>
+												<button class="btn btnBlue5 confirm">确认收货人信息</button>
+												<button class="btn btnBlue5 edit">编辑收货人信息</button>
+											</td>
+										</tr>
+									</tfoot>
+								</table>
+								<!-- 动态下拉列表的模板 -->
+								<script type="text/juicer" name="listItem">
+									{$each list as item}
+										<option value="${item.value}" ${item.selected}>${item.text}</option>
+									{$/each}
+								</script>
+								<!-- addressForm的模板 -->
+								<script type="text/juicer" name="addressTemplate">
+									<tr>
+										<th><b>*</b>收货人：</th>
+										<td>
+											<span class="valueHolder"></span>
+											<input type="text" value="${userName}" name="userName" class="text" required/>
+										</td>
+									</tr>
+									<tr>
+										<th><b>*</b>所在地区：</th>
+										<td>
+											<span class="valueHolder"></span>
+											<!--data-selected用于设置当前选中项,对应value和内容值皆可-->
+											<select name="sheng" data-observer="#shi" data-source="/json/shi.json" data-template-name="listItem" data-selected="${sheng}" required data-method="get">
+												<option value="">选择省</option>
+											</select>
+											省
+											<span class="valueHolder"></span>
+											<select name="shi" id="shi" data-observer="#qu" data-source="/json/shi.json" data-template-name="listItem" data-selected="${shi}" required data-method="get">
+												<option value="">请先选择省</option>
+											</select>
+											市
+											<span class="valueHolder"></span>
+											<select name="qu" id="qu" data-source="/json/shi.json" data-template-name="listItem"  data-selected="${qu}" required data-method="get">
+												<option value="">请先选择市</option>
+												{$if sheng}
+													{$each qu as item}
+														<option value="${item.value}" ${item.isSelected}>${item.text}</option>
+													{$/each}
+												{$/if}
+											</select>
+											区
+
+											<a class="blue" href="">[查看货到付款范围]</a>
+										</td>
+									</tr>
+									<tr>
+										<th><b>*</b>街道地址：</th>
+										<td><span class="valueHolder"></span><input name="street" value="${street}" type="text" class="textlong" required/></td>
+									</tr>
+									<tr>
+										<th>邮政编码：</th>
+										<td><span class="valueHolder"></span><input name="zipcode" value="${zipcode}" type="text" class="text"/></td>
+									</tr>
+									<tr>
+										<th>邮件：</th>
+										<td><span class="valueHolder"></span><input name="mail" value="${mail}" type="mail" class="text"/></td>
+									</tr>
+									<tr>
+										<th><b>*</b>手机：</th>
+										<td>
+											<span class="valueHolder"></span>
+											<input name="phone" value="${phone}" type="phone" class="text" required/>
+											<b>小提醒：本订单相关的服务短信都将发往此手机</b>
+										</td>
+									</tr>
+									<tr>
+										<th>固定电话：</th>
+										<td>
+											<span class="valueHolder"></span>
+											<input type="tel" name="tel" value="${tel}" class="text" pattern="\d{3}-\d{8}(-\d{}4)?"/>
+											格式：028-87435810-400
+										</td>
+									</tr>
+								</script>
+							</section>
+							<section class="borderblock2 p20">
+								<h2 class="header11">取货信息</h2>
+								<table class="table5 mb20">
+									<tbody>
+										<tr>
+											<th><b>*</b>取货人：</th>
+											<td> <input type="text" class="text" required/> </td>
+										</tr>
+										<tr>
+											<th><b>*</b>取货城市：</th>
+											<td>
+												<select name=""  required>
+													<option value="">请选择城市</option>
+													<option value="1">省1</option>
+													<option value="2">省2</option>
+													<option value="3">省3</option>
+												</select>
+												<a class="blue" href="">[查看自提地址]</a>
+												某些地区不支持上门自取，您可选择其他订购方式
+											</td>
+										</tr>
+										<tr>
+											<th><b>*</b>手机：</th>
+											<td>
+												<input type="phone" class="text" required/>
+												<b>小提醒：本订单相关的服务短信都将发往此手机</b>
+											</td>
+										</tr>
+										<tr>
+											<th></th>
+											<td>
+												<span class="borderblock8 ib"><i class="attention"></i> 重要： 支付成功后,自取地址将发送至您所填写的手机号码上,您也可以在订单详情页中进行查询 </span>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</section>
+							<section class="borderblock2 p20">
+								<h2 class="header11">电子票获取方式</h2>
+								<div class="borderblock9 f14 p20">
+									<label><input name="testR" type="radio" checked/> 在线打印</label>
+									<label><input name="testR" type="radio"/> 手机短信</label>
+									<label><input name="testR" type="radio"/> 二代身份证</label>
+								</div>
+								<table class="table5 mb20">
+									<tbody>
+										<tr>
+											<th><b>*</b>联系人：</th>
+											<td> <input type="text" class="text" required/> </td>
+										</tr>
+										<tr>
+											<th><b>*</b>手机：</th>
+											<td>
+												<input type="phone" class="text" name="phone" marched required/>
+												<b>小提醒：本订单相关的服务短信都将发往此手机</b>
+											</td>
+										</tr>
+										<tr>
+											<th><b>*</b>确认手机：</th>
+											<td>
+												<input type="phone" class="text" name="phone" marched required/>
+											</td>
+										</tr>
+										<tr>
+											<th></th>
+											<td>
+												<span class="borderblock8 ib">
+													<i class="attention"></i>
+													温馨提示：方便有问题时客服人员与您取得联系。
+												</span>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</section>
+						</div>
+					</div>
+					<h1 class="header10">选择支付方式</h1>
+					<div class="borderblock9 f14">
+						<label><input type="radio" checked /> 在线支付</label>
+					</div>
+					<div class="p20">
+						<div class="mb10" style="padding-left:5px;">
+							<label><input type="checkbox" onchange="$('#toggleBlock').toggleClass('fadeHide')"/> 我要开发票</label>
+						</div>
+						<div class="borderblock4 mb10 transition fadeHide" id="toggleBlock">
+							<table class="table5">
+								<tr>
+									<th>发票类型：</th>
+									<td>
+										<label for=""><input type="radio" name="test3" checked/> 公司</label>
+										<label for=""><input type="radio" name="test3" /> 个人</label>
+									</td>
+								</tr>
+								<tr>
+									<th>发票抬头：</th>
+									<td>
+										<input type="text" class="textmed"/>
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div class="mb10">
+							<label><i class="mail"></i> 我要留言</label>
+						</div>
+							<textarea name=""></textarea>
+					</div>
+					<div class="borderblock10 tar">
+						<input type="submit" class="btn btnBlue5" value="确认付款"/>
+					</div>
 				</form>
 			</div>
 			<!-- 主内容区 -->
@@ -324,7 +537,76 @@
 	<!-- this is where we put our custom functions -->
 	<script src="_/js/import-ck.js"></script>
 	<script src="_/js/main.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			// 初始化地址表单填充
+			$("#addressForm").on("dataRender",function(e){
+				if(e.target == this){
+					setTimeout($.proxy(function(){
+						var inputs = $(":input",this);
+						if (!$("<input/>")[0].validity) {
+							inputs.each(function() {
+								var that = $(this);
+								var dom = new Validity(this);
+							});
+						}
+					},this),0);
+					setTimeout($.proxy(function(){
+						var sheng = $("[name=sheng]",this);
 
+						// 如果表单填充完成后，省的下拉列表没有数据填充则请求数据
+						if(sheng.find("option").length <= 1){
+							sheng.trigger("dataChange");
+						}
+					},this),0);
+				}
+			})
+			.trigger("dataRender",{
+				//如果需要初始化为某个地址，json数据写这里，结构参照json/formfill.json
+			});
+
+			$(".onEdit").on("click","button",function(e){e.preventDefault();})
+			.on("click",function(e){
+				var that = $(this);
+				var tango = $(e.target);
+				var inputs = $(":input:not(button)",this);
+				var t,str;
+				if(tango.is(".confirm")){
+					for (var i=0;i<inputs.length;i++){
+						t = inputs[i];
+						t.checkValidity();
+						if(!t.validity.valid){
+							$(t).trigger("invalid");
+							return false;
+						}
+						t = $(t);
+						if (t.is("select")){
+							str = t.find(":selected").text();
+						}
+						else if (that.is(":checkbox,:radio")){
+							str = t.parent().text();
+						}
+						else {
+							str = t.val();
+						}
+						t.prev(".valueHolder").html(str);
+					}
+					inputs.each(function(){
+						var that = $(this);
+						var str = "";
+						
+					});
+					that.removeClass("onEdit");
+					inputs.hide();
+				}
+				else if(tango.is(".edit")){
+					that.addClass("onEdit");
+					inputs.show();
+				}
+			});
+		});
+
+	</script>
 <!-- Asynchronous google analytics; this is the official snippet.
 	 Replace UA-XXXXXX-XX with your site's ID and uncomment to enable.
 	 

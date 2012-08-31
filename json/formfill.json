@@ -1,0 +1,9 @@
+{
+	"userName":"张三",
+	"备注":"将省市区作为select的data－selected属性，以设定当前选中项，value或者内容皆可",
+	"sheng":"四川",
+	"shi":"ziyang",
+	"qu":"q12",
+	"street":"一个地址～～～～～～～～～～",
+	"zipcode":""
+}

@@ -1,17 +1,3 @@
-// 导入js文档
-//@codekit-append "jquery.easing.min.js";
-//@codekit-append "jcarousellite_1.0.1.js";
-//@codekit-append "jquery-ui.js";
-//@codekit-append "jquery.ui.CN.js";
-//@codekit-append "juicer.js";
-//@codekit-append "observer.js";
-//@codekit-append "formvalidate.js";
-
-
-/* **********************************************
-     Begin jquery.easing.min.js
-********************************************** */
-
 /* ============================================================
  * jQuery Easing v1.3 - http://gsgd.co.uk/sandbox/jquery/easing/
  *
@@ -482,22 +468,32 @@ jQuery(function($){
 
 		//为所有有data-source属性的元素在dataChange时发起ajax请求
 		root.on("dataChange.observer", "[data-source]", function(e, data) {
-			var that = $(this);
-			$.post(that.data("source"), data, null, "json").done(function(data) {
-				that.trigger("dataRender", data);
-			});
+			if(e.target == this){
+				var that = $(this);
+				$[that.data("method")||"post"](that.data("source"), data, null, "json").done(function(data) {
+					that.trigger("dataRender", data);
+				});
+			}
 		});
 
 		//为所有data-template-name属性的元素绑定模板渲染事件
 		root.on("dataRender.observer", "[data-template-name],[data-item-name]", function(e, data) {
-			var that = $(this);
-			if (!data) {
-				return false;
-			}
-			var tpl = $("script[name=" + (that.data("template-name") || that.data("item-name")) + "]").html();
-			if (tpl) {
-				that[that.is("[data-template-name]")?"html":"append"](juicer(tpl, data));
-				setTimeout(function(){that.trigger("change");},0);
+			if(e.target == this){
+				var that = $(this);
+				if (!data) {
+					return false;
+				}
+				var tpl = $("script[name=" + (that.data("template-name") || that.data("item-name")) + "]").html();
+				if (tpl) {
+					that[that.is("[data-template-name]")?"html":"append"](juicer(tpl, data));
+					var selected = that.data("selected");
+					if(that.is("select") && selected){
+						setTimeout(function(){
+							var a = that.find("option").filter("[value="+selected+"],:contains('"+selected+"')").attr("selected",true);
+						},0);
+					}
+					setTimeout(function(){that.trigger("change");},0);
+				}
 			}
 		});
 	});
@@ -722,46 +718,87 @@ jQuery(function($){
 			}
 		};
 
+		//验证手机
+		pattern._check_phone = function() {
+			var that = $(this);
+			if (!that.val()) {
+				return;
+			}
+			if (!/\d{11}/.test(that.val())) {
+				that.trigger({
+					type: "changeVState",
+					validationType: "typeMismatch",
+					validationMessage: "请输入11位手机号码。"
+				});
+			}
+		};
+
 		this.each(function() {
 			var form = $(this);
 			this.noValidate = true;
 
-			form.on("submit", function() {
+			form.on("submit", function(e) {
 				var that = this;
-				var input = $(":input", this);
+				var input = $(":input:visible", this);
 				for (var i = 0; i < input.length; i++) {
 					input[i].checkValidity();
 					if (!input[i].validity.valid) {
+						$(input[i]).trigger("invalid");
 						return false;
 					}
 				}
 			});
 
-			if (!$("<input/>")[0].validity) {
+			var inputs = form.find(":input");
 
-				form.find(":input").each(function() {
+			if (!$("<input/>")[0].validity) {
+				inputs.each(function() {
 					var that = $(this);
 					var dom = new Validity(this);
 					that.trigger("checkValidity");
-
 				});
 			}
 
 		});
+		window.Validity = Validity;
 		return this;
 	};
+
 
 	$(function() {
 		$("form").formvalidate();
 
-		// 密码匹配验证
-		$("input[type=password]").on("change", function() {
+		// 匹配验证
+		$("input[type=password],input[marched]").on("change", function() {
 			var that = $(this);
-			var group = that.parents("form").find("input[type=password][name=" + that.attr("name") + "]");
+			var group = that.closest(".validationBlock,form").find("[name=" + that.attr("name") + "]");
 			if (group.length > 1 && this == group[1]) {
-				var validation = group.eq(0).val() == group.eq(1).val() ? "" : "两次输入密码不一致";
+				var validation = group.eq(0).val() == group.eq(1).val() ? "" : "两次输入不一致";
 				this.setCustomValidity(validation);
 			}
 		});
 	});
 })(jQuery, window);
+
+/* **********************************************
+     Begin import.js
+********************************************** */
+
+// 导入js文档
+//@codekit-prepend "jquery.easing.min.js";
+//@codekit-prepend "jcarousellite_1.0.1.js";
+//@codekit-prepend "jquery-ui.js";
+//@codekit-prepend "jquery.ui.CN.js";
+//@codekit-prepend "juicer.js";
+//@codekit-prepend "observer.js";
+//@codekit-prepend "formvalidate.js";
+juicer.set({
+    'tag::operationOpen': '{$',
+    'tag::operationClose': '}',
+    'tag::interpolateOpen': '${',
+    'tag::interpolateClose': '}',
+    'tag::noneencodeOpen': '$${',
+    'tag::noneencodeClose': '}',
+    'tag::commentOpen': '{#',
+    'tag::commentClose': '}'
+});

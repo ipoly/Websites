@@ -107,6 +107,8 @@
 body {
 	background-color:#fff;
 }
+input::-webkit-input-placeholder{color:@gray2;}
+input:-moz-placeholder{color:@gray2;}
 
 a {
 	color:@dark1;
@@ -137,6 +139,13 @@ button,.btn {
 	cursor: pointer;
 	overflow: hidden;
 	outline: none;
+}
+
+textarea {
+	.border1(@gray14);
+	width: 70%;
+	height: 6em;
+	line-height: 150%;
 }
 
 // iefucker
@@ -188,17 +197,29 @@ button,.btn {
 .search {width: 23px;height: 24px;background-position:0 -60px;}
 .pass {background-position: -20px -100px;}
 .decline {background-position: -40px -100px;}
+.attention {background-position: -100px -100px;}
+.attention_yellow {background-position: -180px -100px;}
+.mail {background-position: -120px -100px;}
 .more {background-position: -140px -100px;}
 .less {background-position: -160px -100px;}
 
 .note {.sprite2;width:40px;height:40px;background-position:-340px -160px;}
 .ok {.note;background-position:-380px -160px;}
+.bad {.note;background-position:-420px -160px;}
+
+.note_yellow {.note;background-position:-340px -200px;}
+.ok_yellow {.note;background-position:-380px -200px;}
+.bad_yellow {.note;background-position:-420px -200px;}
 
 .asLink {
 	border: none;
 	background: transparent;
 	color: @blue1;
 	width: auto;
+}
+
+.btnOpacity {
+	background:none;
 }
 
 .btnBlue1 {
@@ -234,6 +255,14 @@ button,.btn {
 .btnBlue4:hover {
 	.border1(@blue1);
 	background: @blue1;
+	color: #fff;
+}
+
+.btnBlue5 {
+	width: 125px;
+	height: 40px;
+	background-position: -280px -300px;
+	font-size: 14px;
 	color: #fff;
 }
 
@@ -427,13 +456,17 @@ button,.btn {
 	line-height: 32px;
 	background-position: 0 -540px;
 	background-repeat: repeat-x;
-	a {
+	a,label {
 		.vat;
+		.transition;
 		display: inline-block;
 		height: 31px;
 		line-height: 31px;
 		padding: 0 20px;
 		margin-right: 10px;
+	}
+	label input {
+		display: none;
 	}
 	.on {
 		color: #fff;
@@ -462,6 +495,28 @@ button,.btn {
 	font-size: 24px;
 	padding: 10px 0;
 }
+
+.header10 {
+	.header9;
+	font-size: 16px;
+}
+
+.header11 {
+	.mb10;
+	.posr;
+	border-bottom: 1px solid @gray2;
+	font-size: 16px;
+	line-height: 34px;
+	color: @gray3;
+	*zoom:1;
+	.fr {
+		.posa;
+		line-height: 100%;
+		right: 0;
+		bottom: 5px;
+	}
+}
+
 
 .borderblock0 {
 	.border1;
@@ -540,6 +595,28 @@ button,.btn {
 	}	
 }
 
+.borderblock8 {
+	.border1(@red1);
+	white-space: nowrap;
+	color: @red1;
+	padding: 1px 5px;
+	background-color: @red3;
+}
+
+.borderblock9 {
+	.borderblock1;
+	background-color:#fff;
+	label {
+		display: inline-block;
+		margin: 15px;
+	}
+}
+
+.borderblock10 {
+	border-top: 1px dashed @gray2;
+	padding: 30px 0;
+}
+
 
 .ol1 {
 	list-style: none;
@@ -592,7 +669,16 @@ button,.btn {
 .clearfix {display: inline-block;}
 .clearfix {display: block;}
 
+
+#logo {
+	display:inline-block;
+	width: 208px;
+	height: 74px;
+}
+
 .topHeader {
+	.posr;
+	z-index: 1;
 	background:url(../img/headerbg.png) 0 35px repeat-x;
 	min-height: 148px;
 	_height:148px;
@@ -630,7 +716,7 @@ button,.btn {
 				border-top-width: 0;
 				background-color: @gray4;
 				left: 0;
-				top: 38px;
+				top: 37px;
 				overflow:visible;
 				li {
 					.posr;
@@ -1092,6 +1178,12 @@ button,.btn {
 	}
 }
 
+.tab4 {
+	.content section {
+		display: none;
+	}
+}
+
 .tab {
 	.ul1 {
 		display:none;
@@ -1417,6 +1509,27 @@ button,.btn {
 
 	p {
 		color: @gray3;
+	}
+}
+
+.ul9 {
+	font-size: 0;
+	margin:0 -10px;
+	input {
+		.vam;
+	}
+	img {
+		.vam;
+		display: inline-block;
+		width: 110px;
+		height: 30px;
+		margin-left: 5px;
+	}
+	label {
+		.vat;
+		white-space: nowrap;
+		display: inline-block;
+		margin: 0 10px 10px;
 	}
 }
 
@@ -2104,13 +2217,9 @@ button,.btn {
 	*zoom: 1;
 	i {.decline; }
 	span {
-		.border1(@red1);
 		.vam;
 		.posa;
-		white-space: nowrap;
-		color: @red1;
-		padding: 1px 5px;
-		background-color: @red3;
+		.borderblock8;
 		display: none;
 	}
 }
@@ -2207,6 +2316,94 @@ button,.btn {
 	a {.blue;}
 }
 
+.centerContent1 {
+	.centerContent;
+	padding: 20px 10px 0;
+	i {.vat;}
+	p {color: @gray3; }
+	h1 {font-size:24px;line-height: 150%;}
+	span {margin-right:10px;}
+	b {.red;}
+	footer {
+		.borderblock10;
+		.tal;
+		.posr;
+		margin-top: 10px;
+		padding: 10px 0;
+		.fr {
+			.posa;
+			right: 0px;
+			bottom: 10px;
+		}
+	}
+}
+
 .number {
 	i { cursor: pointer; }
+}
+
+.fadeHide {
+	height: 0;
+	overflow: hidden;
+	opacity: 0;
+	filter:alpha(opacity=0);
+	margin-bottom: 0;
+}
+
+.confirm {display: none;}
+.edit {display: inline-block;}
+.valueHolder {.vam;display:inline-block;}
+.onEdit {
+	.confirm {display: inline-block; }
+	.edit {display: none;}
+	.valueHolder {display:none;}
+}
+
+#ticketCheck {
+	padding:20px;
+
+	.fl {
+		width: 45%;
+		min-height: 200px;
+		_height: 200px;
+		border-right: 1px solid @gray2;
+	}
+	.fr {
+		width: 50%;
+		h1 {
+			.mb10;
+			padding:0;
+			font-size:14px;
+		}
+		p {
+			color: @gray3;
+			line-height: 180%;
+			margin-bottom: 1em;
+		}
+	}
+
+	form {
+		.mb20;
+		background-color: @blue1;
+		padding:4px;
+		width:358px;
+		white-space: nowrap;
+	}
+	.text {
+		.border1(#fff);
+		width: 280px;
+	}
+	.btnOpacity {
+		font-size: 14px;
+		color:#fff;
+		font-weight: bold;
+		width: 60px;
+	}
+
+	.borderblock6 {
+		.p20;
+		width: 324px;
+		font-size: 24px;
+		font-weight: bold;
+	}
 }
