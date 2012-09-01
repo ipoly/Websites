@@ -203,7 +203,7 @@
 								<th>演出时间：</th>
 								<td class="datetime" data-observer=".price">
 									<label>
-										<input name="datetime[]" type="radio" value="2012/9/12"/>
+										<input name="datetime[]" type="radio" value="2012/9/12" checked/>
 										<span>9月22日 周六</span><span>20:00</span>
 									</label>
 									<label>
@@ -218,7 +218,7 @@
 							</tr>
 							<tr>
 								<th>价位：</th>
-								<td class="price" data-source="/json/ticket.json" data-template-name="ticket">
+								<td class="price" data-source="/json/ticket.json" data-template-name="ticket" data-method="get">
 									<script type="text/juicer" name="ticket">
 										{$each list as item}
 										<label class="${item.disabled}">
@@ -229,22 +229,6 @@
 										</label>
 										{$/each}
 									</script>
-									<label>
-										<input name="price[]" type="radio"/>
-										¥180
-									</label>
-									<label>
-										<!-- 无票的项目，直接不输出input -->
-										¥280
-									</label>
-									<label>
-										<input name="price[]" type="radio"/>
-										¥380
-									</label>
-									<label>
-										<input name="price[]" type="radio"/>
-										¥480
-									</label>
 								</td>
 							</tr>
 							<tr>
@@ -314,8 +298,7 @@
 				<div class="mb10 clearfix">
 					<div class="w760 fl">
 						<div class="borderblock1">
-							<article class="tab3">
-								<header> <h1 class="on">演出信息</h1> </header>
+							
 								<div class="articleBody">
 									<p>“滚石30”成演唱会品牌 2012掀鸟巢热</p>
 									<p>“滚石30”的影响力自2011年扩散广大，滚石尚未发行正式音像视听产品，众多盗版商便将演唱会的现场记录制成盗版碟贩</p>

@@ -189,7 +189,7 @@ $(->
 			,0)
 	).trigger("dataChange")
 
-	$("#ticketOrder").on("click","button",(e)-> e.preventDefault())
+	ticketOrder = $("#ticketOrder").on("click","button",(e)-> e.preventDefault())
 	.on("change",(e)->
 		if !$(e.target).is("[data-template-name]")
 			$("label.on",@).removeClass("on")
@@ -199,7 +199,9 @@ $(->
 			number = $("input[type=number]",@).val()
 			data = {dateTime, price, number} 
 			$("#selectInfo",@).trigger("dataRender",data)
-	).find("label:not(:has(input))").addClass("disabled")
+	)
+	ticketOrder.find("label:not(:has(input))").addClass("disabled")
+	ticketOrder.find("[data-oberver] :input:first").trigger("change")
 
 	# 初始化首页滑动图片
 	slider = $("#slider")

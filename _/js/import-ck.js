@@ -463,8 +463,11 @@ jQuery(function($){
 			if (!param.length) {
 				param = that.find(":input").serializeArray();
 			}
-			observer.trigger("dataChange", [param]);
+			if (param.length) {
+				observer.trigger("dataChange", [param]);
+			}
 		});
+
 
 		//为所有有data-source属性的元素在dataChange时发起ajax请求
 		root.on("dataChange.observer", "[data-source]", function(e, data) {
@@ -483,9 +486,12 @@ jQuery(function($){
 				if (!data) {
 					return false;
 				}
-				var tpl = $("script[name=" + (that.data("template-name") || that.data("item-name")) + "]").html();
-				if (tpl) {
-					that[that.is("[data-template-name]")?"html":"append"](juicer(tpl, data));
+				if (!this.tpl){
+					this.tpl = $("script[name=" + (that.data("template-name") || that.data("item-name")) + "]").html();
+
+				}
+				if (this.tpl) {
+					that[that.is("[data-template-name]")?"html":"append"](juicer(this.tpl, data));
 					var selected = that.data("selected");
 					if(that.is("select") && selected){
 						setTimeout(function(){
@@ -496,6 +502,7 @@ jQuery(function($){
 				}
 			}
 		});
+
 	});
 })(jQuery);
 

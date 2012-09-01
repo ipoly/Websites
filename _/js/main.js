@@ -2,7 +2,7 @@
 (function() {
 
   $(function() {
-    var lis, slider, tabMethod;
+    var lis, slider, tabMethod, ticketOrder;
     $(".popSelector").on("click", function() {
       return $(this).toggleClass("on");
     }).on("mouseleave", function() {
@@ -229,7 +229,7 @@
         }, 0);
       }
     }).trigger("dataChange");
-    $("#ticketOrder").on("click", "button", function(e) {
+    ticketOrder = $("#ticketOrder").on("click", "button", function(e) {
       return e.preventDefault();
     }).on("change", function(e) {
       var activeLabel, data, dateTime, number, price;
@@ -246,7 +246,9 @@
         };
         return $("#selectInfo", this).trigger("dataRender", data);
       }
-    }).find("label:not(:has(input))").addClass("disabled");
+    });
+    ticketOrder.find("label:not(:has(input))").addClass("disabled");
+    ticketOrder.find("[data-oberver] :input:first").trigger("change");
     slider = $("#slider");
     if (slider.length) {
       lis = slider.find("li");

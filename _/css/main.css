@@ -1572,7 +1572,7 @@ textarea {
   line-height: 20px;
   width: 40em;
 }
-.header1 {
+.1 {
   line-height: 34px;
   height: 37px;
   color: #06a6db;
@@ -3907,7 +3907,15 @@ textarea {
   display: none;
 }
 .sitMap {
-  position: relative;
+  position: absolute;
+  border: 1px solid #dedede;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  z-index: 9;
+  width: 974px;
+  height: 600px;
+  left: 0;
+  background-color: #fff;
 }
 .sitMap .stage {
   position: absolute;
@@ -3918,4 +3926,115 @@ textarea {
 }
 .sitMap label {
   position: absolute;
+  background-color: #e4f1ff;
+  background-position: -200px -100px;
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+.sitMap label input {
+  opacity: 0;
+  filter: alpha(opacity=0);
+  outline: none;
+}
+.sitMap label:hover {
+  background-color: #5aacf8;
+}
+.sitMap .rank_A {
+  background-color: #8b0331;
+}
+.sitMap .rank_B {
+  background-color: #ff6205;
+}
+.sitMap .rank_C {
+  background-color: #fecd33;
+}
+.sitMap .rank_D {
+  background-color: #73cbf3;
+}
+.sitMap .rank_E {
+  background-color: #689864;
+}
+.sitMap .rank_F {
+  background-color: #006766;
+}
+.sitMap .selected {
+  background-image: url(../img/sprite1.png);
+}
+.sitMap .sold_lock {
+  background-color: #cccccc;
+  cursor: default;
+}
+.sitMap h1 {
+  margin-bottom: 10px;
+}
+.sitMap section {
+  position: relative;
+}
+.sitMap .totalInfo {
+  position: absolute;
+  border: 1px solid #dedede;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  border-radius: 5px;
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+  background-color: #FFF;
+  line-height: 150%;
+  right: 10px;
+  top: 70px;
+}
+.sitMap .totalInfo b {
+  color: #d82e1c;
+  font-weight: bold;
+}
+.sitMap .totalInfo p {
+  background: none;
+}
+.sitMap .totalInfo .rank_A {
+  color: #8b0331;
+}
+.sitMap .totalInfo .rank_B {
+  color: #ff6205;
+}
+.sitMap .totalInfo .rank_C {
+  color: #fecd33;
+}
+.sitMap .totalInfo .rank_D {
+  color: #73cbf3;
+}
+.sitMap .totalInfo .rank_E {
+  color: #689864;
+}
+.sitMap .totalInfo .rank_F {
+  color: #006766;
+}
+#sitInfo {
+  position: absolute;
+  border: 1px solid #dedede;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  border-radius: 5px;
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+  background-color: #FFF;
+  z-index: 99;
+  margin: 15px 15px;
+  font-size: 14px;
+  line-height: 150%;
+}
+#sitInfo h1 {
+  font-size: 18px;
 }

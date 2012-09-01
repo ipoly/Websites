@@ -36,12 +36,19 @@
 @blue1: #01AFEC;
 @blue2: #70CCF3;
 @blue3: #06a6db;
-@blue4: #DAE6F7;
 @blue4: #5AACF8;
 @blue5: #E4F1FF;
 
 @yellow1: #F4E4B4;
 @yellow2: #FFFFE9;
+
+@rank_color1: #8B0331;
+@rank_color2: #FF6205;
+@rank_color3: #FECD33;
+@rank_color4: #73CBF3;
+@rank_color5: #689864;
+@rank_color6: #006766;
+@rank_color7: #CCCCCC;
 
 .border1 (@color:@gray2) {
 	border:1px solid @color;
@@ -81,8 +88,11 @@
 .ui-dialog {.boxShadow1;}
 .ui-dialog-buttonset button {.btnBlue1;}
 
+.boxShadow(@width:1px) {
+	box-shadow: @width @width @width rgba(0,0,0,.3);
+}
 .boxShadow1 {
-	box-shadow: 2px 2px 2px rgba(0,0,0,.3);
+	.boxShadow(2px);
 }
 
 .sprite1 {background:url(../img/sprite1.png) no-repeat;}
@@ -388,7 +398,7 @@ textarea {
 	width: 40em;
 }
 
-.header1 {
+.1 {
 	line-height: 34px;
 	height: 37px;
 	color: @blue3; 
@@ -2431,7 +2441,15 @@ textarea {
 
 
 .sitMap {
-	.posr;
+	.posa;
+	.border1;
+	.boxShadow1;
+	.p10;
+	z-index:9;
+	width: 974px;
+	height: 600px;
+	left: 0;
+	background-color: #fff;
 	.stage {
 		.posa;
 		.tac;
@@ -2441,5 +2459,117 @@ textarea {
 	}
 	label {
 		.posa;
+		background-color: @blue5;
+		background-position: -200px -100px;
+		display: inline-block;
+		width: 14px;
+		height: 14px;
+		border-radius: 3px;
+		.boxShadow(1px);
+
+		input {
+			opacity: 0;
+			filter:alpha(opacity=0);
+			outline: none;
+		}
 	}
+
+	label:hover {
+		background-color: @blue4;
+
+	}
+
+	.rank_A {
+		background-color: @rank_color1;
+	}
+	.rank_B {
+		background-color: @rank_color2;
+	}
+	.rank_C {
+		background-color: @rank_color3;
+	}
+	.rank_D {
+		background-color: @rank_color4;
+	}
+	.rank_E {
+		background-color: @rank_color5;
+	}
+	.rank_F {
+		background-color: @rank_color6;
+	}
+	.selected {
+		background-image: url(../img/sprite1.png);
+	}
+
+	.sold_lock {
+		background-color: @rank_color7;
+		cursor: default;
+	}
+
+	h1 {
+		.mb10;
+	}
+	section {
+		.posr;
+	}
+
+	.totalInfo {
+		.posa;
+		.border1;
+		.transition;
+		.boxShadow;
+		.p10;
+		border-radius: 5px;
+		opacity: 0.8;
+		filter: alpha(opacity=80);
+		background-color: #FFF;
+		line-height: 150%;
+		right: 10px;
+		top: 70px;
+		b {
+			.red;
+			font-weight: bold;
+		}
+		p {
+			background: none;
+		}
+		.rank_A {
+			color: @rank_color1;
+		}
+		.rank_B {
+			color: @rank_color2;
+		}
+		.rank_C {
+			color: @rank_color3;
+		}
+		.rank_D {
+			color: @rank_color4;
+		}
+		.rank_E {
+			color: @rank_color5;
+		}
+		.rank_F {
+			color: @rank_color6;
+		}
+	}
+}
+
+#sitInfo {
+	.posa;
+	.border1;
+	.transition;
+	.boxShadow;
+	.p10;
+	border-radius: 5px;
+	opacity: 0.8;
+	filter: alpha(opacity=80);
+	background-color: #FFF;
+	z-index: 99;
+	margin: 15px 15px;
+	font-size: 14px;
+	line-height: 150%;
+	h1 {
+		font-size: 18px;
+	}
+
 }
