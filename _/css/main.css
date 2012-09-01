@@ -3888,3 +3888,34 @@ textarea {
   font-size: 24px;
   font-weight: bold;
 }
+.sitSelector {
+  position: relative;
+  overflow: hidden;
+  height: 600px;
+}
+.areaMap {
+  position: absolute;
+}
+.areaMap label {
+  position: absolute;
+  display: inline-block;
+  background-color: #01afec;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+.areaMap label input {
+  display: none;
+}
+.sitMap {
+  position: relative;
+}
+.sitMap .stage {
+  position: absolute;
+  text-align: center;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+  background-color: #f3bcbc;
+  font-size: 24px;
+}
+.sitMap label {
+  position: absolute;
+}
