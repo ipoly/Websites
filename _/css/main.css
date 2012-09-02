@@ -1862,6 +1862,7 @@ textarea {
   _margin-bottom: -1px;
 }
 .ol1 a {
+  vertical-align: middle;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
