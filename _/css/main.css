@@ -4176,17 +4176,17 @@ textarea {
 }
 .sitMap label {
   position: absolute;
+  overflow: hidden;
   background-color: #e4f1ff;
   background-position: -200px -100px;
   display: inline-block;
   width: 14px;
   height: 14px;
   border-radius: 3px;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
 }
 .sitMap label input {
   opacity: 0;
-  filter: alpha(opacity=0);
+  filter: alpha(opacity=10);
   outline: none;
 }
 .sitMap label:hover {

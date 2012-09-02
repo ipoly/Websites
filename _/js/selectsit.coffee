@@ -31,7 +31,7 @@ $(->
 				</form> ")
 			@totalInfo = $("<div class='totalInfo'/>")
 			@sitMap.append(@totalInfo)
-			@sitMap.on("change","label",@toggleSelect)
+			@sitMap.on("click","label:has(input)",@toggleSelect)
 			@sitMap.on("hover","label",@toggleSitInfo)
 			@sitMap.on("evalTotal",@eval)
 			@sitMap.on("click",(e)->
@@ -85,11 +85,11 @@ $(->
 
 		toggleSelect: (e)->
 			that = $(@)
-			that.toggleClass("selected",!!that.find("input").attr("checked"))
+			that.toggleClass("selected")
+			that.find("input").attr("checked",that.is(".selected"))
 			that.trigger("evalTotal")
 
 		setSitMap: (data)=>
-			$("#test").append("<p>开始 #{new Date()}</p>")
 			# data = $.map(data,(n)->
 				# n.x *= 1.3
 				# n.x -= 20
@@ -97,32 +97,22 @@ $(->
 				# n.x -= 20
 				# n
 			# )
-			timeMark = (Math.random(new Date())*0xfffff).toFixed()
 			@sitMap.find(".totalInfo").empty()
-				# <label id='${i.ID}' for='#{timeMark}_${n}' class='rank_${i.Rank} valid_${i.Valid} {$if i.Sold}sold_lock{$/if}' style='left:${i.x}px;top:${i.y}px;'>
-				# <input id='#{timeMark}_${n}' type='checkbox' name='sitID' value='${i.ID}'/>
-				# </label> 
-			sits = juicer("
-				{$each list as i,n}
-				<label id='${i.ID}' for='#{timeMark}_${n}' class='rank_${i.Rank} valid_${i.Valid} {$if i.Sold}sold_lock{$/if}' style='left:${i.x}px;top:${i.y}px;'>
-				<input id='#{timeMark}_${n}' type='checkbox' name='sitID' value='${i.ID}'/>
-				</label> 
-				{$/each}
-				",{list:data})
+			
+			sits = ("<label id='#{i.ID}' class='rank_#{i.Rank} valid_#{i.Valid} #{ if i.Sold then 'sold_lock' else''}' style='left:#{i.x}px;top:#{i.y}px;'>
+				<input type='checkbox' name='sitID' value='#{i.ID}'/>
+				</label> " for i,n in data).join("")
+
 			@sitMap.find(".totalInfo").empty()
-			$("#test").append("<p>juicer完成 #{new Date()}</p>")
 			@sitMap.css($(".tab3").offset()).find("section").empty().append(@stage).append(sits).find(".valid_1 input,.sold_lock input").remove()
-			$("#test").append("<p>填充完成#{new Date()}</p>")
 			@sitData = data;
 			$("body").append(@sitMap)
-			$("#test").append("<p>显示完成#{new Date()}</p>")
 
 		getSitMap: (e)=>
 			tango = $(e.target)
 			if @sitMap.find("label").length
 				$("body").append(@sitMap)
 			else if tango.is("label")
-				$("#test").append("<p>开始ajax#{new Date()}</p>")
 				$[@parent.parent.el.attr("method")||"post"](@parent.parent.el.data("source"),@el.serializeArray(),@setSitMap,"json").fail(@ajaxFail)
 
 
