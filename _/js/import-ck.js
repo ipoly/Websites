@@ -476,7 +476,7 @@ jQuery(function($){
 				var that = $(this);
 				$[that.data("method")||"post"](that.data("source"), data, null, "json").done(function(data) {
 					that.trigger("dataRender", data);
-				});
+				}).fail(ajaxFail);
 			}
 		});
 
@@ -503,6 +503,10 @@ jQuery(function($){
 				}
 			}
 		});
+
+		function ajaxFail(a,b,c){
+			$.error("jsonFail:"+b);
+		}
 
 	});
 })(jQuery);
