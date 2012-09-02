@@ -3798,6 +3798,23 @@ textarea {
 .ticketHeader .datetime .on {
   background-color: #fff5ec;
 }
+.ticketHeader .datetime div {
+  overflow: hidden;
+  height: 45px;
+}
+.ticketHeader .datetime .unfold {
+  height: auto;
+}
+.ticketHeader .datetime .btnToogle {
+  background: url(../img/sprite2.png) no-repeat;
+  text-align: center;
+  background-position: 0 -660px;
+  color: #01afec;
+  width: 410px;
+  height: 27px;
+  line-height: 27px;
+  display: block;
+}
 .ticketHeader .price label {
   text-align: center;
   line-height: 28px;

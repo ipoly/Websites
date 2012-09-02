@@ -247,27 +247,25 @@
         return $("#selectInfo", this).trigger("dataRender", data);
       }
     }).on("click", function(e) {
-      var t;
+      var folder, t;
       t = $(e.target);
-      if (t.is(".btn_sit_big")) {
+      if (t.is(".btn_sit_big,.btn_buy_now")) {
         if (!$(".datetime input", this).serializeArray().length) {
-          alert("请选择一个日期");
+          return !alert("请选择一个日期");
         }
-        return false;
       }
       if (t.is(".btn_buy_now")) {
-        if (!$(".datetime input", this).serializeArray().length) {
-          alert("请选择一个日期");
-          return false;
-        }
         if (!$(".price input", this).serializeArray().length) {
-          alert("请选择一个价格");
-          return false;
+          return !alert("请选择一个价格");
         }
-        if (!$("[type=number]", this).serializeArray().length) {
-          alert("请选择购买数量");
-          return false;
+        if (!$("[type=number]", this).val()) {
+          return !alert("请选择购买数量");
         }
+      }
+      if (t.is(".btnToogle")) {
+        folder = $(".datetime div").toggleClass("unfold");
+        t.text(folder.is(".unfold") ? "收起" : "展开");
+        return false;
       }
     });
     ticketOrder.find("label:not(:has(input))").addClass("disabled");

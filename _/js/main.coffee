@@ -201,19 +201,16 @@ $(->
 			$("#selectInfo",@).trigger("dataRender",data)
 	).on("click",(e)->
 		t = $(e.target)
-		if t.is(".btn_sit_big")
-			alert("请选择一个日期") if !$(".datetime input",@).serializeArray().length
-			return false;
+		if t.is(".btn_sit_big,.btn_buy_now")
+			return !alert("请选择一个日期") if !$(".datetime input",@).serializeArray().length
 		if t.is(".btn_buy_now")
-			if !$(".datetime input",@).serializeArray().length
-				alert("请选择一个日期") 
-				return false;
-			if !$(".price input",@).serializeArray().length
-				alert("请选择一个价格") 
-				return false;
-			if !$("[type=number]",@).serializeArray().length
-				alert("请选择购买数量") 
-				return false;
+			return !alert("请选择一个价格") if !$(".price input",@).serializeArray().length
+			return !alert("请选择购买数量") if !$("[type=number]",@).val()
+		if t.is(".btnToogle")
+			folder = $(".datetime div").toggleClass("unfold")
+			t.text(if folder.is(".unfold") then "收起" else "展开" )
+			return false
+
 	)
 	ticketOrder.find("label:not(:has(input))").addClass("disabled")
 	ticketOrder.find("[data-observer] :input:first").trigger("change")
