@@ -2968,6 +2968,64 @@ textarea {
   position: static;
   margin-bottom: 10px;
 }
+.ul12 {
+  font-size: 0 ;
+  margin: 0 -15px 0 0;
+}
+.ul12 li {
+  position: relative;
+  margin-bottom: 10px;
+  padding: 10px 10px 10px 230px;
+  min-height: 150px;
+  _height: 150px;
+  border-bottom: 1px dotted #dedede;
+}
+.ul12 a {
+  position: absolute;
+  display: block;
+  left: 0;
+  top: 0;
+}
+.ul12 img {
+  border: 1px solid #dfdfdf;
+  border-width: 4px;
+  display: block;
+  width: 210px;
+  height: 140px;
+}
+.ul12 div {
+  color: #999999;
+  line-height: 150%;
+}
+.ul12 div a {
+  font-size: 14px;
+  position: static;
+  margin-bottom: 10px;
+}
+.ul12 li {
+  vertical-align: top;
+  display: inline-block;
+  font-size: 12px;
+  padding-left: 220px;
+  padding-right: 0;
+  width: 240px;
+  min-height: 130px;
+  _height: 130px;
+  margin: 0 15px 15px;
+}
+.ul12 li {
+  *display: inline;
+}
+.ul12 img {
+  border: 1px solid #dedede;
+  padding: 2px;
+  width: 200px;
+  height: 135px;
+}
+.ul12 p a {
+  font-size: 12px;
+  display: inline;
+}
 .table1 {
   width: 100%;
 }
@@ -4130,4 +4188,12 @@ textarea {
 }
 #sitInfo h1 {
   font-size: 18px;
+}
+.searchForm * {
+  vertical-align: middle;
+  margin-right: 5px;
+  _vertical-align: bottom;
+}
+.searchForm select {
+  height: 24px;
 }

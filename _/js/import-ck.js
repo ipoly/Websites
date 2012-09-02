@@ -450,6 +450,7 @@ jQuery(function($){
 	$(function() {
 		var root = $("body");
 		//当有change事件发生时，通知观察者触发dataChange事件。
+
 		root.on("change.observer submit.observer", "[data-observer]", function(e) {
 			var that = $(this);
 			if(that.is("form") && e.type=="change"){
