@@ -1572,7 +1572,7 @@ textarea {
   line-height: 20px;
   width: 40em;
 }
-.1 {
+.header1 {
   line-height: 34px;
   height: 37px;
   color: #06a6db;
@@ -2840,7 +2840,7 @@ textarea {
   text-align: center;
   display: block;
   line-height: 150%;
-  margin: 0 10px 10px;
+  margin: 0 5px 10px;
   padding-bottom: 10px;
   border-bottom: 1px dashed #dedede;
 }
@@ -2874,6 +2874,33 @@ textarea {
   white-space: nowrap;
   display: inline-block;
   margin: 0 10px 10px;
+}
+.ul10 a {
+  text-align: center;
+  display: block;
+  line-height: 150%;
+  margin: 0 5px 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #dedede;
+}
+.ul10 img {
+  display: block;
+  margin: 0 auto 10px;
+  width: 170px;
+  height: 215px;
+  padding: 3px;
+  background-color: #e1e1e1;
+}
+.ul10 p {
+  color: #999999;
+}
+.ul10 a {
+  text-align: left;
+}
+.ul10 img {
+  padding: 0;
+  width: 210px;
+  height: 100px;
 }
 .table1 {
   width: 100%;
