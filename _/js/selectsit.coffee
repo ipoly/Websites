@@ -31,8 +31,8 @@ $(->
 				</form> ")
 			@totalInfo = $("<div class='totalInfo'/>")
 			@sitMap.append(@totalInfo)
-			@sitMap.on("click","label:has(input)",@toggleSelect)
-			@sitMap.on("hover","label",@toggleSitInfo)
+			@sitMap.on("click","span:has(input)",@toggleSelect)
+			@sitMap.on("hover","span",@toggleSitInfo)
 			@sitMap.on("evalTotal",@eval)
 			@sitMap.on("click",(e)->
 				if $(e.target).is("button")
@@ -84,10 +84,11 @@ $(->
 
 
 		toggleSelect: (e)->
-			that = $(@)
-			that.toggleClass("selected")
-			that.find("input").attr("checked",that.is(".selected"))
-			that.trigger("evalTotal")
+			if e.target == this
+				that = $(@)
+				that.toggleClass("selected")
+				that.find("input").attr("checked",that.is(".selected"))
+				that.trigger("evalTotal")
 
 		setSitMap: (data)=>
 			# data = $.map(data,(n)->
@@ -99,9 +100,9 @@ $(->
 			# )
 			@sitMap.find(".totalInfo").empty()
 			
-			sits = ("<label id='#{i.ID}' class='rank_#{i.Rank} valid_#{i.Valid} #{ if i.Sold then 'sold_lock' else''}' style='left:#{i.x}px;top:#{i.y}px;'>
+			sits = ("<span id='#{i.ID}' class='rank_#{i.Rank} valid_#{i.Valid} #{ if i.Sold then 'sold_lock' else''}' style='left:#{i.x}px;top:#{i.y}px;'>
 				<input type='checkbox' name='sitID' value='#{i.ID}'/>
-				</label> " for i,n in data).join("")
+				</span> " for i,n in data).join("")
 
 			@sitMap.find(".totalInfo").empty()
 			@sitMap.css($(".tab3").offset()).find("section").empty().append(@stage).append(sits).find(".valid_1 input,.sold_lock input").remove()

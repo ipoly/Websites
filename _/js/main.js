@@ -269,7 +269,7 @@
       }
     });
     ticketOrder.find("label:not(:has(input))").addClass("disabled");
-    ticketOrder.find("[data-observer] :input:first").trigger("change");
+    ticketOrder.find("[data-observer] :input:first").attr("checked", true).trigger("change");
     slider = $("#slider");
     if (slider.length) {
       lis = slider.find("li");

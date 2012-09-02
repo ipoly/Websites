@@ -4191,7 +4191,7 @@ textarea {
   background-color: #f3bcbc;
   font-size: 24px;
 }
-.sitMap label {
+.sitMap span {
   position: absolute;
   overflow: hidden;
   background-color: #e4f1ff;
@@ -4201,10 +4201,9 @@ textarea {
   height: 14px;
   border-radius: 3px;
 }
-.sitMap label input {
-  opacity: 0;
-  filter: alpha(opacity=10);
+.sitMap span input {
   outline: none;
+  display: none;
 }
 .sitMap label:hover {
   background-color: #5aacf8;

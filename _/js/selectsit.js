@@ -29,8 +29,8 @@
         this.sitMap = $("<form class='sitMap' action='" + (this.parent.parent.el.attr('action')) + "' method='" + (this.parent.parent.el.attr('method')) + "'>					<h1 class='header5'>						" + data.Name + "						<span>							<button class='btnBlue4'>选择其他区域</button>							<input type='submit' class='btn btnBlue4' value='提交订单'/>						</span>					</h1>					<section/>				</form> ");
         this.totalInfo = $("<div class='totalInfo'/>");
         this.sitMap.append(this.totalInfo);
-        this.sitMap.on("click", "label:has(input)", this.toggleSelect);
-        this.sitMap.on("hover", "label", this.toggleSitInfo);
+        this.sitMap.on("click", "span:has(input)", this.toggleSelect);
+        this.sitMap.on("hover", "span", this.toggleSitInfo);
         this.sitMap.on("evalTotal", this["eval"]);
         this.sitMap.on("click", function(e) {
           if ($(e.target).is("button")) {
@@ -97,10 +97,12 @@
 
       Area.prototype.toggleSelect = function(e) {
         var that;
-        that = $(this);
-        that.toggleClass("selected");
-        that.find("input").attr("checked", that.is(".selected"));
-        return that.trigger("evalTotal");
+        if (e.target === this) {
+          that = $(this);
+          that.toggleClass("selected");
+          that.find("input").attr("checked", that.is(".selected"));
+          return that.trigger("evalTotal");
+        }
       };
 
       Area.prototype.setSitMap = function(data) {
@@ -111,7 +113,7 @@
           _results = [];
           for (n = _i = 0, _len = data.length; _i < _len; n = ++_i) {
             i = data[n];
-            _results.push("<label id='" + i.ID + "' class='rank_" + i.Rank + " valid_" + i.Valid + " " + (i.Sold ? 'sold_lock' : '') + "' style='left:" + i.x + "px;top:" + i.y + "px;'>				<input type='checkbox' name='sitID' value='" + i.ID + "'/>				</label> ");
+            _results.push("<span id='" + i.ID + "' class='rank_" + i.Rank + " valid_" + i.Valid + " " + (i.Sold ? 'sold_lock' : '') + "' style='left:" + i.x + "px;top:" + i.y + "px;'>				<input type='checkbox' name='sitID' value='" + i.ID + "'/>				</span> ");
           }
           return _results;
         })()).join("");

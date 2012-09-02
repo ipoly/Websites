@@ -213,7 +213,7 @@ $(->
 
 	)
 	ticketOrder.find("label:not(:has(input))").addClass("disabled")
-	ticketOrder.find("[data-observer] :input:first").trigger("change")
+	ticketOrder.find("[data-observer] :input:first").attr("checked",true).trigger("change")
 
 	# 初始化首页滑动图片
 	slider = $("#slider")
