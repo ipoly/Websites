@@ -75,7 +75,7 @@
 
 .posr {position: relative;}
 .posa {position: absolute;}
-.posc {position: static;}
+.poss {position: static;}
 
 .ovv {overflow: visible;}
 .ovh {overflow: hidden;}
@@ -371,6 +371,42 @@ textarea {
 	}
 }
 .w208 {width: 208px}
+
+.page {
+	.tar;
+	padding: 5px 0;
+	font-size: 0;
+	a {
+		.border1;
+		.tac;
+		border-width: 2px 1px 1px;
+		display: inline-block;
+		margin: 0 5px;
+		font-size: 12px;
+		min-width: 20px;
+		_width: 20px;
+		height: 20px;
+		line-height: 20px;
+	}
+	.on {
+		border-color: @blue1;
+		background-color: @blue1;
+		color: #fff;
+		font-weight: bold;
+	}
+	.prev,.next {
+		.sprite2;
+		width: 45px;
+	}
+	.prev {
+		background-position: -200px -260px;
+		padding-left: 15px;
+	}
+	.next {
+		background-position: -280px -260px;
+		padding-right: 15px;
+	}
+}
 
 .text {
 	.border1(@gray14);
@@ -1550,6 +1586,41 @@ textarea {
 		padding: 0;
 		width: 210px;
 		height: 100px;
+	}
+}
+
+.ul11 {
+	li {
+		.posr;
+		.mb10;
+		padding: 10px 10px 10px 230px;
+		min-height: 150px;
+		_height: 150px;
+		border-bottom: 1px dotted @gray2;
+	}
+	a {
+		.posa;
+		display:block;
+		left: 0;
+		top: 0;
+	}
+
+	img {
+		.border1(@gray12);
+		border-width: 4px;
+		display: block;
+		width: 210px;
+		height: 140px;
+	}
+
+	div {
+		color: @gray3;
+		line-height: 150%;
+		a {
+			.f14;
+			.poss;
+			.mb10;
+		}
 	}
 }
 

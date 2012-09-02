@@ -1121,7 +1121,7 @@
 .posa {
   position: absolute;
 }
-.posc {
+.poss {
   position: static;
 }
 .ovv {
@@ -1542,6 +1542,42 @@ textarea {
 }
 .w208 {
   width: 208px;
+}
+.page {
+  text-align: right;
+  padding: 5px 0;
+  font-size: 0;
+}
+.page a {
+  border: 1px solid #dedede;
+  text-align: center;
+  border-width: 2px 1px 1px;
+  display: inline-block;
+  margin: 0 5px;
+  font-size: 12px;
+  min-width: 20px;
+  _width: 20px;
+  height: 20px;
+  line-height: 20px;
+}
+.page .on {
+  border-color: #01afec;
+  background-color: #01afec;
+  color: #fff;
+  font-weight: bold;
+}
+.page .prev,
+.page .next {
+  background: url(../img/sprite2.png) no-repeat;
+  width: 45px;
+}
+.page .prev {
+  background-position: -200px -260px;
+  padding-left: 15px;
+}
+.page .next {
+  background-position: -280px -260px;
+  padding-right: 15px;
 }
 .text {
   border: 1px solid #abadb3;
@@ -2901,6 +2937,36 @@ textarea {
   padding: 0;
   width: 210px;
   height: 100px;
+}
+.ul11 li {
+  position: relative;
+  margin-bottom: 10px;
+  padding: 10px 10px 10px 230px;
+  min-height: 150px;
+  _height: 150px;
+  border-bottom: 1px dotted #dedede;
+}
+.ul11 a {
+  position: absolute;
+  display: block;
+  left: 0;
+  top: 0;
+}
+.ul11 img {
+  border: 1px solid #dfdfdf;
+  border-width: 4px;
+  display: block;
+  width: 210px;
+  height: 140px;
+}
+.ul11 div {
+  color: #999999;
+  line-height: 150%;
+}
+.ul11 div a {
+  font-size: 14px;
+  position: static;
+  margin-bottom: 10px;
 }
 .table1 {
   width: 100%;
