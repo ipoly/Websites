@@ -3026,6 +3026,41 @@ textarea {
   font-size: 12px;
   display: inline;
 }
+.ul13 {
+  text-align: center;
+}
+.ul13 a {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0 5px 10px;
+  display: inline-block;
+  width: 92px;
+}
+.ul13 img {
+  margin-bottom: 10px;
+  border: 1px solid #dedede;
+  display: block;
+  width: 90px;
+  height: 90px;
+}
+.ul14 a {
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+  width: 151px;
+  margin: 0 15px 20px;
+}
+.ul14 img {
+  margin-bottom: 10px;
+  border: 1px solid #dedede;
+  display: block;
+  width: 145px;
+  height: 145px;
+  padding: 2px;
+}
 .table1 {
   width: 100%;
 }
@@ -4196,4 +4231,23 @@ textarea {
 }
 .searchForm select {
   height: 24px;
+}
+.changguan {
+  padding: 20px;
+  background-color: #282828;
+  color: #818181;
+}
+.changguan h1,
+.changguan h2,
+.changguan h3,
+.changguan h4,
+.changguan h5,
+.changguan h6,
+.changguan b {
+  color: #c7c7c7;
+}
+.changguan hr {
+  border-top: none;
+  background-color: #3d3d3d;
+  border-bottom: 1px solid #080808;
 }
