@@ -21,16 +21,16 @@
         data.StageHeight *= 15;
         this.el = $("<label title='" + data.Name + "' style='left:" + data.x + "px;top:" + data.y + "px;width:" + data.Width + "px;height:" + data.Height + "px;'>						<input type='radio' name='areaID' value='" + data.ID + "'/>						</label>						");
         if (data.StageWidth) {
-          this.stage = $("<span class='stage' style='left:" + data.StageX + "px;top:" + data.StageY + "px;line-height:" + data.StageWidth + "px;height:" + data.StageWidth + "px;width:" + data.StageHeight + "px;'>舞台</span>");
+          this.stage = $("<b class='stage' style='left:" + data.StageX + "px;top:" + data.StageY + "px;line-height:" + data.StageWidth + "px;height:" + data.StageWidth + "px;width:" + data.StageHeight + "px;'>舞台</b>");
         }
         this.el.data(data);
         this.el.on("click", this.getSitMap);
         this.el.data("model", this);
-        this.sitMap = $("<form class='sitMap' action='" + (this.parent.parent.el.attr('action')) + "' method='" + (this.parent.parent.el.attr('method')) + "'>					<h1 class='header5'>						" + data.Name + "						<span>							<button class='btnBlue4'>选择其他区域</button>							<input type='submit' class='btn btnBlue4' value='提交订单'/>						</span>					</h1>					<section/>				</form> ");
+        this.sitMap = $("<form class='sitMap' action='" + (this.parent.parent.el.attr('action')) + "' method='" + (this.parent.parent.el.attr('method')) + "'>					<h1 class='header5'>						" + data.Name + "						<span>							<button class='btnBlue4'>选择其他区域</button>						</span>					</h1>					<section/>				</form> ");
         this.totalInfo = $("<div class='totalInfo'/>");
         this.sitMap.append(this.totalInfo);
         this.sitMap.on("click", "span:has(input)", this.toggleSelect);
-        this.sitMap.on("hover", "span", this.toggleSitInfo);
+        this.sitMap.on("hover", "section span", this.toggleSitInfo);
         this.sitMap.on("evalTotal", this["eval"]);
         this.sitMap.on("click", function(e) {
           if ($(e.target).is("button")) {
@@ -63,7 +63,7 @@
           total: total,
           list: selectData
         };
-        return this.totalInfo.html(juicer("				<h1>您选中了：</h1>				{$each list as item}				<p class='rank_${item.Rank}'>${item.Rows}排${item.RowNumber}号</p>				{$/each}				<div>共计：${list.length} 项<div>				<div>总价：<b>${total}元</b></div>				", result));
+        return this.totalInfo.html(juicer("				<h1>您选中了：</h1>				{$each list as item}				<p class='rank_${item.Rank}'>${item.Rows}排${item.RowNumber}号</p>				{$/each}				<div>共计：${list.length} 项<div>				<div>总价：<b>${total}元</b></div>				<input type='submit' class='btn btnBlue4' value='提交订单'/>				", result)).show();
       };
 
       Area.prototype.findData = function(id) {

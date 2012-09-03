@@ -15,7 +15,7 @@ $(->
 						</label>
 						")
 			if data.StageWidth
-				@stage = $("<span class='stage' style='left:#{data.StageX}px;top:#{data.StageY}px;line-height:#{data.StageWidth}px;height:#{data.StageWidth}px;width:#{data.StageHeight}px;'>舞台</span>")
+				@stage = $("<b class='stage' style='left:#{data.StageX}px;top:#{data.StageY}px;line-height:#{data.StageWidth}px;height:#{data.StageWidth}px;width:#{data.StageHeight}px;'>舞台</b>")
 			@el.data(data)
 			@el.on("click",@getSitMap)
 			@el.data("model",@)
@@ -24,7 +24,6 @@ $(->
 						#{data.Name}
 						<span>
 							<button class='btnBlue4'>选择其他区域</button>
-							<input type='submit' class='btn btnBlue4' value='提交订单'/>
 						</span>
 					</h1>
 					<section/>
@@ -32,7 +31,7 @@ $(->
 			@totalInfo = $("<div class='totalInfo'/>")
 			@sitMap.append(@totalInfo)
 			@sitMap.on("click","span:has(input)",@toggleSelect)
-			@sitMap.on("hover","span",@toggleSitInfo)
+			@sitMap.on("hover","section span",@toggleSitInfo)
 			@sitMap.on("evalTotal",@eval)
 			@sitMap.on("click",(e)->
 				if $(e.target).is("button")
@@ -56,7 +55,8 @@ $(->
 				{$/each}
 				<div>共计：${list.length} 项<div>
 				<div>总价：<b>${total}元</b></div>
-				",result))
+				<input type='submit' class='btn btnBlue4' value='提交订单'/>
+				",result)).show()
 
 		findData: (id)->
 			id = parseInt(id,10)
