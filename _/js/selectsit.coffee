@@ -55,7 +55,7 @@ $(->
 				{$/each}
 				<div>共计：${list.length} 项<div>
 				<div>总价：<b>${total}元</b></div>
-				<input type='submit' class='btn btnBlue4' value='提交订单'/>
+				<input type='submit' class='btn btnRed1' value='去付款'/>
 				",result)).show()
 
 		findData: (id)->
@@ -70,6 +70,7 @@ $(->
 				sitInfo = $("<section id='sitInfo'></section>")
 				$("body").append(sitInfo)
 			if e.type=="mouseenter"
+				clearTimeout(@timer)
 				sitInfo.html(juicer(
 					"<h1>座位：${Prefix}${Rows}排 ${RowNumber}号</h1>
 					 <p>等级：${Rank} </p>
@@ -80,7 +81,8 @@ $(->
 				sitInfo.show()
 				sitInfo.css(label.offset())
 			else
-				sitInfo.hide()
+				@timer = setTimeout((->sitInfo.hide()),50)
+
 
 
 		toggleSelect: (e)->

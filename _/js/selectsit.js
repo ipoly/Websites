@@ -63,7 +63,7 @@
           total: total,
           list: selectData
         };
-        return this.totalInfo.html(juicer("				<h1>您选中了：</h1>				{$each list as item}				<p class='rank_${item.Rank}'>${item.Rows}排${item.RowNumber}号</p>				{$/each}				<div>共计：${list.length} 项<div>				<div>总价：<b>${total}元</b></div>				<input type='submit' class='btn btnBlue4' value='提交订单'/>				", result)).show();
+        return this.totalInfo.html(juicer("				<h1>您选中了：</h1>				{$each list as item}				<p class='rank_${item.Rank}'>${item.Rows}排${item.RowNumber}号</p>				{$/each}				<div>共计：${list.length} 项<div>				<div>总价：<b>${total}元</b></div>				<input type='submit' class='btn btnRed1' value='去付款'/>				", result)).show();
       };
 
       Area.prototype.findData = function(id) {
@@ -87,11 +87,14 @@
           $("body").append(sitInfo);
         }
         if (e.type === "mouseenter") {
+          clearTimeout(this.timer);
           sitInfo.html(juicer("<h1>座位：${Prefix}${Rows}排 ${RowNumber}号</h1>					 <p>等级：${Rank} </p>					 <p>票价：${PriceName} ${Price}</p>					 <p>状态：{$if Sold}已售{$else}可购{$/if} </p>					", this.findData(label.attr("id"))));
           sitInfo.show();
           return sitInfo.css(label.offset());
         } else {
-          return sitInfo.hide();
+          return this.timer = setTimeout((function() {
+            return sitInfo.hide();
+          }), 50);
         }
       };
 
