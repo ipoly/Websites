@@ -129,7 +129,7 @@
       Area.prototype.getSitMap = function(e) {
         var tango;
         tango = $(e.target);
-        if (this.sitMap.find("label").length) {
+        if (this.sitMap.find("input").length) {
           return $("body").append(this.sitMap);
         } else if (tango.is("label")) {
           return $[this.parent.parent.el.attr("method") || "post"](this.parent.parent.el.data("source"), this.el.serializeArray(), this.setSitMap, "json").fail(this.ajaxFail);
