@@ -30,18 +30,50 @@
 
 
 // 其他
-.articleBody {
-	padding: 0 10px 30px;
-	line-height: 180%;
-	h1,h2,h3,h4,h5,h6 {margin-bottom:1em;}
-	h1 {font-size:24px;}
-	h2 {font-size:20px;}
-	h3 {font-size:18px;}
-	h4 {font-size:16px;}
-	h5 {font-size:14px;}
-	h6 {font-size:12px;}
-	p {
-		margin-bottom: 1em;
+article{
+	.lh18;
+	padding: 20px 10px 0;
+	h1 {
+		.tac;
+		.f24;
+		margin-bottom:.1em;
+	}
+	h2 {
+		.tac;
+		.f12;
+		color: @gray4;
+	}
+
+	.preview {
+		.p10;
+		margin-top: 1em;
+		.border1(@blue3);
+		background: @blue4;
+	}
+	.content{
+		* {.tal;margin-top:1em;}
+		h1 {.f20;}
+		h2 {.f18;}
+		h3 {.f16;}
+		h4 {.f14;}
+		h5 {.f12;}
+		h6 {.f10;}
+	}
+	footer {
+		.posr;
+		margin-top: 30px;
+		padding: 10px 0;
+		border-top: 1px dashed @gray4;
+		a {
+			.block;
+			color: @blue1;
+		}
+		span {
+			.ib;
+			.posa;
+			right: 0;
+			top: 10px;
+		}
 	}
 }
 

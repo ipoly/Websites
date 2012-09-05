@@ -1061,6 +1061,45 @@ i,
   bottom: 0px;
   color: #fff;
 }
+.h12 {
+  background-image: url(../img/sprite.png);
+  background-repeat: no-repeat;
+  font-size: 18px;
+  text-align: center;
+  background-position: -1540px -240px;
+  height: 35px;
+  line-height: 35px;
+  border-top: 2px solid #3862b4;
+  color: #557dca;
+  text-align: left;
+  height: 30px;
+  line-height: 30px;
+  padding: 4px 0 0;
+  background-position: -1560px -200px;
+  font-size: 24px;
+  border: none;
+  background: none;
+  position: relative;
+  margin: 0 -6px;
+  padding: 5px 10px;
+  border-bottom: 1px solid #bbbbbb;
+  _zoom: 1;
+}
+.h12 i {
+  vertical-align: middle;
+  display: inline-block;
+  font-size: 0px;
+  width: 20px;
+  height: 20px;
+  background-position: 0 -620px;
+}
+.h12 .crumb {
+  position: absolute;
+  font-size: 12px;
+  color: #bbbbbb;
+  right: 10px;
+  bottom: 5px;
+}
 .ul1 {
   font-size: 0px;
 }
@@ -1257,38 +1296,63 @@ i,
 .line2 {
   border-style: dotted;
 }
-.articleBody {
-  padding: 0 10px 30px;
+article {
   line-height: 180%;
+  padding: 20px 10px 0;
 }
-.articleBody h1,
-.articleBody h2,
-.articleBody h3,
-.articleBody h4,
-.articleBody h5,
-.articleBody h6 {
-  margin-bottom: 1em;
-}
-.articleBody h1 {
+article h1 {
+  text-align: center;
   font-size: 24px;
+  margin-bottom: .1em;
 }
-.articleBody h2 {
+article h2 {
+  text-align: center;
+  font-size: 12px;
+  color: #bbbbbb;
+}
+article .preview {
+  padding: 10px;
+  margin-top: 1em;
+  border: 1px solid #d7f2fd;
+  background: #ecfaff;
+}
+article .content * {
+  text-align: left;
+  margin-top: 1em;
+}
+article .content h1 {
   font-size: 20px;
 }
-.articleBody h3 {
+article .content h2 {
   font-size: 18px;
 }
-.articleBody h4 {
+article .content h3 {
   font-size: 16px;
 }
-.articleBody h5 {
+article .content h4 {
   font-size: 14px;
 }
-.articleBody h6 {
+article .content h5 {
   font-size: 12px;
 }
-.articleBody p {
-  margin-bottom: 1em;
+article .content h6 {
+  font-size: 10px;
+}
+article footer {
+  position: relative;
+  margin-top: 30px;
+  padding: 10px 0;
+  border-top: 1px dashed #bbbbbb;
+}
+article footer a {
+  display: block;
+  color: #3862b4;
+}
+article footer span {
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  top: 10px;
 }
 .wraper {
   margin: 0 auto 0;
