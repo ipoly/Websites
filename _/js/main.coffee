@@ -9,6 +9,34 @@ $(->
 	if $.browser.msie 
 		null
 
+	# 初始化开关类
+	$(".toggle").on("click",-> $(@).addClass("on") )
+	.on("mouseleave",-> $(@).removeClass("on"))
+
+	# 初始化倒计时
+	setInterval(->
+		countDown = $("#countDown")
+		deadLine = new Date(countDown.data("deadline"))
+		now = new Date()
+		restTime = new Date(deadLine - now)/1000
+		m = 60
+		h = m*60
+		d = h*24
+		D = Math.min(Math.floor(restTime/d),99)
+		restTime %= d
+		H = Math.floor(restTime/h)
+		restTime %= h
+		M = Math.floor(restTime/m)
+		S = parseInt(restTime % m,10)
+
+		countDown.html("
+			<p>2012年12月自考倒计时</p>
+			<i class='D'>#{D}</i>
+			<i class='H'>#{H}</i>
+			<i class='M'>#{M}</i>
+			<i class='S'>#{S}</i>
+			")
+	,1000)
 	# 初始化number控件
 	$("input[type=number]").each(->
 		that = $(@)
@@ -47,13 +75,16 @@ $(->
 		)
 	)
 
+	# 初始化列表间隔
+	$(".ul1").find(">*:even").addClass("even")
+
 	# 初始化tab标签模块
 	tabMethod = (e)->
 		that = $(@)
 		root = that.parents(".tab")
 		that.addClass("on").siblings().removeClass("on")
 		root.find(".content > *").removeClass("on").eq(that.index()).addClass("on")
-	$(".tab").on("mouseenter","header > :header",tabMethod)
+	$(".tab").on("mouseenter","header > *:not(label)",tabMethod)
 	.on("click","header > label",tabMethod).find("header>*:first").trigger("click").trigger("mouseenter")
 
 	# 初始化全选按钮
@@ -62,27 +93,6 @@ $(->
 		if tango.is(".selectAll")
 			$(":checkbox",@).attr("checked",!!tango.attr("checked"))
 	)
-
-	# 重载alert
-	window.alert = (str) ->
-		if str
-			wraper = $("<div/>")
-			wraper.append(str).attr("title", if $(str).attr("title") then "注意")
-			wraper.dialog({modal:true,show:"fade",hide:"fade",buttons: { "Ok": -> $(@).dialog("close")}})
-
-
-	# 初始化dialog
-	$(".dialogBtn").on("click",->
-		that = $(@)
-		if @dialog
-			@dialog.dialog("open")
-		else
-			@dialog = $(that.data("dialog-obj"))
-			@dialog = if @dialog.length then @dialog else that.next(".dialog") 
-			@dialog.dialog({modal:true,show:"fade",hide:"fade",width:@dialog.css("width")})
-			@dialog.dialog("option","dialogClass",@dialog.data("dialogclass"))
-	)
-	$(".dialogDef").dialog({modal:true,show:"fade",hide:"fade",buttons: { "Ok": -> $(@).dialog("close")}})
 
 
 	# 表单验证的提示
@@ -103,5 +113,7 @@ $(->
 			if !@validity.valid then $(@).trigger("invalid")
 		,@),0)
 	)
+
+	$("#imgSlider").jqFancyTransitions({ width: 250, height: 250,links:true,navigation:true });
 
 )

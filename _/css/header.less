@@ -1,0 +1,82 @@
+.h1 {
+	.sprite;
+	.f18;
+	.tac;
+	background-position: -1540px -240px;
+	height: 35px;
+	line-height: 35px;
+	border-top: 2px solid @blue1;
+	color:@blue2;
+}
+
+.h2 {
+	.f0;
+	white-space: nowrap;
+	_zoom:1;
+	a {
+		margin-right: 5px;
+		cursor: pointer;
+		span {
+			.f18;
+			.ib;
+			.border1;
+			.vat;
+			.tac;
+			line-height: 2em;
+			padding: 0 .5em;
+		}
+	}
+	.on {
+		.btnBlue2;
+		span {.border1(@blue1); }
+	}
+}
+
+.h3 {
+	.posr;
+	border-bottom: 1px solid @gray4;
+	_zoom:1;
+	span {
+		.ib;
+		.f20;
+		.repeatx;
+		.border1(@gray5);
+		border-width: 1px 1px 0;
+		background-position: 0 -200px;
+		line-height: 32px;
+		color: @gray2;
+		padding: 0 .5em;
+	}
+	.more {
+		.posa;
+		.f12;
+		color: @gray4;
+		right: 0;
+		bottom: 2px;
+	}
+}
+
+.h4 {
+	.h1;
+	.tal;
+	height: 30px;
+	line-height: 30px;
+	padding: 4px 0 0;
+	background-position: -1560px -200px;
+	i {.i_d_1; }
+}
+
+.colorHeader (@color:@blue1) {
+	border-bottom: 3px solid @gray4;
+	span {
+		.ib;
+		.f18;
+		color: @color;
+		line-height: 30px;
+		border-bottom: 3px solid @color;
+		margin-bottom: -3px;
+	}
+}
+
+.h5 {.colorHeader(@orange1)}
+.h6 {.colorHeader(@green1)}

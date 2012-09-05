@@ -1,0 +1,218 @@
+// 图标和按钮
+
+// 默认按钮
+button,.btn {
+	.vam;
+	.ib;
+	.f12;
+	padding: 0;
+	border:none;
+	background:none;
+	span {
+		.tac;
+		.ib;
+		.sprite;
+		.border1(@gray4);
+		white-space: nowrap;
+		height: 22px;
+		line-height: 22px;
+		padding: 0 10px;
+		background-position: -1000px -80px;
+		cursor: pointer;
+		outline: none;
+		color: @gray2;
+		font-family:"Microsoft YaHei",Helmet,Freesans,sans-serif;
+	}
+}
+
+button:hover,.btn:hover {
+	span {color: @gray3; }
+}
+
+.btnBlue1 {
+	.btn;
+	span {
+		border: none;
+		color: @fff;
+		background: @blue1;
+		font-weight: bold;
+		height: 2em;
+		line-height: 2em;
+		padding: 0 1em;
+	}
+}
+
+.btnBlue1:hover {
+	span {
+		color: @fff;
+		background: @blue2;
+	}
+}
+
+.btnBlue2 {
+	.ib;
+	.f14;
+	.tagbottom;
+	padding-bottom: 5px;
+	cursor: pointer;
+	span {
+		.ib;
+		.tac;
+		border: none;
+		color: @fff;
+		background: @blue1;
+		font-weight: bold;
+		height: 2em;
+		line-height: 2em;
+		padding: 0 1em;
+	}
+}
+
+.btnSearch {
+	.btn;
+	.sprite;
+	.ib;
+	width: 71px;
+	height: 31px;
+	background-position: -1000px 0;
+}
+
+.btnJiaojuan {
+	.btnSearch;
+	width: 99px;
+	height: 33px;
+	background-position: -1000px -40px;
+}
+
+.btnPrev {
+	.btn;
+	.sprite;
+	.tac;
+	width: 98px;
+	height: 27px;
+	line-height: 27px;
+	background-position: -1000px -160px;
+}
+
+.btnNext {
+	.btnPrev;
+	background-position: -1000px -200px;
+}
+
+.btnCheck {
+	.ib;
+	.vam;
+	.sprite;
+	width: 67px;
+	height: 26px;
+	line-height: 26px;
+	text-indent: 10px;
+	background-position: -1000px -120px;
+	input {.vam;}
+}
+
+
+// 默认图标
+i,.i{
+	.vam;
+	.ib;
+	.sprite;
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
+	font-style: normal;
+	color: @gray2;
+}
+
+// 图标20*20
+.i_d_ (@index:1){
+	.vam;
+	.ib;
+	.f0;
+	width: 20px;
+	height: 20px;
+	background-position: 0 -620-20px*(@index - 1);
+}
+.i_d_1 {.i_d_(1);}
+.i_d_2 {.i_d_(2);}
+
+// 图标40*40
+.i_a_ (@index:1){background-position: 0 -40px*(@index - 1); }
+.i_a_1 {.i_a_(1);}
+.i_a_2 {.i_a_(2);}
+.i_a_3 {.i_a_(3);}
+.i_a_4 {.i_a_(4);}
+.i_a_5 {.i_a_(5);}
+.i_a_6 {.i_a_(6);}
+.i_a_7 {.i_a_(7);}
+.i_a_8 {.i_a_(8);}
+.i_a_9 {.i_a_(9);}
+.i_a_10 {.i_a_(10);}
+.i_a_11 {.i_a_(11);}
+.i_a_12 {.i_a_(12);}
+.i_a_13 {.i_a_(13);}
+.i_a_14 {.i_a_(14);}
+.i_a_15 {.i_a_(15);}
+.i_a_16 {.i_a_(16);}
+.i_a_17 {.i_a_(17);}
+
+// 图标64*58
+.i_b_ (@index:1,@col:0){
+	.posr;
+	.f12;
+	width: 64px;
+	height: 58px;
+	background-position: -160px+-80px*@col -80px*(@index - 1);
+	margin: 0 5px 10px;
+	span {
+		.posa;
+		.tac;
+		width: 100%;
+		left: 0;
+		bottom: 5px;
+	}
+}
+.i_b_1 {.i_b_(1)}
+.i_b_2 {.i_b_(2)}
+.i_b_3 {.i_b_(3)}
+.i_b_4 {.i_b_(4)}
+.i_b_5 {.i_b_(5)}
+.i_b_6 {.i_b_(6)}
+.i_b_7 {.i_b_(7)}
+.i_b_8 {.i_b_(8)}
+.i_b_9 {.i_b_(9)}
+
+.i_b_10 {.i_b_(1,1)}
+.i_b_11 {.i_b_(2,1)}
+.i_b_12 {.i_b_(3,1)}
+.i_b_13 {.i_b_(4,1)}
+.i_b_14 {.i_b_(5,1)}
+.i_b_15 {.i_b_(6,1)}
+.i_b_16 {.i_b_(7,1)}
+.i_b_17 {.i_b_(8,1)}
+.i_b_18 {.i_b_(9,1)}
+
+// 图标93*75
+.i_c_ (@index:1,@col:0){
+	.posr;
+	width: 93px;
+	height: 75px;
+	background-position: -640px+-120px*@col -80px*(@index - 1);
+	span {
+		.posa;
+		.tac;
+		width: 100%;
+		left: 0;
+		bottom: 5px;
+	}
+}
+.i_c_1 {.i_c_(1)}
+.i_c_2 {.i_c_(2)}
+.i_c_3 {.i_c_(3)}
+.i_c_4 {.i_c_(4)}
+.i_c_5 {.i_c_(5)}
+.i_c_6 {.i_c_(6)}
+.i_c_7 {.i_c_(7)}
+.i_c_8 {.i_c_(8)}
+.i_c_9 {.i_c_(9)}
+

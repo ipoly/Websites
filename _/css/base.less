@@ -1,0 +1,85 @@
+// 基本样式
+.boxShadow1 {
+	.boxShadow(2px);
+}
+
+.textShadow1 {
+	.txtShadow(2px);
+}
+
+.transition {
+	-webkit-transition: all .3s ease-out;
+	-moz-transition: all .3s ease-out;
+	-o-transition: all .3s ease-out;
+	-ms-transition: all .3s ease-out;
+	transition: all .3s ease-out;
+}
+
+.textcut {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.sprite {
+	background-image: url(../img/sprite.png);
+	background-repeat: no-repeat;
+}
+
+.repeatx {
+	background-image: url(../img/repeatx.png);
+	background-repeat: repeat-x;
+}
+
+.slidedoor {
+	background-image: url(../img/slidedoor.png);
+}
+
+.tagbottom {
+	background: url(../img/tagbottom.png) center bottom no-repeat;
+}
+
+// 字体
+.f0 {font-size: 0px;}
+.f12 {font-size: 12px;}
+.f14 {font-size: 14px;}
+.f16 {font-size: 16px;}
+.f18 {font-size: 18px;}
+.f20 {font-size: 20px;}
+.f24 {font-size: 24px;}
+.f26 {font-size: 26px;}
+
+// 行高
+.lh0 {line-height: 100%;}
+.lh15 {line-height: 150%;}
+.lh18 {line-height: 180%;}
+
+// 边距
+.mb10 {margin-bottom: 10px;}
+.mb20 {margin-bottom: 20px;}
+.mb30 {margin-bottom: 30px;}
+.mb40 {margin-bottom: 40px;}
+
+.p10 {padding: 10px;}
+.p12 {padding: 10px 20px;}
+.p20 {padding: 20px;}
+
+// 抽象类
+
+.boxShadow(@width:1px) {
+	box-shadow: @width @width @width rgba(0,0,0,.3);
+}
+
+.txtShadow(@width:1px) {
+	text-shadow: @width @width @width rgba(0,0,0,.7);
+}
+
+.border1 (@color:@gray4) {
+	border:1px solid @color;
+}
+
+.minH (@height) {
+	min-height: @height;
+	_height: @height;
+}
+

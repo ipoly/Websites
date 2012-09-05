@@ -9,6 +9,28 @@
     if ($.browser.msie) {
       null;
     }
+    $(".toggle").on("click", function() {
+      return $(this).addClass("on");
+    }).on("mouseleave", function() {
+      return $(this).removeClass("on");
+    });
+    setInterval(function() {
+      var D, H, M, S, countDown, d, deadLine, h, m, now, restTime;
+      countDown = $("#countDown");
+      deadLine = new Date(countDown.data("deadline"));
+      now = new Date();
+      restTime = new Date(deadLine - now) / 1000;
+      m = 60;
+      h = m * 60;
+      d = h * 24;
+      D = Math.min(Math.floor(restTime / d), 99);
+      restTime %= d;
+      H = Math.floor(restTime / h);
+      restTime %= h;
+      M = Math.floor(restTime / m);
+      S = parseInt(restTime % m, 10);
+      return countDown.html("			<p>2012年12月自考倒计时</p>			<i class='D'>" + D + "</i>			<i class='H'>" + H + "</i>			<i class='M'>" + M + "</i>			<i class='S'>" + S + "</i>			");
+    }, 1000);
     $("input[type=number]").each(function() {
       var that, wrapper;
       that = $(this);
@@ -47,6 +69,7 @@
         return $(this).addClass("o" + (i + 1));
       });
     });
+    $(".ul1").find(">*:even").addClass("even");
     tabMethod = function(e) {
       var root, that;
       that = $(this);
@@ -54,7 +77,7 @@
       that.addClass("on").siblings().removeClass("on");
       return root.find(".content > *").removeClass("on").eq(that.index()).addClass("on");
     };
-    $(".tab").on("mouseenter", "header > :header", tabMethod).on("click", "header > label", tabMethod).find("header>*:first").trigger("click").trigger("mouseenter");
+    $(".tab").on("mouseenter", "header > *:not(label)", tabMethod).on("click", "header > label", tabMethod).find("header>*:first").trigger("click").trigger("mouseenter");
     $("table").on("click", function(e) {
       var tango;
       tango = $(e.target);
@@ -62,51 +85,7 @@
         return $(":checkbox", this).attr("checked", !!tango.attr("checked"));
       }
     });
-    window.alert = function(str) {
-      var wraper;
-      if (str) {
-        wraper = $("<div/>");
-        wraper.append(str).attr("title", $(str).attr("title") ? "注意" : void 0);
-        return wraper.dialog({
-          modal: true,
-          show: "fade",
-          hide: "fade",
-          buttons: {
-            "Ok": function() {
-              return $(this).dialog("close");
-            }
-          }
-        });
-      }
-    };
-    $(".dialogBtn").on("click", function() {
-      var that;
-      that = $(this);
-      if (this.dialog) {
-        return this.dialog.dialog("open");
-      } else {
-        this.dialog = $(that.data("dialog-obj"));
-        this.dialog = this.dialog.length ? this.dialog : that.next(".dialog");
-        this.dialog.dialog({
-          modal: true,
-          show: "fade",
-          hide: "fade",
-          width: this.dialog.css("width")
-        });
-        return this.dialog.dialog("option", "dialogClass", this.dialog.data("dialogclass"));
-      }
-    });
-    $(".dialogDef").dialog({
-      modal: true,
-      show: "fade",
-      hide: "fade",
-      buttons: {
-        "Ok": function() {
-          return $(this).dialog("close");
-        }
-      }
-    });
-    return $("form").on("invalid", ":input", function() {
+    $("form").on("invalid", ":input", function() {
       var that;
       that = $(this);
       that.focus().select();
@@ -130,6 +109,12 @@
           return $(this).trigger("invalid");
         }
       }, this), 0);
+    });
+    return $("#imgSlider").jqFancyTransitions({
+      width: 250,
+      height: 250,
+      links: true,
+      navigation: true
     });
   });
 

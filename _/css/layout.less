@@ -1,0 +1,72 @@
+// 基本布局使用的类
+
+.mCenter (@bottom:0) {
+	margin:0 auto @bottom;
+}
+
+.ib {display:inline-block;}
+.inline {display:inline;}
+.none {display:none;}
+.block {display:block;}
+
+.vat {vertical-align:top; }
+.vam {vertical-align:middle; }
+.vab {vertical-align:bottom; }
+
+.tar {text-align:right;}
+.tac {text-align:center;}
+.tal {text-align:left;}
+
+.fl {float:left;}
+.fr {float:right;}
+
+.posr {position: relative;}
+.posa {position: absolute;}
+.poss {position: static;}
+
+.ovv {overflow: visible;}
+.ovh {overflow: hidden;}
+.ova {overflow: auto;}
+
+.clearfix:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+.clearfix {display: inline-block;}
+.clearfix {display: block;}
+
+// 固定左侧宽度，右侧自适应,默认两侧间距为10
+.leftFix (@leftWidth,@minHeight:auto,@space:10px) {
+	.posr;
+	.block;
+	padding-left: @leftWidth+@space;
+	min-height: @minHeight;
+	_height: @minHeight;
+	.fix {
+		.posa;
+		width: @leftWidth;
+		left: 0;
+		top: 0;
+	}
+}
+
+// 固定左侧宽度，右侧自适应,默认两侧间距为10
+.rightFix (@rightWidth,@minHeight:auto,@space:10px) {
+	.posr;
+	.block;
+	padding-right: @rightWidth+@space;
+	min-height: @minHeight;
+	_height: @minHeight;
+	.fix {
+		.posa;
+		width: @rightWidth;
+		right: 0;
+		top: 0;
+	}
+}
+
+
