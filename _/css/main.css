@@ -865,11 +865,13 @@ i,
   white-space: nowrap;
   _zoom: 1;
 }
-.h2 a {
+.h2 a,
+.h2 label {
   margin-right: 5px;
   cursor: pointer;
 }
-.h2 a span {
+.h2 a span,
+.h2 label span {
   font-size: 18px;
   display: inline-block;
   border: 1px solid #bbbbbb;
@@ -877,6 +879,11 @@ i,
   text-align: center;
   line-height: 2em;
   padding: 0 .5em;
+  background: #fff;
+}
+.h2 a span input,
+.h2 label span input {
+  display: none;
 }
 .h2 .on {
   display: inline-block;
@@ -1100,6 +1107,56 @@ i,
   right: 10px;
   bottom: 5px;
 }
+.h13 {
+  font-size: 0px;
+  white-space: nowrap;
+  _zoom: 1;
+}
+.h13 a,
+.h13 label {
+  margin-right: 5px;
+  cursor: pointer;
+}
+.h13 a span,
+.h13 label span {
+  font-size: 18px;
+  display: inline-block;
+  border: 1px solid #bbbbbb;
+  vertical-align: top;
+  text-align: center;
+  line-height: 2em;
+  padding: 0 .5em;
+  background: #fff;
+}
+.h13 a span input,
+.h13 label span input {
+  display: none;
+}
+.h13 .on {
+  display: inline-block;
+  font-size: 14px;
+  background: url(../img/tagbottom.png) center bottom no-repeat;
+  padding-bottom: 5px;
+  cursor: pointer;
+}
+.h13 .on span {
+  display: inline-block;
+  text-align: center;
+  border: none;
+  color: #ffffff;
+  background: #3862b4;
+  font-weight: bold;
+  height: 2em;
+  line-height: 2em;
+  padding: 0 1em;
+}
+.h13 .on span {
+  border: 1px solid #3862b4;
+}
+.h13 a span,
+.h13 label span {
+  font-size: 12px;
+}
 .ul1 {
   font-size: 0px;
 }
@@ -1147,7 +1204,7 @@ i,
   bottom: 0;
 }
 .ul2 .gray {
-  background-color: #e9e9e9;
+  background-color: #f9f9f9;
 }
 .ul2 .dashed {
   border-bottom: 1px dashed #bbbbbb;
@@ -1256,6 +1313,9 @@ i,
 .lh18 {
   line-height: 180%;
 }
+.mb5 {
+  margin-bottom: 5px;
+}
 .mb10 {
   margin-bottom: 10px;
 }
@@ -1287,6 +1347,13 @@ i,
   border: 1px solid #bbbbbb;
   padding-top: 10px;
 }
+.border4 {
+  border: 1px solid #d7f2fd;
+  background: #ecfaff;
+}
+.border4 .i_a_10 {
+  background-position: -40px -360px;
+}
 .link1 {
   color: #666666;
 }
@@ -1312,9 +1379,12 @@ article h2 {
 }
 article .preview {
   padding: 10px;
-  margin-top: 1em;
   border: 1px solid #d7f2fd;
   background: #ecfaff;
+  margin-top: 1em;
+}
+article .preview .i_a_10 {
+  background-position: -40px -360px;
 }
 article .content * {
   text-align: left;
@@ -1612,6 +1682,9 @@ article footer span {
   border-top: 2px solid #3862b4;
   margin: 0 -7px;
 }
+.sb1 .accross {
+  margin: 0 -7px;
+}
 .sb2 {
   margin: 0 auto 10px;
   width: 946px;
@@ -1638,6 +1711,9 @@ article footer span {
   font-size: 0px;
   border: none;
   border-top: 2px solid #3862b4;
+  margin: 0 -7px;
+}
+.sb2 .accross {
   margin: 0 -7px;
 }
 .sb2 .top {

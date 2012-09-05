@@ -85,7 +85,19 @@
       that.addClass("on").siblings().removeClass("on");
       return root.find(".content > *").removeClass("on").eq(that.index()).addClass("on");
     };
-    $(".tab").on("mouseenter", "header > *:not(label)", tabMethod).on("click", "header > label", tabMethod).find("header>*:first").trigger("click").trigger("mouseenter");
+    $(".tab").on("mouseenter", "header > *:not(label)", tabMethod).on("click", "header > label", tabMethod).find("header>label:first").trigger("click").trigger("mouseenter");
+    $("label:has(:input)").on("click", function(e) {
+      var t;
+      if (e.target === this) {
+        t = $(this);
+        t.toggleClass("on");
+        return t.find(":input").attr("checked", t.is(".on"));
+      }
+    });
+    $(".submit").on("click", function() {
+      $(this).parents("form").trigger("submit");
+      return false;
+    });
     $("table").on("click", function(e) {
       var tango;
       tango = $(e.target);

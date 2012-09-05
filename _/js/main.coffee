@@ -93,7 +93,19 @@ $(->
 		that.addClass("on").siblings().removeClass("on")
 		root.find(".content > *").removeClass("on").eq(that.index()).addClass("on")
 	$(".tab").on("mouseenter","header > *:not(label)",tabMethod)
-	.on("click","header > label",tabMethod).find("header>*:first").trigger("click").trigger("mouseenter")
+	.on("click","header > label",tabMethod).find("header>label:first").trigger("click").trigger("mouseenter")
+
+	$("label:has(:input)").on("click",(e)->
+		if e.target is @
+			t = $(@)
+			t.toggleClass("on")
+			t.find(":input").attr("checked",t.is(".on"))
+	)
+
+	$(".submit").on("click",->
+		$(@).parents("form").trigger("submit")
+		false
+	)
 
 	# 初始化全选按钮
 	$("table").on("click",(e)->
