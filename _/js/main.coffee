@@ -9,6 +9,14 @@ $(->
 	if $.browser.msie 
 		null
 
+	$("[data-group]").each(->
+		lis = $("li",this) 
+		lis.filter(":nth-child(5n)").addClass("dashed")
+		lis.filter((i)->
+			i%10<5
+		).addClass("gray")
+	)
+
 	# 初始化开关类
 	$(".toggle").on("click",-> $(@).addClass("on") )
 	.on("mouseleave",-> $(@).removeClass("on"))

@@ -9,6 +9,14 @@
     if ($.browser.msie) {
       null;
     }
+    $("[data-group]").each(function() {
+      var lis;
+      lis = $("li", this);
+      lis.filter(":nth-child(5n)").addClass("dashed");
+      return lis.filter(function(i) {
+        return i % 10 < 5;
+      }).addClass("gray");
+    });
     $(".toggle").on("click", function() {
       return $(this).addClass("on");
     }).on("mouseleave", function() {
