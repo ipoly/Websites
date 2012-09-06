@@ -85,7 +85,7 @@
       that.addClass("on").siblings().removeClass("on");
       return root.find(".content > *").removeClass("on").eq(that.index()).addClass("on");
     };
-    $(".tab").on("mouseenter", "header > *:not(label)", tabMethod).on("click", "header > label", tabMethod).find("header>label:first").trigger("click").trigger("mouseenter");
+    $(".tab").on("mouseenter", "header > *:not(label)", tabMethod).on("click", "header > label", tabMethod).find("header>*:first").trigger("click").trigger("mouseenter");
     $("label:has(:input)").on("click", function(e) {
       var t;
       if (e.target === this) {
@@ -94,6 +94,33 @@
         return t.find(":input").attr("checked", t.is(".on"));
       }
     });
+    $(".gun").each(function() {
+      var t;
+      t = $(this);
+      t.on("hover", function(e) {
+        clearTimeout(this.timer);
+        if (e.type === "mouseleave") {
+          return this.timer = setTimeout(function() {
+            return t.trigger("gun");
+          }, $(this).data("speed") || 3000);
+        }
+      });
+      return t.on("gun", function() {
+        var first;
+        t = $(this);
+        first = t.find(">*:first");
+        return first.animate({
+          "marginTop": -first.outerHeight(true),
+          "opacity": 0
+        }, 800, "easeOutQuart", function() {
+          t.append(first.css({
+            "marginTop": 0
+          }));
+          first.fadeTo(400, 1);
+          return t.trigger("mouseleave");
+        });
+      });
+    }).trigger("gun");
     $(".submit").on("click", function() {
       $(this).parents("form").trigger("submit");
       return false;

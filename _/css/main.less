@@ -209,7 +209,7 @@ article{
 		#countDown {
 			.posa;
 			right: 0;
-			top: 0;
+			top: 10px;
 			white-space: nowrap;
 			i {
 				.f26;
@@ -247,15 +247,15 @@ article{
 			.f14;
 			color: #fff;
 			top: 8px;
+			line-height: 24px;
 			a {
 				.ib;
-				.vat;
+				.vam;
 				.textShadow1;
 				white-space: nowrap;
 				color: #fff;
 				width: 4em;
-				margin: 5px;
-				*margin-top: 0;
+				margin-right: 5px;
 			}
 			a:hover {
 				text-decoration: underline;
@@ -324,6 +324,10 @@ article{
 	.rightFix(240px);
 }
 
+.rightFix_250 {
+	.rightFix(250px);
+}
+
 .rightFix_170 {
 	.rightFix(170px);
 }
@@ -333,8 +337,11 @@ article{
 }
 
 #home_1 {
-	.rightFix_230 {
+	.rightFix_240 {
 		.minH(470px);
+		.fix .gun {
+			height: 190px;
+		}
 	}
 	.rightFix_170 {
 		.minH(190px);
@@ -373,10 +380,11 @@ article{
 		.left {
 			border-right: 1px solid @gray4;
 			section {
+				.f12;
 				.ib;
 				.vat;
-				width:48%;
-				margin: 0 1% 10px 0;
+				width:44%;
+				margin: 2%;
 			}
 		}
 	}
@@ -385,6 +393,10 @@ article{
 #home_3 {
 	.rightFix_240 {
 		.minH(440px);
+		.fix .gun {
+			.posr;
+			height: 380px;
+		}
 	}
 }
 
@@ -519,4 +531,12 @@ article{
 		color: #fff;
 		background: @blue2;
 	}
+}
+
+.gun {
+	.ovh;
+}
+
+.searchForm {
+	.pt10;
 }

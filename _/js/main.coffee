@@ -93,7 +93,7 @@ $(->
 		that.addClass("on").siblings().removeClass("on")
 		root.find(".content > *").removeClass("on").eq(that.index()).addClass("on")
 	$(".tab").on("mouseenter","header > *:not(label)",tabMethod)
-	.on("click","header > label",tabMethod).find("header>label:first").trigger("click").trigger("mouseenter")
+	.on("click","header > label",tabMethod).find("header>*:first").trigger("click").trigger("mouseenter")
 
 	$("label:has(:input)").on("click",(e)->
 		if e.target is @
@@ -101,6 +101,27 @@ $(->
 			t.toggleClass("on")
 			t.find(":input").attr("checked",t.is(".on"))
 	)
+
+	$(".gun").each(->
+		t = $(@)
+		t.on("hover",(e)->
+			clearTimeout(@timer)
+			if e.type is "mouseleave"
+				@timer = setTimeout(->
+					t.trigger("gun")
+				,$(@).data("speed")||3000)
+		)
+
+		t.on("gun",->
+			t = $(@)
+			first = t.find(">*:first")
+			first.animate({"marginTop":-first.outerHeight(true),"opacity":0},800,"easeOutQuart",->
+				t.append(first.css({"marginTop":0}))
+				first.fadeTo(400,1)
+				t.trigger("mouseleave")
+			)
+		)
+	).trigger("gun")
 
 	$(".submit").on("click",->
 		$(@).parents("form").trigger("submit")

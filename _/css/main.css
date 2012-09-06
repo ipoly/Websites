@@ -839,7 +839,7 @@ i,
   background-position: -1280px 0;
   background-position: -1280px -80px;
 }
-#btnxiazai {
+#btnXiazai {
   background-image: url(../img/sprite.png);
   background-repeat: no-repeat;
   display: block;
@@ -863,7 +863,7 @@ i,
 .h2 {
   font-size: 0px;
   white-space: nowrap;
-  _zoom: 1;
+  *zoom: 1;
 }
 .h2 a,
 .h2 label {
@@ -909,7 +909,7 @@ i,
 .h3 {
   position: relative;
   border-bottom: 1px solid #bbbbbb;
-  _zoom: 1;
+  *zoom: 1;
 }
 .h3 span {
   display: inline-block;
@@ -1021,7 +1021,7 @@ i,
   line-height: 38px;
   color: #fff;
   padding: 0 10px;
-  _zoom: 1;
+  *zoom: 1;
 }
 .h9 .more {
   position: absolute;
@@ -1039,7 +1039,7 @@ i,
   line-height: 38px;
   color: #fff;
   padding: 0 10px;
-  _zoom: 1;
+  *zoom: 1;
   background-position: 0 -80px;
 }
 .h10 .more {
@@ -1058,7 +1058,7 @@ i,
   line-height: 38px;
   color: #fff;
   padding: 0 10px;
-  _zoom: 1;
+  *zoom: 1;
   background-position: 0 -120px;
 }
 .h11 .more {
@@ -1090,7 +1090,7 @@ i,
   margin: 0 -6px;
   padding: 5px 10px;
   border-bottom: 1px solid #bbbbbb;
-  _zoom: 1;
+  *zoom: 1;
 }
 .h12 i {
   vertical-align: middle;
@@ -1110,7 +1110,7 @@ i,
 .h13 {
   font-size: 0px;
   white-space: nowrap;
-  _zoom: 1;
+  *zoom: 1;
 }
 .h13 a,
 .h13 label {
@@ -1189,14 +1189,14 @@ i,
 .ul2 {
   font-size: 14px;
   line-height: 2em;
-  _zoom: 1;
+  *zoom: 1;
 }
 .ul2 li {
   position: relative;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  _zoom: 1;
+  *zoom: 1;
 }
 .ul2 span {
   position: absolute;
@@ -1330,6 +1330,9 @@ i,
 }
 .p10 {
   padding: 10px;
+}
+.p15 {
+  padding: 15px;
 }
 .p12 {
   padding: 10px 20px;
@@ -1577,7 +1580,7 @@ article footer span {
 #siteHeader .mid #countDown {
   position: absolute;
   right: 0;
-  top: 0;
+  top: 10px;
   white-space: nowrap;
 }
 #siteHeader .mid #countDown i {
@@ -1626,16 +1629,16 @@ article footer span {
   font-size: 14px;
   color: #fff;
   top: 8px;
+  line-height: 24px;
 }
 #siteHeader #siteNav section a {
   display: inline-block;
-  vertical-align: top;
+  vertical-align: middle;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.7);
   white-space: nowrap;
   color: #fff;
   width: 4em;
-  margin: 5px;
-  *margin-top: 0;
+  margin-right: 5px;
 }
 #siteHeader #siteNav section a:hover {
   text-decoration: underline;
@@ -1748,6 +1751,19 @@ article footer span {
   right: 0;
   top: 0;
 }
+.rightFix_250 {
+  position: relative;
+  display: block;
+  padding-right: 260px;
+  min-height: auto;
+  _height: auto;
+}
+.rightFix_250 .fix {
+  position: absolute;
+  width: 250px;
+  right: 0;
+  top: 0;
+}
 .rightFix_170 {
   position: relative;
   display: block;
@@ -1774,9 +1790,12 @@ article footer span {
   left: 0;
   top: 0;
 }
-#home_1 .rightFix_230 {
+#home_1 .rightFix_240 {
   min-height: 470px;
   _height: 470px;
+}
+#home_1 .rightFix_240 .fix .gun {
+  height: 190px;
 }
 #home_1 .rightFix_170 {
   min-height: 190px;
@@ -1819,14 +1838,19 @@ article footer span {
 }
 #home_2 .rightFix_240 .left section,
 #home_3 .rightFix_240 .left section {
+  font-size: 12px;
   display: inline-block;
   vertical-align: top;
-  width: 48%;
-  margin: 0 1% 10px 0;
+  width: 44%;
+  margin: 2%;
 }
 #home_3 .rightFix_240 {
   min-height: 440px;
   _height: 440px;
+}
+#home_3 .rightFix_240 .fix .gun {
+  position: relative;
+  height: 380px;
 }
 #imgSlider {
   overflow: hidden;
@@ -1961,4 +1985,10 @@ article footer span {
   border: 1px solid #557dca;
   color: #fff;
   background: #557dca;
+}
+.gun {
+  overflow: hidden;
+}
+.searchForm {
+  padding-top: 10px;
 }
