@@ -336,6 +336,14 @@ article{
 	.leftFix(250px);
 }
 
+.leftFix_140 {
+	.leftFix(140px);
+}
+
+.leftFix_280 {
+	.leftFix(280px);
+}
+
 #home_1 {
 	.rightFix_240 {
 		.minH(470px);
@@ -539,4 +547,68 @@ article{
 
 .searchForm {
 	.pt10;
+}
+
+#userMenu {
+	.minH(900px);
+	.menu {
+		.minH(900px);
+		background: url(../img/user_nav_bg.png) right top no-repeat;
+		a {.block;}
+		div {
+			padding: 30px 20px 0 30px;
+		}
+		menu {
+			.f20;
+			.mb30;
+			a {
+				line-height: 45px;
+				padding-left: 35px;
+				border-bottom: 1px dashed @gray4;
+			}
+		}
+		mark {
+			.posr;
+			.block;
+			.f18;
+			.mb10;
+			padding: 0 10px;
+			background: @gray5;
+			line-height: 40px;
+			color: @gray2;
+			a {
+				.f12;
+				.posa;
+				.inline;
+				right: 10px;
+				top: 0;
+				color: @blue1;
+			}
+		}
+		nav {
+			a {
+				.f14;
+				padding-left: 20px;
+			}
+		}
+	}
+}
+
+#userMain {.p10; }
+
+.userNew {
+	white-space: nowrap;
+	.i {
+		margin: 0 5px 0 0;
+	}
+}
+
+#userHeader {
+	img {
+		.border1;
+		width: 140px;
+		height: 140px;
+		padding: 1px;
+		background: url(../img/headholder.png) center center no-repeat;
+	}
 }
