@@ -37,8 +37,7 @@ $(->
 		M = Math.floor(restTime/m)
 		S = parseInt(restTime % m,10)
 
-		countDown.html("
-			<p>2012年12月自考倒计时</p>
+		countDown.find("div").html("
 			<i class='D'>#{D}</i>
 			<i class='H'>#{H}</i>
 			<i class='M'>#{M}</i>
