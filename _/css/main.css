@@ -105,12 +105,14 @@ textarea {
   line-height: 150%;
 }
 .text {
+  vertical-align: middle;
   border: 1px solid #999999;
   height: 20px;
   line-height: 20px;
   width: 10em;
 }
 .textMin {
+  vertical-align: middle;
   border: 1px solid #999999;
   height: 20px;
   line-height: 20px;
@@ -118,6 +120,7 @@ textarea {
   width: 4em;
 }
 .textMed {
+  vertical-align: middle;
   border: 1px solid #999999;
   height: 20px;
   line-height: 20px;
@@ -125,6 +128,7 @@ textarea {
   width: 15em;
 }
 .textLong {
+  vertical-align: middle;
   border: 1px solid #999999;
   height: 20px;
   line-height: 20px;
@@ -1174,6 +1178,28 @@ i,
 .h13 label span {
   font-size: 12px;
 }
+.h14 {
+  position: relative;
+  *zoom: 1;
+  padding: 0 7px;
+  border-top: 1px solid #bbbbbb;
+}
+.h14 a {
+  display: inline-block;
+  font-size: 20px;
+  line-height: 2em;
+  padding: 0 1em;
+  background: #e9e9e9;
+}
+.h14 .on {
+  color: #3862b4;
+  background: #fff;
+}
+.h14 .more {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
 .ul1 {
   font-size: 0px;
 }
@@ -1399,6 +1425,9 @@ i,
 }
 .pt10 {
   padding-top: 10px;
+}
+.pb10 {
+  padding-bottom: 10px;
 }
 .border2 {
   border: 1px solid #bbbbbb;
