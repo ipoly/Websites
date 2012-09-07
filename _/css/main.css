@@ -1249,6 +1249,20 @@ i,
   background: #ffffff;
   border-bottom: 1px solid #ffffff;
 }
+.h19 {
+  position: relative;
+  padding: 10px 0;
+  *zoom: 1;
+}
+.h19 .more {
+  position: absolute;
+  line-height: 100%;
+  font-size: 12px;
+  font-weight: normal;
+  right: 0;
+  bottom: 15px;
+  color: #bbbbbb;
+}
 .ul1 {
   font-size: 0px;
 }
@@ -1373,6 +1387,11 @@ i,
   margin-bottom: 10px;
   padding: 5px 0 ;
   border-bottom: 1px dashed #bbbbbb;
+}
+.ul7 a {
+  display: inline-block;
+  white-space: nowrap;
+  margin: 0 10px 10px 0;
 }
 .testList li {
   line-height: 200%;
@@ -2495,6 +2514,13 @@ article footer span {
   display: none;
   min-width: 3em;
   padding-right: 2em;
+}
+.fullImg {
+  display: block;
+  margin-bottom: 10px;
+}
+.fullImg img {
+  width: 100%;
 }
 .ib {
   display: inline-block;
