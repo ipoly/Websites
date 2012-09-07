@@ -1185,6 +1185,8 @@ i,
 .h16 .more {
   position: absolute;
   line-height: 100%;
+  font-size: 12px;
+  font-weight: normal;
   right: 0;
   bottom: 5px;
 }
@@ -2195,6 +2197,18 @@ article footer span {
 }
 .step4 {
   background-position: 0 -99px;
+}
+#regPage form {
+  display: inline-block;
+  vertical-align: top;
+  width: 45%;
+  padding: 2%;
+}
+#regPage form {
+  *display: inline;
+}
+#regPage #regForm {
+  background: url(../img/regbg.png) right center no-repeat;
 }
 .ib {
   display: inline-block;
