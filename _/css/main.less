@@ -237,6 +237,7 @@ article{
 		.wraper;
 		.sprite;
 		.posr;
+		.mb10;
 		height: 65px;
 		background-position: -840px -720px;
 		section {
@@ -274,6 +275,11 @@ article{
 			font-weight: bold;
 		}
 	}
+}
+
+.crumb {
+	.mCenter;
+	width: 960px;
 }
 
 .sb1 {
@@ -807,6 +813,60 @@ article{
 	.mb10;
 	img {
 		width: 100%;
+	}
+}
+
+#guide {
+	.mCenter;
+	width: 953px;
+	background: url(../img/gbody.png) 0 0 repeat-y;
+	header {
+		height: 396px;
+		background: url(../img/gtop.png) 0 0 no-repeat;
+	}
+	footer {
+		height: 560px;
+		background:#fff url(../img/gbottom.png) 0 0 no-repeat;
+	}
+	#gbody {
+		.posr;
+		z-index: 1;
+		margin: -285px 0 -385px;
+		.leftFix_250 {
+			.minH(670px);
+			.fix {
+				padding-top:120px;
+				menu {
+					padding-left: 50px;
+					padding-right: 20px;
+					a{
+						.block;
+						.f16;
+						line-height: 30px;
+						border-bottom: 1px dashed @gray4;
+					}
+					.on {color:@green2;}
+				}
+			}
+			article {
+				width: 620px;
+				h1,h2,h3,h4,h5,h6 {
+					.tal;
+					color:@green2;
+					margin-top: 1.5em;
+				}
+				h1{.f24;}
+				h2{.f22;}
+				h3{.f20;}
+				h4{.f18;}
+				h5{.f16;}
+				h6{.f14;}
+				p {
+					margin-top: 1.5em;
+					line-height: 150%;
+				}
+			}
+		}
 	}
 }
 

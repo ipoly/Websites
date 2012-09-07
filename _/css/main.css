@@ -1820,6 +1820,7 @@ article footer span {
   background-image: url(../img/sprite.png);
   background-repeat: no-repeat;
   position: relative;
+  margin-bottom: 10px;
   height: 65px;
   background-position: -840px -720px;
 }
@@ -1858,6 +1859,10 @@ article footer span {
   width: 180px;
   left: 770px;
   font-weight: bold;
+}
+.crumb {
+  margin: 0 auto 0;
+  width: 960px;
 }
 .sb1 {
   margin: 0 auto 10px;
@@ -2522,6 +2527,79 @@ article footer span {
 .fullImg img {
   width: 100%;
 }
+#guide {
+  margin: 0 auto 0;
+  width: 953px;
+  background: url(../img/gbody.png) 0 0 repeat-y;
+}
+#guide header {
+  height: 396px;
+  background: url(../img/gtop.png) 0 0 no-repeat;
+}
+#guide footer {
+  height: 560px;
+  background: #ffffff url(../img/gbottom.png) 0 0 no-repeat;
+}
+#guide #gbody {
+  position: relative;
+  z-index: 1;
+  margin: -285px 0 -385px;
+}
+#guide #gbody .leftFix_250 {
+  min-height: 670px;
+  _height: 670px;
+}
+#guide #gbody .leftFix_250 .fix {
+  padding-top: 120px;
+}
+#guide #gbody .leftFix_250 .fix menu {
+  padding-left: 50px;
+  padding-right: 20px;
+}
+#guide #gbody .leftFix_250 .fix menu a {
+  display: block;
+  font-size: 16px;
+  line-height: 30px;
+  border-bottom: 1px dashed #bbbbbb;
+}
+#guide #gbody .leftFix_250 .fix menu .on {
+  color: #0b910f;
+}
+#guide #gbody .leftFix_250 article {
+  width: 620px;
+}
+#guide #gbody .leftFix_250 article h1,
+#guide #gbody .leftFix_250 article h2,
+#guide #gbody .leftFix_250 article h3,
+#guide #gbody .leftFix_250 article h4,
+#guide #gbody .leftFix_250 article h5,
+#guide #gbody .leftFix_250 article h6 {
+  text-align: left;
+  color: #0b910f;
+  margin-top: 1.5em;
+}
+#guide #gbody .leftFix_250 article h1 {
+  font-size: 24px;
+}
+#guide #gbody .leftFix_250 article h2 {
+  font-size: 22px;
+}
+#guide #gbody .leftFix_250 article h3 {
+  font-size: 20px;
+}
+#guide #gbody .leftFix_250 article h4 {
+  font-size: 18px;
+}
+#guide #gbody .leftFix_250 article h5 {
+  font-size: 16px;
+}
+#guide #gbody .leftFix_250 article h6 {
+  font-size: 14px;
+}
+#guide #gbody .leftFix_250 article p {
+  margin-top: 1.5em;
+  line-height: 150%;
+}
 .ib {
   display: inline-block;
 }
@@ -2651,6 +2729,9 @@ article footer span {
 }
 .f24 {
   font-size: 24px;
+}
+.f22 {
+  font-size: 22px;
 }
 .f26 {
   font-size: 26px;
