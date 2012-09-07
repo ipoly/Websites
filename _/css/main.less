@@ -1,12 +1,10 @@
 @charset "utf-8";
 // @import "jquery-ui.less";
 @import "colors.less";
-@import "layout.less";
 @import "labels.less";
 @import "icons.less";
 @import "header.less";
 @import "list.less";
-@import "base.less";
 
 
 // 默认的超链接样式
@@ -533,6 +531,7 @@ article{
 		.border1;
 		line-height: 1.5em;
 		padding: 0 .5em;
+		background: @fff;
 	}
 	.on {
 		.border1(@blue2);
@@ -618,3 +617,6 @@ article{
 		background: url(../img/headholder.png) center center no-repeat;
 	}
 }
+
+@import "layout.less";
+@import "base.less";

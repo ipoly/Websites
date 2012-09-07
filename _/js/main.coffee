@@ -94,13 +94,20 @@ $(->
 	$(".tab").on("mouseenter","header > *:not(label)",tabMethod)
 	.on("click","header > label",tabMethod).find("header>*:first").trigger("click").trigger("mouseenter")
 
-	$("label:has(:input)").on("click",(e)->
+	$("label:has(:input:hidden)").on("click",(e)->
 		if e.target is @
 			t = $(@)
 			t.toggleClass("on")
 			t.find(":input").attr("checked",t.is(".on"))
 	)
 
+	# 初始化全选
+	$("table").on("change",".checkAll",(e)->
+		t = $(@)
+		t.closest("table").find(":checkbox:not(.checkAll)").attr("checked",!!t.attr("checked"))
+	)
+
+	# 初始化滚动
 	$(".gun").each(->
 		t = $(@)
 		t.on("hover",(e)->
