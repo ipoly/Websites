@@ -1302,6 +1302,9 @@ i,
   vertical-align: middle;
   padding: 10px 5px;
 }
+.formTable td {
+  text-align: left;
+}
 .formTable th {
   text-align: right;
   white-space: nowrap;
@@ -2130,6 +2133,10 @@ article footer span {
   text-align: center;
   padding: 30px 20px;
 }
+.msgPage .formTable {
+  margin: 0 auto 0;
+  width: auto;
+}
 .msgPage section {
   display: inline-block;
   text-align: left;
@@ -2174,6 +2181,20 @@ article footer span {
   height: 2em;
   line-height: 2em;
   padding: 0 1em;
+}
+#step {
+  width: 895px;
+  height: 33px;
+  background-image: url(../img/step.png);
+}
+.step2 {
+  background-position: 0 -33px;
+}
+.step3 {
+  background-position: 0 -66px;
+}
+.step4 {
+  background-position: 0 -99px;
 }
 .ib {
   display: inline-block;
