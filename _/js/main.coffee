@@ -122,10 +122,6 @@ $(->
 		)
 	).trigger("gun")
 
-	$(".submit").on("click",->
-		$(@).parents("form").trigger("submit")
-		false
-	)
 
 	# 初始化全选按钮
 	$("table").on("click",(e)->
