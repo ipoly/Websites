@@ -1292,6 +1292,9 @@ i,
 .formTable .vat {
   vertical-align: top;
 }
+.formTable b {
+  color: #ee0000;
+}
 .table1 {
   width: 100%;
 }
@@ -2095,6 +2098,16 @@ article footer span {
 .delAble,
 .cloneAble {
   margin-bottom: 5px;
+}
+.validityMsg {
+  color: #ee0000;
+  padding-left: 10px;
+}
+.validityMsg span {
+  display: none;
+}
+.invalid span {
+  display: inline-block;
 }
 .ib {
   display: inline-block;
