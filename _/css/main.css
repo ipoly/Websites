@@ -1224,6 +1224,12 @@ i,
   background: #3862b4;
   padding-right: 1em;
 }
+.h16 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  line-height: 30px;
+  border-bottom: 1px solid #bbbbbb;
+}
 .ul1 {
   font-size: 0px;
 }
@@ -2219,6 +2225,9 @@ article footer span {
 }
 .userNew .i {
   margin: 0 5px 0 0;
+}
+#userRequest .i {
+  margin: 0 5px 10px;
 }
 #userHeader img {
   border: 1px solid #bbbbbb;
