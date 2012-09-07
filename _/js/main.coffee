@@ -107,6 +107,24 @@ $(->
 		t.closest("table").find(":checkbox:not(.checkAll)").attr("checked",!!t.attr("checked"))
 	)
 
+	# 初始化克隆节点
+	$("body").on("click",".cloneAble .add",(e)->
+		root = $(@).closest(".cloneAble")
+		clone = root.clone().hide()
+		clone.find(":input").val("")
+		root.toggleClass("cloneAble delAble").after(clone)
+		clone.fadeIn()
+		e.preventDefault()
+	)
+	$("body").on("click",".delAble .del",(e)->
+		root = $(@).closest(".delAble")
+		root.animate({opacity:"0",marginTop:-root.outerHeight(true)} ,400 ,"easeOutQuart",->
+			$(@).remove()
+		)
+		e.preventDefault()
+	)
+
+
 	# 初始化滚动
 	$(".gun").each(->
 		t = $(@)

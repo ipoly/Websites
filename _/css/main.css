@@ -2092,6 +2092,10 @@ article footer span {
   padding: 1px;
   background: url(../img/headholder.png) center center no-repeat;
 }
+.delAble,
+.cloneAble {
+  margin-bottom: 5px;
+}
 .ib {
   display: inline-block;
 }
@@ -2190,6 +2194,10 @@ article footer span {
 }
 .tagbottom {
   background: url(../img/tagbottom.png) center bottom no-repeat;
+}
+.cloneAble .del,
+.delAble .add {
+  display: none;
 }
 .f0 {
   font-size: 0px;
