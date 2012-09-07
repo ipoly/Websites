@@ -1081,10 +1081,29 @@ i,
 }
 .h12 .crumb {
   position: absolute;
-  font-size: 12px;
   color: #bbbbbb;
   right: 10px;
   bottom: 5px;
+}
+.h12 .crumb b {
+  color: #ee0000;
+}
+.h12 .f12 {
+  color: #bbbbbb;
+}
+.h12 .f12 b {
+  color: #ee0000;
+}
+.h12 .more {
+  position: absolute;
+  line-height: 100%;
+  color: #bbbbbb;
+  font-weight: normal;
+  right: 10px;
+  bottom: 5px;
+}
+.h12 .more b {
+  color: #ee0000;
 }
 .h13 {
   font-size: 0px;
@@ -1354,6 +1373,64 @@ i,
   margin-bottom: 10px;
   padding: 5px 0 ;
   border-bottom: 1px dashed #bbbbbb;
+}
+.testList li {
+  line-height: 200%;
+  margin-bottom: 10px;
+  padding: 10px;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  border: 1px solid #ffffff;
+}
+.testList .unsure {
+  border: 1px solid #990033;
+  background: #ffffcc;
+}
+.testList .text {
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  width: 5em;
+  border-width: 0 0 1px;
+  background: none;
+}
+.testList textarea {
+  width: 80%;
+}
+.testList b {
+  color: #ee0000;
+}
+.testList div {
+  position: relative;
+  margin-top: 10px;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 10px;
+  background: #e9e9e9;
+}
+.testList div mark {
+  position: absolute;
+  background: none;
+  right: 10px;
+  bottom: 0;
+  cursor: pointer;
+  font-style: normal;
+}
+.testList div mark i {
+  vertical-align: middle;
+  display: inline-block;
+  font-size: 0px;
+  width: 20px;
+  height: 20px;
+  background-position: 0 -640px;
+}
+.testList div mark b {
+  color: #557dca;
 }
 .Atable th {
   vertical-align: top;
@@ -2315,6 +2392,110 @@ article footer span {
   margin-bottom: 10px;
   width: 610px;
 }
+#testHead {
+  background-image: url(../img/repeatx.png);
+  background-repeat: repeat-x;
+  margin-bottom: 10px;
+  height: 114px;
+  background-position: 0 -240px;
+}
+#testHead div {
+  margin: 0 auto 0;
+  position: relative;
+  width: 960px;
+  height: 114px;
+  background: url(../img/testhead.png) 0 0 no-repeat;
+}
+#testHead menu {
+  position: absolute;
+  line-height: 30px;
+  width: 440px;
+  top: 0;
+  right: 130px;
+}
+#testHead mark {
+  position: absolute;
+  background: none;
+  left: 0;
+}
+#testHead mark b {
+  color: #ee0000;
+}
+#testHead nav {
+  position: absolute;
+  right: 0;
+}
+#testHead #cancel,
+#testHead #gohome {
+  position: absolute;
+  top: 50px;
+  right: 143px;
+  width: 120px;
+  height: 40px;
+}
+#testHead #gohome {
+  right: 11px;
+}
+#testHeader {
+  font-size: 20px;
+  text-align: center;
+  padding: 20px 0;
+  line-height: 1.2em;
+  color: #bbbbbb;
+}
+#testHeader h1 {
+  color: #ee0000;
+}
+#testHeader h2 {
+  font-size: 12px;
+}
+#testHeader h2 b {
+  color: #ee0000;
+}
+#testHeader h2 span {
+  color: #666666;
+}
+#testHeader h3 {
+  font-size: 12px;
+  border: 1px solid #d7f2fd;
+  background: #ecfaff;
+}
+#testHeader h3 .i_a_10 {
+  background-position: -40px -360px;
+}
+#testHeader h3 b {
+  color: #3862b4;
+}
+#testHeader h3 span {
+  display: inline-block;
+  margin: 0 10px;
+}
+#testPaper h1 {
+  margin-bottom: 10px;
+  border-top: 2px solid #3862b4;
+  background: #d7f2fd;
+  padding: 10px;
+}
+#testPaper ul {
+  margin-bottom: 10px;
+  border-bottom: 2px solid #3862b4;
+}
+#testPaper footer {
+  text-align: center;
+  margin-bottom: 10px;
+}
+#testPaper footer mark {
+  display: block;
+  margin-bottom: 10px;
+  font-style: normal;
+  background: none;
+  color: #bbbbbb;
+}
+.ruler {
+  display: none;
+  min-width: 3em;
+  padding-right: 2em;
+}
 .ib {
   display: inline-block;
 }
@@ -2456,6 +2637,9 @@ article footer span {
 }
 .lh18 {
   line-height: 180%;
+}
+.lh20 {
+  line-height: 200%;
 }
 .mb5 {
   margin-bottom: 5px;

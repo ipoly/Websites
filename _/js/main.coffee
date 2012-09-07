@@ -85,16 +85,74 @@ $(->
 	# 初始化列表间隔
 	$(".ul1").find(">*:even").addClass("even")
 
+	# 初始化试卷
+	$(".testList").on("click","mark",(e)->
+		t = $(@)
+		t.closest("li").toggleClass("unsure")
+	).on("keyup",".text",->
+		t = $(@)
+		if !@ruler
+			@ruler = $("<pre class='ruler'/>") 
+			@ruler.css({"font-size":t.css("font-size")})
+			t.after(@ruler)
+		@ruler.html(t.val())
+		t.width(@ruler.innerWidth())
+	).on("change","li",->
+		$(@).data("done",!!$.trim($(":input",@).val()))
+	).on("change",->
+		t = $(@)
+		lis = t.find("li")
+		total = lis.length
+		done = lis.filter(-> $(@).data("done")).length
+		t.data("status",{total,done})
+	)
+
+	$("#testPaper").on("change","section",->
+		t = $(@)
+		st = t.find("ul").data("status")
+		t.find(".total").html(st.total)
+		t.find(".done").html(st.done)
+		t.find(".left").html(st.total-st.done)
+	).on("change",->
+		t = $(@)
+		total =[]
+		for i in t.find("ul")
+			st = $(i).data("status")
+			if st
+				total.push(st)
+			else
+				$(i).trigger("change")
+				return false
+		totalDone = 0
+		totalLeft = 0
+		totalDone += i.done for i in total
+		totalLeft += i.total-i.done for i in total
+		$(".totalDone").html(totalDone)
+		$(".totalLeft").html(totalLeft)
+	).trigger("change")
+
+	# 考试计时器
+	$("#testHeader .timer").each(->
+		t = $(@)
+		time = parseInt(t.html(),10) || 120
+		setInterval(->
+			t.html(time--)
+			if time <= 0
+				alert("考试结束")
+				$(".testForm").submit()
+		,1000*60)
+	)
+
 	# 初始化tab标签模块
 	tabMethod = (e)->
 		that = $(@)
 		root = that.parents(".tab")
 		that.addClass("on").siblings().removeClass("on")
 		root.find(".content > *").removeClass("on").eq(that.index()).addClass("on")
-	$(".tab").on("mouseenter","header > *:not(label)",tabMethod)
-	.on("click","header > label",tabMethod).find("header>*:first").trigger("click").trigger("mouseenter")
+	$(".tab").on("mouseenter","header > *:not(label,a)",tabMethod)
+	.on("click","header > label,header > a",tabMethod).find("header>*:first").trigger("click").trigger("mouseenter")
 
-	$("label:has(:input:hidden)").on("click",(e)->
+	$("body").on("click","label:has(:input:hidden)",(e)->
 		if e.target is @
 			t = $(@)
 			t.toggleClass("on")
