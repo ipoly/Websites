@@ -811,6 +811,23 @@ i,
   background-position: -1080px -560px;
   background-position: -1080px -600px;
 }
+.success {
+  width: 80px;
+  height: 80px;
+  background-position: -1000px -400px;
+}
+.alert {
+  width: 80px;
+  height: 80px;
+  background-position: -1000px -400px;
+  background-position: -1080px -400px;
+}
+.fail {
+  width: 80px;
+  height: 80px;
+  background-position: -1000px -400px;
+  background-position: -1160px -400px;
+}
 .h1 {
   background-image: url(../img/sprite.png);
   background-repeat: no-repeat;
@@ -2108,6 +2125,55 @@ article footer span {
 }
 .invalid span {
   display: inline-block;
+}
+.msgPage {
+  text-align: center;
+  padding: 30px 20px;
+}
+.msgPage section {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+  line-height: 180%;
+}
+.msgPage hr {
+  margin: 20px 0;
+}
+.msgPage a {
+  vertical-align: middle;
+  display: inline-block;
+  font-size: 12px;
+  padding: 0;
+  border: none;
+  background: none;
+  font-size: 18px;
+}
+.msgPage a span,
+.msgPage a .submit {
+  text-align: center;
+  display: inline-block;
+  background-image: url(../img/sprite.png);
+  background-repeat: no-repeat;
+  border: 1px solid #bbbbbb;
+  white-space: nowrap;
+  height: 22px;
+  line-height: 22px;
+  padding: 0 10px;
+  background-position: -1000px -80px;
+  cursor: pointer;
+  outline: none;
+  color: #666666;
+  font-family: "Microsoft YaHei", Helmet, Freesans, sans-serif;
+}
+.msgPage a span,
+.msgPage a .submit {
+  border: none;
+  color: #ffffff;
+  background: #3862b4;
+  font-weight: bold;
+  height: 2em;
+  line-height: 2em;
+  padding: 0 1em;
 }
 .ib {
   display: inline-block;
