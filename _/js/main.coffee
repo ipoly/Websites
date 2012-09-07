@@ -147,6 +147,17 @@ $(->
 		)
 	).trigger("gun")
 
+	$("#questionForm").on("keyup",(e)->
+		t = $(e.target)
+		console.log 11
+		if t.is("textarea")
+			txt = t.val().split("")
+			limit = parseInt(t.attr("max"),10)
+			while txt.length > limit
+				txt.pop()
+			t.val(txt.join(""))
+			$("h2 span",@).html("还可以输入#{limit-txt.length}个字")
+	)
 
 	# 初始化全选按钮
 	$("table").on("click",(e)->

@@ -1190,6 +1190,46 @@ i,
   right: 0;
   bottom: 5px;
 }
+.h17 {
+  background-image: url(../img/sprite.png);
+  background-repeat: no-repeat;
+  position: relative;
+  font-size: 18px;
+  background-position: -1560px -120px;
+  *zoom: 1;
+  padding-left: 10px;
+  line-height: 27px;
+  color: #ffffff;
+}
+.h17 .more {
+  position: absolute;
+  line-height: 100%;
+  font-size: 12px;
+  font-weight: normal;
+  right: 0;
+  bottom: 5px;
+  color: #bbbbbb;
+}
+.h18 {
+  margin-bottom: 10px;
+  background: #e9e9e9;
+  border-bottom: #bbbbbb;
+  padding: 5px 20px 0;
+}
+.h18 a {
+  display: inline-block;
+  font-size: 14px;
+  vertical-align: bottom;
+  color: #3862b4;
+  padding: 0 1em;
+  margin-bottom: -1px;
+  line-height: 30px;
+}
+.h18 .on {
+  border: 1px solid #bbbbbb;
+  background: #ffffff;
+  border-bottom: 1px solid #ffffff;
+}
 .ul1 {
   font-size: 0px;
 }
@@ -1275,6 +1315,45 @@ i,
 }
 .ul4 li p {
   line-height: 150%;
+}
+.ul5 {
+  line-height: 150%;
+}
+.ul5 li {
+  margin-bottom: 20px;
+}
+.ul5 p {
+  margin-bottom: 10px;
+}
+.ul5 p b {
+  color: #557dca;
+}
+.ul5 div {
+  position: relative;
+  overflow: visible;
+  border: 1px solid #bbbbbb;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+  color: #bbbbbb;
+  padding: 5px 10px;
+  border-radius: 5px;
+  *zoom: 1;
+}
+.ul5 div i {
+  position: absolute;
+  width: 15px;
+  height: 8px;
+  background: url(../img/tagtop.png) no-repeat;
+  top: -8px;
+  left: 30px;
+}
+.ul5 div b {
+  color: #ee0000;
+}
+.ul6 li {
+  line-height: 150%;
+  margin-bottom: 10px;
+  padding: 5px 0 ;
+  border-bottom: 1px dashed #bbbbbb;
 }
 .Atable th {
   vertical-align: top;
@@ -1792,6 +1871,20 @@ article footer span {
   right: 0;
   top: 0;
 }
+.rightFix_280 {
+  position: relative;
+  display: block;
+  padding-right: 290px;
+  min-height: auto;
+  _height: auto;
+  *zoom: 1;
+}
+.rightFix_280 .fix {
+  position: absolute;
+  width: 280px;
+  right: 0;
+  top: 0;
+}
 .rightFix_170 {
   position: relative;
   display: block;
@@ -2209,6 +2302,18 @@ article footer span {
 }
 #regPage #regForm {
   background: url(../img/regbg.png) right center no-repeat;
+}
+#myQuestion {
+  min-height: 660px;
+  _height: 660px;
+}
+#questionForm {
+  margin-bottom: 30px;
+}
+#questionForm textarea {
+  display: block;
+  margin-bottom: 10px;
+  width: 610px;
 }
 .ib {
   display: inline-block;
