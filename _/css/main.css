@@ -100,7 +100,7 @@ label {
 }
 textarea {
   border: 1px solid #999999;
-  width: 70%;
+  width: 30em;
   height: 6em;
   line-height: 150%;
 }
