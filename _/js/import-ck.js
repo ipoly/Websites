@@ -53,7 +53,7 @@
 		});
 
 		//为所有data-template-name属性的元素绑定模板渲染事件
-		root.on("dataRender.observer", "[data-template-name],[data-item-name]", function(e, data) {
+		root.on("dataRender.observer", "[data-template-name]", function(e, data) {
 			if(e.target == this){
 				var that = $(this);
 				if (!data) {
@@ -64,13 +64,36 @@
 
 				}
 				if (this.tpl) {
-					that[that.is("[data-template-name]")?"html":"append"](juicer(this.tpl, data));
+					that.html(juicer(this.tpl, data));
 					var selected = that.data("selected");
 					if(that.is("select") && selected){
 						setTimeout(function(){
 							var a = that.find("option").filter("[value="+selected+"],:contains('"+selected+"')").attr("selected",true);
 						},0);
 					}
+					setTimeout(function(){that.trigger("change");},0);
+				}
+			}
+		});
+
+		root.on("dataAdd.oberver","[data-template-before],[data-template-after]",function(e,data){
+			if(e.target == this){
+				var that = $(this);
+				var method = "append";
+				if (that.is("[data-template-before]")){
+					method = "prepend";
+				}
+				if (!data) {
+					return false;
+				}
+				if (!this.tpl){
+					this.tpl = $("script[name=" + (that.data("template-before") || that.data("item-after")) + "]").html();
+
+				}
+				if (this.tpl) {
+					var dom = $(juicer(this.tpl,data)).hide();
+					that[method](dom);
+					dom.fadeIn();
 					setTimeout(function(){that.trigger("change");},0);
 				}
 			}
