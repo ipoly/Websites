@@ -66,6 +66,9 @@
 				if (this.tpl) {
 					that.html(juicer(this.tpl, data));
 					var selected = that.data("selected");
+					if(that.is("select")){
+						that.css("zoom",1).css("zoom",0)
+					}
 					if(that.is("select") && selected){
 						setTimeout(function(){
 							var a = that.find("option").filter("[value="+selected+"],:contains('"+selected+"')").attr("selected",true);
@@ -330,7 +333,7 @@ this.each(function(){init(this);});};$.fn.jqFancyTransitions.defaults={width:500
 			if (!that.val()) {
 				return;
 			}
-			if (isNaN(parseInt(that.val(), 10))) {
+			if (isNaN(parseFloat(that.val(), 10))) {
 				that.trigger({
 					type: "changeVState",
 					validationType: "typeMismatch",
@@ -338,6 +341,43 @@ this.each(function(){init(this);});};$.fn.jqFancyTransitions.defaults={width:500
 				});
 			}
 		};
+
+		//验证下限
+		pattern._check_min = function() {
+			var that = $(this);
+			if (!that.val()) {
+				return;
+			}
+			var val = parseFloat(that.val(),10);
+			that.val(val);
+			var limit = parseFloat(that.attr("min"),10);
+			if(val < limit){
+				that.trigger({
+					type: "changeVState",
+					validationType: "typeMismatch",
+					validationMessage: "输入不能小于"+limit+"。"
+				});
+			}
+		};
+
+		//验证上限
+		pattern._check_max = function() {
+			var that = $(this);
+			if (!that.val()) {
+				return;
+			}
+			var val = parseFloat(that.val(),10);
+			that.val(val);
+			var limit = parseFloat(that.attr("max"),10);
+			if(val > limit){
+				that.trigger({
+					type: "changeVState",
+					validationType: "typeMismatch",
+					validationMessage: "输入不能大于"+limit+"。"
+				});
+			}
+		};
+
 
 		//验证date
 		pattern._check_date = function() {
