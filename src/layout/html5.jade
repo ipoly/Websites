@@ -1,0 +1,49 @@
+!!!5
+// if lt IE 7
+    html.ie.ie6.no-js(lang="zh-CN")
+// if IE 7
+    html.ie.ie7.no-js(lang="zh-CN")
+// if IE 8
+    html.ie.ie8.no-js(lang="zh-CN")
+// if IE 9
+    html.ie.ie9.no-js(lang="zh-CN")
+// [if gt IE 9]
+|<html class="no-js" lang="zh-CN">
+// [endif]
+head#www-sitename-com(data-template-set="html5-reset")
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible",content="IE=edge,chrome=1")
+    block title
+        title 首页
+    meta(name="title",content="")
+    meta(name="description",content="")
+    meta(name="google-site-verification",content="")
+    meta(name="author",content="Your Name Here")
+    meta(name="Copyright",content="Copyright Your Name Here 2011. All Rights Reserved.")
+    // 站点图标,32*32
+    link(rel="shortcut icon",href="img/favicon.ico")
+    // ios图标114*114
+    link(rel="apple-touch-icon",href="img/apple-touch-icon.png")
+    link(rel="stylesheet",href="css/reset.css")
+    link(rel="stylesheet",href="css/main.css")
+    script(src="js/modernizr.js")
+    script(src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js")
+    script!= 'window.jQuery || document.write("<script src=\'js/jquery.js\'>\\x3C/script>")'
+body
+    include ../inc/head
+    //主内容区开始
+    .main
+        block main
+            | 主内容区
+    //主内容区结束
+    include ../inc/foot
+    script(src="js/import-ck.js")
+    script(src="js/main.js")
+|</html>
+
+
+
+
+
+
+
