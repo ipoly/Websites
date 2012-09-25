@@ -1,0 +1,129 @@
+// 按钮类
+
+.btnShadow {
+    -moz-box-shadow:
+    0px 1px 0px rgba(0,0,0,.2),
+    inset 0px 1px 0px rgba(255,255,255,.7);
+    -webkit-box-shadow:
+    0px 1px 0px rgba(0,0,0,.2),
+    inset 0px 1px 0px rgba(255,255,255,.7);
+    box-shadow:
+    0px 1px 0px rgba(0,0,0,.2),
+    inset 0px 1px 0px rgba(255,255,255,.7);
+}
+
+.gradient (@color1,@color2,@color3,@pos1:0,@pos2:.5,@pos3:1){
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(@pos1, @color1), color-stop(@pos2, @color2), color-stop(@pos3, @color2));
+    background:-moz-linear-gradient(top, @color1 @pos1*100%, @color2 @pos2*100%, @color3 @pos3*100%);
+    background:-webkit-linear-gradient(top, @color1 @pos1*100%, @color2 @pos2*100%, @color3 @pos3*100%);
+    background:-o-linear-gradient(top, @color1 @pos1*100%, @color2 @pos2*100%, @color3 @pos3*100%);
+    background:-ms-linear-gradient(top, @color1 @pos1*100%, @color2 @pos2*100%, @color3 @pos3*100%);
+    background:linear-gradient(to bottom, @color1 @pos1*100%, @color2 @pos2*100%, @color3 @pos3*100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(~"startColorstr="@color1, ~"endColorstr="@color3,GradientType=0);
+    background-color:@color2;
+}
+
+button,.btn {
+    .zoom;
+    .pr;
+    .ib;
+    .tc;
+    .noUnl;
+    .vm;
+    background:none;
+    margin-right:.5em;
+    padding:0 0 1px;
+    outline: none;
+    cursor: pointer;
+    border: none;
+}
+
+button,.btn {
+    span,input {
+        .block;
+        .ov;
+        .btnShadow;
+        _width:1px;
+        .gradient(#eee,#ddd,#999);
+        border:1px solid #aaa;
+        color:#fff;
+        _color:#333;
+        border-radius: .2em;
+        -ms-border-radius: .2em;
+        font-family: "Microsoft YaHei", Georgia, "Times New Roman", Times, sans-serif;
+        padding:0 1em;
+        cursor:pointer;
+        height:2em;
+        white-space: nowrap;
+        outline: none;
+        text-shadow:
+            0px -1px 0px rgba(0,0,0,.3),
+            0px 1px 0px rgba(255,255,255,1);
+    }
+    span {line-height: 2em; }
+    :hover {
+        .gradient(#ddd,#eee,#999);
+    }
+}
+
+
+button:active,.btn:active {
+    .pr;
+    top:1px;
+}
+
+.btnDark {
+    span,input {
+        .gradient(#eee,#666,#333);
+        color:#fff;
+        border:1px solid #666;
+    }
+    :hover {
+        .gradient(#666,#eee,#333);
+    }
+}
+
+.btnBlue {
+    span,input {
+        .gradient(#589dfd,#488bf7,#3a7af2);
+        color:#fff;
+        border:1px solid #0059ff;
+    }
+    :hover {
+        .gradient(#488bf7,#589dfd,#3a7af2);
+    }
+}
+
+.btnOrange {
+    span,input {
+        .gradient(#fd9d58,#f78b48,#f27a3a);
+        color:#fff;
+        border:1px solid #ff5900;
+    }
+    :hover {
+        .gradient(#f27a3a,#fd9d58,#f78b48);
+    }
+}
+
+.btnRed {
+    span,input {
+        .gradient(#EC6741,#CD4D31,#CD3523);
+        color:#fff;
+        border:1px solid #A11E03;
+    }
+    :hover {
+        .gradient(#CD4D31,#EC6741,#CD3523);
+    }
+}
+
+.btnGreen {
+    span,input {
+        .gradient(#97EC71,#7DCD61,#65CD63);
+        color:#fff;
+        border:1px solid #1EA103;
+    }
+    :hover {
+        .gradient(#7DCD61,#97EC71,#65CD63);
+    }
+}
+

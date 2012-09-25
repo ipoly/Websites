@@ -1,14 +1,14 @@
 // 与特定标签相关的样式
 body {
-	color: @gray3;
+	color: #333;
 	background-color:#fff;
 }
 
-input::-webkit-input-placeholder{color:@gray1;}
-input:-moz-placeholder{color:@gray1;}
+input::-webkit-input-placeholder{color:#ccc;}
+input:-moz-placeholder{color:#ccc;}
 
 a {
-	.link1;
+	color: #333;
 	text-decoration:none;
 }
 
@@ -18,15 +18,19 @@ label {
 }
 
 textarea {
-	.border1(@gray1);
+	.border1(#ccc);
 	width: 30em;
 	height: 6em;
 	line-height: 150%;
 }
 
+button,input {
+	hide-focus:~"expression(this.hideFocus=true)";
+}
+
 .text {
-	.vam;
-	.border1(@gray1);
+	.vm;
+	.border1(#ccc);
 	height: 20px;
 	line-height: 20px;
 	width: 10em;

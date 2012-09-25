@@ -1,0 +1,27 @@
+extends layout/html5
+
+block title
+    | ui一览
+
+block main
+    h1.mb10.f24 按钮
+    div.mb20
+        - var types = ["","btnDark","btnBlue","btnOrange","btnRed","btnGreen"]
+        p.mb5
+            each type in types
+                button(class=type)
+                    span button #{type}
+
+        p.mb5
+            each type in types
+                a.btn(class=type)
+                    span link #{type}
+
+        p.mb5
+            each type in types
+                span.btn(class=type)
+                    input(type="submit")
+
+
+
+

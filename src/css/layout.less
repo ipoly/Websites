@@ -1,0 +1,32 @@
+
+// 固定左侧宽度，右侧自适应,默认两侧间距为10
+.leftFix (@leftWidth,@minHeight:auto,@space:10px) {
+	.pr;
+	.block;
+	.zoom;
+	.minH(@minHeight);
+	padding-left: @leftWidth+@space;
+	.fix {
+		.pa;
+		width: @leftWidth;
+		left: 0;
+		top: 0;
+	}
+}
+
+// 固定左侧宽度，右侧自适应,默认两侧间距为10
+.rightFix (@rightWidth,@minHeight:auto,@space:10px) {
+	.pr;
+	.block;
+	.zoom;
+	.minH(@minHeight);
+	padding-right: @rightWidth+@space;
+	.fix {
+		.posa;
+		width: @rightWidth;
+		right: 0;
+		top: 0;
+	}
+}
+
+

@@ -1,6 +1,11 @@
 extends layout/html5
+
+block title
+    | 首页
+
 block main
-    section test122d
+    - var items = ["新闻1","新闻2","新闻3","新闻4","新闻4"]
+    include inc/list
 
 
 

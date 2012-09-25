@@ -506,13 +506,3 @@ this.each(function(){init(this);});};$.fn.jqFancyTransitions.defaults={width:500
 //@codekit-prepend "observer.js";
 //@codekit-prepend "jqFancyTransitions.js";
 //@codekit-prepend "formvalidate.js";
-juicer.set({
-    'tag::operationOpen': '{$',
-    'tag::operationClose': '}',
-    'tag::interpolateOpen': '${',
-    'tag::interpolateClose': '}',
-    'tag::noneencodeOpen': '$${',
-    'tag::noneencodeClose': '}',
-    'tag::commentOpen': '{#',
-    'tag::commentClose': '}'
-});

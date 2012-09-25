@@ -1,81 +1,65 @@
-<!doctype html>
-
-<!--[if lt IE 7 ]> <html class="ie ie6 no-js" lang="en"> <![endif]-->
-<!--[if IE 7 ]>    <html class="ie ie7 no-js" lang="en"> <![endif]-->
-<!--[if IE 8 ]>    <html class="ie ie8 no-js" lang="en"> <![endif]-->
-<!--[if IE 9 ]>    <html class="ie ie9 no-js" lang="en"> <![endif]-->
-<!--[if gt IE 9]><!--><html class="no-js" lang="en"><!--<![endif]-->
-<!-- the "no-js" class is for Modernizr. -->
-
+<!DOCTYPE html><!--[if lt IE 7]>
+<html lang="zh-CN" class="ie ie6 no-js"></html><![endif]--><!--[if IE 7]>
+<html lang="zh-CN" class="ie ie7 no-js"></html><![endif]--><!--[if IE 8]>
+<html lang="zh-CN" class="ie ie8 no-js"></html><![endif]--><!--[if IE 9]>
+<html lang="zh-CN" class="ie ie9 no-js"></html><![endif]-->
+<!-- [if gt IE 9]--><html class="no-js" lang="zh-CN">
+<!-- [endif]-->
 <head id="www-sitename-com" data-template-set="html5-reset">
-
-	<meta charset="utf-8"/>
-	
-	<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
-	<title>ui索引页</title>
-	
-	<meta name="title" content=""/>
-	<meta name="description" content=""/>
-	<!-- Google will often use this as its description of your page/site. Make it good. -->
-	
-	<meta name="google-site-verification" content=""/>
-	<!-- Speaking of Google, don't forget to set your site up: http://google.com/webmasters -->
-	
-	<meta name="author" content="Your Name Here"/>
-	<meta name="Copyright" content="Copyright Your Name Here 2011. All Rights Reserved."/>
-
-	<!-- Dublin Core Metadata : http://dublincore.org/ -->
-	<meta name="DC.title" content="Project Name"/>
-	<meta name="DC.subject" content="What you're about."/>
-	<meta name="DC.creator" content="Who made this site."/>
-	
-	<link rel="shortcut icon" href="_/img/favicon.ico"/>
-	<!-- 站点图标,32*32 -->
-	<link rel="apple-touch-icon" href="_/img/apple-touch-icon.png"/>
-	<!-- ios图标114*114 -->
-
-	<link rel="stylesheet" href="_/css/reset.css"/>
-	<link rel="stylesheet" href="_/css/main.css"/>
-	
-	<!-- all our JS is at the bottom of the page, except for Modernizr. -->
-	<script src="_/js/modernizr.js"></script>
-
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>ui一览</title>
+  <meta name="title" content="">
+  <meta name="description" content="">
+  <meta name="google-site-verification" content="">
+  <meta name="author" content="Your Name Here">
+  <meta name="Copyright" content="Copyright Your Name Here 2011. All Rights Reserved.">
+  <!-- 站点图标,32*32-->
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <!-- ios图标114*114-->
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/main.css">
+  <script src="js/modernizr.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+  <script>window.jQuery || document.write("<script src='js/jquery.js'>\x3C/script>")</script>
 </head>
-
 <body>
-	<header id="siteHeader"></header>
-	<div class="main"></div>
-	<footer id="siteFooter"></footer>
-
-	<!-- here comes the javascript -->
-
-	<!-- Grab Google CDN's jQuery. fall back to local if necessary -->
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
-	<script>window.jQuery || document.write("<script src='_/js/jquery.js'>\x3C/script>")</script>
-
-	<!-- this is where we put our custom functions -->
-	<script src="_/js/import-ck.js"></script>
-	<script src="_/js/main.js"></script>
-
-<!-- Asynchronous google analytics; this is the official snippet.
-	 Replace UA-XXXXXX-XX with your site's ID and uncomment to enable.
-	 
-<script>
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-XXXXXX-XX']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
--->
-
-</body>
-</html>
+  <!--页头开始-->
+  <header class="mainHead">
+    <p>页头</p>
+  </header>
+  <!--页头结束-->
+  <!--主内容区开始-->
+  <div class="main">
+    <h1 class="mb10 f24">按钮</h1>
+    <div class="mb20">
+      <p class="mb5">
+        <button class=""><span>button </span></button>
+        <button class="btnDark"><span>button btnDark</span></button>
+        <button class="btnBlue"><span>button btnBlue</span></button>
+        <button class="btnOrange"><span>button btnOrange</span></button>
+        <button class="btnRed"><span>button btnRed</span></button>
+        <button class="btnGreen"><span>button btnGreen</span></button>
+      </p>
+      <p class="mb5"><a class="btn "><span>link </span></a><a class="btn btnDark"><span>link btnDark</span></a><a class="btn btnBlue"><span>link btnBlue</span></a><a class="btn btnOrange"><span>link btnOrange</span></a><a class="btn btnRed"><span>link btnRed</span></a><a class="btn btnGreen"><span>link btnGreen</span></a>
+      </p>
+      <p class="mb5"><span class="btn ">
+          <input type="submit"></span><span class="btn btnDark">
+          <input type="submit"></span><span class="btn btnBlue">
+          <input type="submit"></span><span class="btn btnOrange">
+          <input type="submit"></span><span class="btn btnRed">
+          <input type="submit"></span><span class="btn btnGreen">
+          <input type="submit"></span>
+      </p>
+    </div>
+  </div>
+  <!--主内容区结束-->
+  <!--页脚开始-->
+  <footer class="mainFoot">
+    <p>页脚</p>
+  </footer>
+  <!--页脚结束-->
+  <script src="js/import-ck.js"></script>
+  <script src="js/main.js"></script>
+</body></html>
