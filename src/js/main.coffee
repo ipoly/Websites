@@ -6,44 +6,10 @@ $(->
 		null
 
 	# ie系列初始化
-	if $.browser.msie 
+	if $.browser.msie
 		null
 
-	$("[data-group]").each(->
-		lis = $("li",this) 
-		lis.filter(":nth-child(5n)").addClass("dashed")
-		lis.filter((i)->
-			i%10<5
-		).addClass("gray")
-	)
 
-	# 初始化开关类
-	$(".toggle").on("click",-> $(@).addClass("on") )
-	.on("mouseleave",-> $(@).removeClass("on"))
-
-	# 初始化倒计时
-	setInterval(->
-		countDown = $("#countDown")
-		deadLine = new Date(countDown.data("deadline"))
-		now = new Date()
-		restTime = new Date(deadLine - now)/1000
-		m = 60
-		h = m*60
-		d = h*24
-		D = Math.min(Math.floor(restTime/d),99)
-		restTime %= d
-		H = Math.floor(restTime/h)
-		restTime %= h
-		M = Math.floor(restTime/m)
-		S = parseInt(restTime % m,10)
-
-		countDown.find("div").html("
-			<i class='D'>#{D}</i>
-			<i class='H'>#{H}</i>
-			<i class='M'>#{M}</i>
-			<i class='S'>#{S}</i>
-			")
-	,1000)
 	# 初始化number控件
 	$("input[type=number]").each(->
 		that = $(@)
@@ -62,19 +28,6 @@ $(->
 		input.val(val).trigger("change")
 	)
 
-	# 限定上下限
-	$("input[type=number]").on("change", (e)->
-		that = $(@)
-		val = parseInt(that.val(),10) || 0
-		max = parseInt(that.attr("max"),10)
-		max = +Infinity if isNaN(max)
-		min = parseInt(that.attr("min"),10)
-		min = -Infinity if isNaN(min)
-		that.val(Math.max(Math.min(val,max),min))
-	)
-
-
-
 	# 初始化ol序号
 	$("ol").each(->
 		$("i",@).each((i)->
@@ -84,64 +37,6 @@ $(->
 
 	# 初始化列表间隔
 	$(".ul1").find(">*:even").addClass("even")
-
-	# 初始化试卷
-	$(".testList").on("click","mark",(e)->
-		t = $(@)
-		t.closest("li").toggleClass("unsure")
-	).on("keyup",".text",->
-		t = $(@)
-		if !@ruler
-			@ruler = $("<pre class='ruler'/>") 
-			@ruler.css({"font-size":t.css("font-size")})
-			t.after(@ruler)
-		@ruler.html(t.val())
-		t.width(@ruler.innerWidth())
-	).on("change","li",->
-		$(@).data("done",!!$.trim($(":input",@).val()))
-	).on("change",->
-		t = $(@)
-		lis = t.find("li")
-		total = lis.length
-		done = lis.filter(-> $(@).data("done")).length
-		t.data("status",{total,done})
-	)
-
-	$("#testPaper").on("change","section",->
-		t = $(@)
-		st = t.find("ul").data("status")
-		t.find(".total").html(st.total)
-		t.find(".done").html(st.done)
-		t.find(".left").html(st.total-st.done)
-	).on("change",->
-		t = $(@)
-		total =[]
-		for i in t.find("ul")
-			st = $(i).data("status")
-			if st
-				total.push(st)
-			else
-				$(i).trigger("change")
-				return false
-		totalDone = 0
-		totalLeft = 0
-		totalDone += i.done for i in total
-		totalLeft += i.total-i.done for i in total
-		$(".totalDone").html(totalDone)
-		$(".totalLeft").html(totalLeft)
-	).trigger("change")
-
-	# 考试计时器
-	$("#testHeader .timer").each(->
-		t = $(@)
-		time = parseInt(t.html(),10) || 120
-		setInterval(->
-			t.html(time--)
-			if time <= 0
-				alert("考试结束")
-				$(".testForm").submit()
-		,1000*60)
-	)
 
 	# 初始化tab标签模块
 	tabMethod = (e)->
@@ -205,6 +100,7 @@ $(->
 		)
 	).trigger("gun")
 
+	#长度提示
 	$("#questionForm").on("keyup",(e)->
 		t = $(e.target)
 		console.log 11
@@ -217,20 +113,13 @@ $(->
 			$("h2 span",@).html("还可以输入#{limit-txt.length}个字")
 	)
 
-	# 初始化全选按钮
-	$("table").on("click",(e)->
-		tango = $(e.target)
-		if tango.is(".selectAll")
-			$(":checkbox",@).attr("checked",!!tango.attr("checked"))
-	)
-
 
 	# 表单验证的提示
 	$("form").on("invalid",":input",->
 		that = $(@)
 		that.focus().select()
 		if !@validityMsg
-			@validityMsg = $('<span class="validityMsg"><span><strong></strong></span></span>') 
+			@validityMsg = $('<span class="validityMsg"><span><strong></strong></span></span>')
 			if that.is(":checkbox,:radio")
 				$("[name="+that.attr("name")+"]:last").after(@validityMsg)
 			else
@@ -243,7 +132,5 @@ $(->
 			if !@validity.valid then $(@).trigger("invalid")
 		,@),0)
 	)
-
-	$("#imgSlider").jqFancyTransitions({ width: 250, height: 250,links:true,navigation:true });
 
 )

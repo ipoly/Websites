@@ -23,13 +23,15 @@
   color: #fff;
   background: #000099;
 }
-.validMsg {
+.validityMsg {
   position: relative;
   overflow: visible;
   vertical-align: middle;
+  zoom: 1;
   z-index: 1;
+  left: 5px;
 }
-.validMsg span {
+.validityMsg span {
   display: none;
   position: absolute;
   padding: 5px;
