@@ -6,3 +6,5 @@
 src:前端开发中使用的源文件
     /layout:jade布局模块
     /inc:jade功能模块
+
+icoMoon.pdf是目前所使用的字体图标一览表

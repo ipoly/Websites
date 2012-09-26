@@ -113,6 +113,315 @@ input {
   width: 10em;
   width: 30em;
 }
+@font-face {
+  font-family: 'icons';
+  src: url('fonts/icons.eot');
+  src: url('fonts/icons.eot?#iefix') format('embedded-opentype'), url('fonts/icons.svg#icons') format('svg'), url('fonts/icons.woff') format('woff'), url('fonts/icons.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Use the following CSS code if you want to use data attributes for inserting your icons */
+[data-icon]:before {
+  font-family: 'icons';
+  content: attr(data-icon);
+  speak: none;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+}
+/* Use the following CSS code if you want to have a class per icon */
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: 'icons';
+  font-style: normal;
+  speak: none;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+}
+.icon-warning:before {
+  content: "\21";
+}
+.icon-picture:before {
+  content: "\22";
+}
+.icon-hash:before {
+  content: "\23";
+}
+.icon-basket:before {
+  content: "\24";
+}
+.icon-tag:before {
+  content: "\25";
+}
+.icon-arrow-up:before {
+  content: "\26";
+}
+.icon-arrow-down:before {
+  content: "\27";
+}
+.icon-arrow-left:before {
+  content: "\28";
+}
+.icon-arrow-right:before {
+  content: "\29";
+}
+.icon-newspaper:before {
+  content: "\2a";
+}
+.icon-plus-alt:before {
+  content: "\2b";
+}
+.icon-user:before {
+  content: "\2c";
+}
+.icon-minus-alt:before {
+  content: "\2d";
+}
+.icon-pie:before {
+  content: "\2e";
+}
+.icon-denied:before {
+  content: "\2f";
+}
+.icon-seven-segment:before {
+  content: "\30";
+}
+.icon-seven-segment-2:before {
+  content: "\31";
+}
+.icon-seven-segment-3:before {
+  content: "\32";
+}
+.icon-seven-segment-4:before {
+  content: "\33";
+}
+.icon-seven-segment-5:before {
+  content: "\34";
+}
+.icon-seven-segment-6:before {
+  content: "\35";
+}
+.icon-seven-segment-7:before {
+  content: "\36";
+}
+.icon-seven-segment-8:before {
+  content: "\37";
+}
+.icon-seven-segment-9:before {
+  content: "\38";
+}
+.icon-seven-segment-10:before {
+  content: "\39";
+}
+.icon-arrow-down-alt1:before {
+  content: "\3a";
+}
+.icon-arrow-up-alt1:before {
+  content: "\3b";
+}
+.icon-arrow-left-alt1:before {
+  content: "\3c";
+}
+.icon-copy:before {
+  content: "\3d";
+}
+.icon-arrow-right-alt1:before {
+  content: "\3e";
+}
+.icon-help:before {
+  content: "\3f";
+}
+.icon-at:before {
+  content: "\40";
+}
+.icon-phone:before {
+  content: "\41";
+}
+.icon-calendar:before {
+  content: "\43";
+}
+.icon-remove:before {
+  content: "\44";
+}
+.icon-stats-up:before {
+  content: "\45";
+}
+.icon-loading:before {
+  content: "\46";
+}
+.icon-link:before {
+  content: "\47";
+}
+.icon-home:before {
+  content: "\48";
+}
+.icon-info:before {
+  content: "\49";
+}
+.icon-refresh:before {
+  content: "\4a";
+}
+.icon-aperture:before {
+  content: "\4b";
+}
+.icon-map-pin-fill:before {
+  content: "\4c";
+}
+.icon-envelope:before {
+  content: "\4d";
+}
+.icon-comments:before {
+  content: "\4e";
+}
+.icon-minus:before {
+  content: "\4f";
+}
+.icon-plus:before {
+  content: "\50";
+}
+.icon-exit:before {
+  content: "\51";
+}
+.icon-enter:before {
+  content: "\52";
+}
+.icon-floppy:before {
+  content: "\53";
+}
+.icon-libreoffice:before {
+  content: "\54";
+}
+.icon-file-word:before {
+  content: "\55";
+}
+.icon-file-excel:before {
+  content: "\56";
+}
+.icon-file-pdf:before {
+  content: "\57";
+}
+.icon-x:before {
+  content: "\58";
+}
+.icon-checkmark:before {
+  content: "\59";
+}
+.icon-support:before {
+  content: "\5a";
+}
+.icon-undo:before {
+  content: "\5b";
+}
+.icon-bug:before {
+  content: "\42";
+}
+.icon-redo:before {
+  content: "\5d";
+}
+.icon-clock:before {
+  content: "\5e";
+}
+.icon-chart-alt:before {
+  content: "\5f";
+}
+.icon-bars:before {
+  content: "\60";
+}
+.icon-cloud-download:before {
+  content: "\61";
+}
+.icon-cloud-upload:before {
+  content: "\62";
+}
+.icon-calendar-2:before {
+  content: "\63";
+}
+.icon-cog:before {
+  content: "\64";
+}
+.icon-earth:before {
+  content: "\65";
+}
+.icon-star:before {
+  content: "\66";
+}
+.icon-star-2:before {
+  content: "\67";
+}
+.icon-star-3:before {
+  content: "\68";
+}
+.icon-info-2:before {
+  content: "\69";
+}
+.icon-reload-alt:before {
+  content: "\6a";
+}
+.icon-key-stroke:before {
+  content: "\6b";
+}
+.icon-map-pin-stroke:before {
+  content: "\6c";
+}
+.icon-mail:before {
+  content: "\6d";
+}
+.icon-heart:before {
+  content: "\6e";
+}
+.icon-heart-2:before {
+  content: "\6f";
+}
+.icon-pencil:before {
+  content: "\70";
+}
+.icon-backspace:before {
+  content: "\71";
+}
+.icon-backspace-2:before {
+  content: "\72";
+}
+.icon-magnifying-glass:before {
+  content: "\73";
+}
+.icon-wrench:before {
+  content: "\74";
+}
+.icon-busy:before {
+  content: "\75";
+}
+.icon-out:before {
+  content: "\76";
+}
+.icon-grid-view:before {
+  content: "\77";
+}
+.icon-x-altx-alt:before {
+  content: "\78";
+}
+.icon-check-alt:before {
+  content: "\79";
+}
+.icon-arrow-up-2:before {
+  content: "\7a";
+}
+.icon-arrow-left-2:before {
+  content: "\7b";
+}
+.icon-arrow-down-2:before {
+  content: "\7c";
+}
+.icon-arrow-right-2:before {
+  content: "\7d";
+}
+.icon-flag:before {
+  content: "\5c";
+}
+.icon-left-quote:before {
+  content: "\201c";
+}
+.icon-right-quote:before {
+  content: "\201d";
+}
 i,
 .i {
   vertical-align: middle;
