@@ -1,12 +1,5 @@
 @charset "utf-8";
 // @import "jquery-ui.less";
-@import "colors.less";
-@import "labels.less";
-@import "icons.less";
-@import "buttons.less";
-@import "header.less";
-@import "list.less";
-
 
 // 默认的超链接样式
 
@@ -42,6 +35,30 @@
 	}
 }
 
+.validMsg {
+	.pr;
+	.ov;
+	.vm;
+	z-index: 1;
+	span {
+		.none;
+		.pa;
+		.p5;
+		white-space: nowrap;
+		.border1(#900);
+		background-color:#fded86;
+	}
+}
 
+.invalid span {
+	.block;
+}
+
+@import "header.less";
+@import "list.less";
+@import "labels.less";
+@import "icons.less";
+@import "buttons.less";
 @import "layout.less";
+@import "colors.less";
 @import "base.less";
