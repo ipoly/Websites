@@ -9,7 +9,7 @@ block main
         - var types = ["","btnDark","btnBlue","btnOrange","btnRed","btnGreen"]
         p.mb5
             each type in types
-                button(class=type)
+                button.btn(class=type)
                     span button #{type}
 
         p.mb5
@@ -22,8 +22,10 @@ block main
                 span.btn(class=type)
                     input(type="submit")
     div.mb20
-        span.f24.green.icon-warning.transition
-
+        button.btn.btnRed.f24
+            span
+                b.icon-warning.yellow
+                |警告
 
 
 

@@ -5,7 +5,7 @@ $(function(){
 	if($.browser.msie && $.browser.version-8<0) {
 		function addIcon(el, entity) {
 			var html = el.innerHTML;
-			el.innerHTML = '<span style="font-family: \'icons\'">' + entity + '</span>' + html;
+			el.innerHTML = '<i style="font-family: \'icons\'">' + entity + '</i>' + html;
 		}
 		var icons = {
 				'icon-warning' : '&#x21;',

@@ -82,6 +82,9 @@ button,
 input {
   hide-focus: expression(this.hideFocus=true);
 }
+i {
+  font-style: normal;
+}
 .text {
   vertical-align: middle;
   border: 1px solid #cccccc;
@@ -422,8 +425,7 @@ input {
 .icon-right-quote:before {
   content: "\201d";
 }
-i,
-.i {
+.ico {
   vertical-align: middle;
   display: inline-block;
   background-image: url(../img/sprite.png);
@@ -505,7 +507,6 @@ i,
   -webkit-box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2), inset 0px 1px 0px rgba(255, 255, 255, 0.7);
   box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2), inset 0px 1px 0px rgba(255, 255, 255, 0.7);
 }
-button,
 .btn {
   zoom: 1;
   position: relative;
@@ -519,16 +520,20 @@ button,
   outline: none;
   cursor: pointer;
   border: none;
+  font-family: "Microsoft YaHei", Georgia, "Times New Roman", Times, sans-serif;
 }
-button span,
 .btn span,
-button input,
 .btn input {
   display: block;
   overflow: visible;
   -moz-box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2), inset 0px 1px 0px rgba(255, 255, 255, 0.7);
   -webkit-box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2), inset 0px 1px 0px rgba(255, 255, 255, 0.7);
   box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2), inset 0px 1px 0px rgba(255, 255, 255, 0.7);
+  -webkit-border-radius: 0.2em;
+  -moz-border-radius: 0.2em;
+  -o-border-radius: 0.2em;
+  -ms-border-radius: 0.2em;
+  border-radius: 0.2em;
   _width: 1px;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #eeeeee), color-stop(0.5, #dddddd), color-stop(1, #dddddd));
   background: -moz-linear-gradient(top, #eeeeee 0%, #dddddd 50%, #999999 100%);
@@ -541,9 +546,6 @@ button input,
   border: 1px solid #aaa;
   color: #fff;
   _color: #333;
-  border-radius: .2em;
-  -ms-border-radius: .2em;
-  font-family: "Microsoft YaHei", Georgia, "Times New Roman", Times, sans-serif;
   padding: 0 1em;
   cursor: pointer;
   height: 2em;
@@ -551,11 +553,9 @@ button input,
   outline: none;
   text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3), 0px 1px 0px #ffffff;
 }
-button span,
 .btn span {
   line-height: 2em;
 }
-button :hover,
 .btn :hover {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #dddddd), color-stop(0.5, #eeeeee), color-stop(1, #eeeeee));
   background: -moz-linear-gradient(top, #dddddd 0%, #eeeeee 50%, #999999 100%);
@@ -566,7 +566,6 @@ button :hover,
   filter: progid:dximagetransform.microsoft.gradient(startColorstr= #dddddd, endColorstr= #999999, GradientType=0);
   background-color: #eeeeee;
 }
-button:active,
 .btn:active {
   position: relative;
   top: 1px;
@@ -696,7 +695,7 @@ button:active,
   color: #009900;
 }
 .yellow {
-  color: #999900;
+  color: #e9e909;
 }
 .transition {
   -webkit-transition: all 0.3s ease-out;
@@ -769,6 +768,12 @@ button:active,
 }
 .f24 {
   font-size: 24px;
+}
+.f36 {
+  font-size: 36px;
+}
+.f48 {
+  font-size: 48px;
 }
 .fb {
   font-weight: bold;
