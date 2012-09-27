@@ -1,5 +1,7 @@
 各文件夹用途：
 /img:图片
+    blank.gif 透明gif
+    loadingX.gif 有14，20，40，60四种尺寸的loading图片
 /css:样式表
 /js:脚本
 /json:ajax调用的数据示例
