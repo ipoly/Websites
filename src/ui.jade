@@ -21,11 +21,31 @@ block main
             each type in types
                 span.btn(class=type)
                     input(type="submit")
-    div.mb20
-        button.btn.btnRed.f24
-            span
-                b.icon-warning.yellow
-                |警告
+        p.mb5
+            button.btn.btnRed.f24
+                span
+                    b.icon-warning.yellow
+                    |警告
 
+    h1.mb10.f24 表单验证
+    form.mb20(action="#")
+        input(required,type="text",placeholder="required")
+        input(required,type="email",placeholder="email")
+        input(required,type="number",placeholder="number")
+        input(required,type="phone",placeholder="phone")
+        input(required,type="tel",placeholder="tel")
+        input(required,type="url",placeholder="url")
+        input(required,type="text",placeholder="ajax验证",ajaxValidation="json/validation.json",data-method="get")
+        p.p5
+            input(required,matched,type="password",placeholder="密码",name="pw")
+        p.p5
+            input(required,matched,type="password",placeholder="重复密码",name="pw")
+        p
+            span.p5(atLeastOne)
+                each item in [1,2,3,4,5,6,7]
+                    input(type="checkbox",name="fuck[]")
+                    | dd
+        button.btn.btnBlue
+            input(type="submit")
 
 

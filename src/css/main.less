@@ -38,18 +38,24 @@
 .validityMsg {
 	.pr;
 	.ov;
-	.vm;
+	.vb;
 	.zoom;
 	z-index: 1;
 	left: 5px;
 	span {
 		.none;
 		.pa;
-		.p5;
+		.red;
+		bottom:0;
+		height:20px;
+		line-height:20px;
+		padding: 0 10px;
 		white-space: nowrap;
 		.border1(#900);
-		background-color:#fded86;
+		background-color:lighten(@yellow1,45%);
 	}
+	i {font-family:icons;}
+	strong {.fn;}
 }
 
 .invalid span {

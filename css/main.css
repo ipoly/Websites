@@ -26,7 +26,7 @@
 .validityMsg {
   position: relative;
   overflow: visible;
-  vertical-align: middle;
+  vertical-align: bottom;
   zoom: 1;
   z-index: 1;
   left: 5px;
@@ -34,10 +34,20 @@
 .validityMsg span {
   display: none;
   position: absolute;
-  padding: 5px;
+  color: #990000;
+  bottom: 0;
+  height: 20px;
+  line-height: 20px;
+  padding: 0 10px;
   white-space: nowrap;
   border: 1px solid #990000;
-  background-color: #fded86;
+  background-color: #fefeda;
+}
+.validityMsg i {
+  font-family: icons;
+}
+.validityMsg strong {
+  font-weight: normal;
 }
 .invalid span {
   display: block;

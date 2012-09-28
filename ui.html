@@ -50,10 +50,37 @@
           <input type="submit"></span><span class="btn btnGreen">
           <input type="submit"></span>
       </p>
+      <p class="mb5">
+        <button class="btn btnRed f24"><span><b class="icon-warning yellow"></b>警告</span></button>
+      </p>
     </div>
-    <div class="mb20">
-      <button class="btn btnRed f24"><span><b class="icon-warning yellow"></b>警告</span></button>
-    </div>
+    <h1 class="mb10 f24">表单验证</h1>
+    <form action="#" class="mb20">
+      <input required type="text" placeholder="required">
+      <input required type="email" placeholder="email">
+      <input required type="number" placeholder="number">
+      <input required type="phone" placeholder="phone">
+      <input required type="tel" placeholder="tel">
+      <input required type="url" placeholder="url">
+      <input required type="text" placeholder="ajax验证" ajaxValidation="json/validation.json" data-method="get">
+      <p class="p5">
+        <input required matched type="password" placeholder="密码" name="pw">
+      </p>
+      <p class="p5">
+        <input required matched type="password" placeholder="重复密码" name="pw">
+      </p>
+      <p><span atLeastOne class="p5">
+          <input type="checkbox" name="fuck[]">dd
+          <input type="checkbox" name="fuck[]">dd
+          <input type="checkbox" name="fuck[]">dd
+          <input type="checkbox" name="fuck[]">dd
+          <input type="checkbox" name="fuck[]">dd
+          <input type="checkbox" name="fuck[]">dd
+          <input type="checkbox" name="fuck[]">dd</span></p>
+      <button class="btn btnBlue">
+        <input type="submit">
+      </button>
+    </form>
   </div>
   <!--主内容区结束-->
   <!--页脚开始-->
