@@ -37,3 +37,14 @@ icoMoon.pdf是目前所使用的字体图标一览表
 # 触发事件：invalid,valid,pending
 # 扩展：为ValiditAble原型的vMethods属性增加验证方法,方法名匹配type属性或自定义属性。
 # 验证信息：可由data-vmsg指定，远程验证由返回对象的vMsg属性指定
+
+
+
+
+
+节点复制和删除
+
+容器元素增加类.cloneAble或.delAble,内部放置按钮.add和.del
+events和deepevents属性以指定是否复制事件处理函数与深度复制,与jquery的clone方法对应
+
+

@@ -113,23 +113,3 @@ $ ->
 	)
 
 
-	# 表单验证的提示
-	# $("form").on("invalid",":input",->
-	# 	that = $(@)
-	# 	that.focus().select()
-	# 	if !@validityMsg
-	# 		@validityMsg = $('<span class="validityMsg"><span><strong></strong></span></span>')
-	# 		if that.is(":checkbox,:radio")
-	# 			$("[name="+that.attr("name")+"]:last").after(@validityMsg)
-	# 		else
-	# 			that.after(@validityMsg)
-	# 	@validityMsg.addClass("invalid").find("strong").html(@validationMessage)
-	# )
-	# .on("change",":input",->
-	# 	@validityMsg?.removeClass("invalid")
-	# 	setTimeout($.proxy(->
-	# 		@checkValidity()
-	# 		if !@validity.valid then $(@).trigger("invalid")
-	# 	,@),0)
-	# )
-

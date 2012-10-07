@@ -283,7 +283,7 @@
   $("body").on("click", ".cloneAble .add", function(e) {
     var clone, root;
     root = $(this).closest(".cloneAble");
-    clone = root.clone().hide();
+    clone = root.clone(root.is("[events]"), root.is("[deepevents]")).hide();
     clone.find(":input").val("");
     clone.find(".validityMsg").remove();
     root.toggleClass("cloneAble delAble").after(clone);
