@@ -1,7 +1,28 @@
 # 导入coffee文档
 # @codekit-prepend validity
-$(->
+$ ->
+    $("body").on("invalid",":input,[needone]",(e)->
+	    if e.target == @
+	        t = $(@)
+	        @validityMsg = t.next(".validityMsg")
+	        if !@validityMsg.length
+	            @validityMsg = $('<span class="validityMsg"><span><i>&#x58;</i><strong></strong></span></span>')
+	            t.after(@validityMsg)
+	        @validityMsg.addClass("invalid").find("strong").html(t.data("vMsg")||@vMsg)
+    )
+    .on("valid",":input,[needone]",(e)->
+        if e.target == @ && @validityMsg?.length
+            @validityMsg.removeClass("invalid")
+    )
 
+	$("body").on("click","p .add",->
+		t = $(@)
+		root = t.closest("p")
+		clone = root.clone()
+		clone.find(".validityMsg").remove()
+		console?.log clone.html()
+		root.after(clone)
+	)
 	# ie6初始化
 	if $.browser.msie and $.browser.version is "6.0"
 		null
@@ -135,4 +156,3 @@ $(->
 	# 	,@),0)
 	# )
 
-)

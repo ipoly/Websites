@@ -26,16 +26,19 @@
 .validityMsg {
   position: relative;
   overflow: visible;
-  vertical-align: bottom;
+  vertical-align: middle;
   zoom: 1;
+  display: inline-block;
   z-index: 1;
   left: 5px;
+  height: 22px;
 }
 .validityMsg span {
   display: none;
   position: absolute;
   color: #990000;
-  bottom: 0;
+  left: 0;
+  top: 0;
   height: 20px;
   line-height: 20px;
   padding: 0 10px;
