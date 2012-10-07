@@ -1,6 +1,7 @@
 # 导入coffee文档
 # @codekit-prepend validity
 # @codekit-prepend cloneable
+# @codekit-prepend checkall
 $ ->
 	# 默认的表单验证提示
     $("body").on("invalid",":input,[needone]",(e)->
@@ -68,12 +69,6 @@ $ ->
 			t = $(@)
 			t.toggleClass("on")
 			t.find(":input").attr("checked",t.is(".on"))
-	)
-
-	# 初始化全选
-	$("table").on("change",".checkAll",(e)->
-		t = $(@)
-		t.closest("table").find(":checkbox:not(.checkAll)").attr("checked",!!t.attr("checked"))
 	)
 
 

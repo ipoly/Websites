@@ -280,27 +280,42 @@
   */
 
 
-  $("body").on("click", ".cloneAble .add", function(e) {
-    var clone, root;
-    root = $(this).closest(".cloneAble");
-    clone = root.clone(root.is("[events]"), root.is("[deepevents]")).hide();
-    clone.find(":input").val("");
-    clone.find(".validityMsg").remove();
-    root.toggleClass("cloneAble delAble").after(clone);
-    clone.fadeIn();
-    return e.preventDefault();
+  $(function() {
+    $("body").on("click", ".cloneAble .add", function(e) {
+      var clone, root;
+      root = $(this).closest(".cloneAble");
+      clone = root.clone(root.is("[events]"), root.is("[deepevents]")).hide();
+      clone.find(":input").val("");
+      clone.find(".validityMsg").remove();
+      root.toggleClass("cloneAble delAble").after(clone);
+      clone.fadeIn();
+      return e.preventDefault();
+    });
+    return $("body").on("click", ".delAble .del", function(e) {
+      var root;
+      root = $(this).closest(".delAble");
+      root.animate({
+        opacity: "0",
+        marginTop: -root.outerHeight(true)
+      }, 400, "easeOutQuart", function() {
+        return $(this).remove();
+      });
+      return e.preventDefault();
+    });
   });
 
-  $("body").on("click", ".delAble .del", function(e) {
-    var root;
-    root = $(this).closest(".delAble");
-    root.animate({
-      opacity: "0",
-      marginTop: -root.outerHeight(true)
-    }, 400, "easeOutQuart", function() {
-      return $(this).remove();
+  /* --------------------------------------------
+       Begin checkall.coffee
+  --------------------------------------------
+  */
+
+
+  $(function() {
+    return $("body").on("change", ".checkAll", function(e) {
+      var t;
+      t = $(this);
+      return t.closest(".toggleCheck").find(":checkbox:not(.checkAll)").attr("checked", !!t.attr("checked"));
     });
-    return e.preventDefault();
   });
 
   /* --------------------------------------------
@@ -383,12 +398,6 @@
       t.toggleClass("on");
       return t.find(":input").attr("checked", t.is(".on"));
     }
-  });
-
-  $("table").on("change", ".checkAll", function(e) {
-    var t;
-    t = $(this);
-    return t.closest("table").find(":checkbox:not(.checkAll)").attr("checked", !!t.attr("checked"));
   });
 
   $(".gun").each(function() {

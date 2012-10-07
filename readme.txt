@@ -48,3 +48,5 @@ icoMoon.pdf是目前所使用的字体图标一览表
 events和deepevents属性以指定是否复制事件处理函数与深度复制,与jquery的clone方法对应
 
 
+# 切换全选
+# 容器元素增加类.toggleCheck,响应动作的checkbox增加类.checkAll
