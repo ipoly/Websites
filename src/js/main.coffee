@@ -1,6 +1,8 @@
 # 导入coffee文档
 # @codekit-prepend validity
+# @codekit-prepend cloneable
 $ ->
+	# 默认的表单验证提示
     $("body").on("invalid",":input,[needone]",(e)->
 	    if e.target == @
 	        t = $(@)
@@ -15,14 +17,6 @@ $ ->
             @validityMsg.removeClass("invalid")
     )
 
-	$("body").on("click","p .add",->
-		t = $(@)
-		root = t.closest("p")
-		clone = root.clone()
-		clone.find(".validityMsg").remove()
-		console?.log clone.html()
-		root.after(clone)
-	)
 	# ie6初始化
 	if $.browser.msie and $.browser.version is "6.0"
 		null
@@ -80,23 +74,6 @@ $ ->
 	$("table").on("change",".checkAll",(e)->
 		t = $(@)
 		t.closest("table").find(":checkbox:not(.checkAll)").attr("checked",!!t.attr("checked"))
-	)
-
-	# 初始化克隆节点
-	$("body").on("click",".cloneAble .add",(e)->
-		root = $(@).closest(".cloneAble")
-		clone = root.clone().hide()
-		clone.find(":input").val("")
-		root.toggleClass("cloneAble delAble").after(clone)
-		clone.fadeIn()
-		e.preventDefault()
-	)
-	$("body").on("click",".delAble .del",(e)->
-		root = $(@).closest(".delAble")
-		root.animate({opacity:"0",marginTop:-root.outerHeight(true)} ,400 ,"easeOutQuart",->
-			$(@).remove()
-		)
-		e.preventDefault()
 	)
 
 

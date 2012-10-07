@@ -275,6 +275,35 @@
   });
 
   /* --------------------------------------------
+       Begin cloneable.coffee
+  --------------------------------------------
+  */
+
+
+  $("body").on("click", ".cloneAble .add", function(e) {
+    var clone, root;
+    root = $(this).closest(".cloneAble");
+    clone = root.clone().hide();
+    clone.find(":input").val("");
+    clone.find(".validityMsg").remove();
+    root.toggleClass("cloneAble delAble").after(clone);
+    clone.fadeIn();
+    return e.preventDefault();
+  });
+
+  $("body").on("click", ".delAble .del", function(e) {
+    var root;
+    root = $(this).closest(".delAble");
+    root.animate({
+      opacity: "0",
+      marginTop: -root.outerHeight(true)
+    }, 400, "easeOutQuart", function() {
+      return $(this).remove();
+    });
+    return e.preventDefault();
+  });
+
+  /* --------------------------------------------
        Begin main.coffee
   --------------------------------------------
   */
@@ -298,18 +327,6 @@
         return this.validityMsg.removeClass("invalid");
       }
     });
-  });
-
-  $("body").on("click", "p .add", function() {
-    var clone, root, t;
-    t = $(this);
-    root = t.closest("p");
-    clone = root.clone();
-    clone.find(".validityMsg").remove();
-    if (typeof console !== "undefined" && console !== null) {
-      console.log(clone.html());
-    }
-    return root.after(clone);
   });
 
   if ($.browser.msie && $.browser.version === "6.0") {
@@ -372,28 +389,6 @@
     var t;
     t = $(this);
     return t.closest("table").find(":checkbox:not(.checkAll)").attr("checked", !!t.attr("checked"));
-  });
-
-  $("body").on("click", ".cloneAble .add", function(e) {
-    var clone, root;
-    root = $(this).closest(".cloneAble");
-    clone = root.clone().hide();
-    clone.find(":input").val("");
-    root.toggleClass("cloneAble delAble").after(clone);
-    clone.fadeIn();
-    return e.preventDefault();
-  });
-
-  $("body").on("click", ".delAble .del", function(e) {
-    var root;
-    root = $(this).closest(".delAble");
-    root.animate({
-      opacity: "0",
-      marginTop: -root.outerHeight(true)
-    }, 400, "easeOutQuart", function() {
-      return $(this).remove();
-    });
-    return e.preventDefault();
   });
 
   $(".gun").each(function() {
