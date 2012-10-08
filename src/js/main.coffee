@@ -3,6 +3,7 @@
 # @codekit-prepend cloneable
 # @codekit-prepend checkall
 # @codekit-prepend number
+# @codekit-prepend placeholder
 $ ->
 	# 默认的表单验证提示
     $("body").on("invalid",":input,[needone]",(e)->

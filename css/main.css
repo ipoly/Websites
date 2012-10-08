@@ -96,6 +96,9 @@ input::-webkit-input-placeholder {
 input:-moz-placeholder {
   color: #ccc;
 }
+.placeholder {
+  color: #ccc;
+}
 a {
   color: #333;
   text-decoration: none;

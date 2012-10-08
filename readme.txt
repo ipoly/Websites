@@ -56,3 +56,7 @@ events和deepevents属性以指定是否复制事件处理函数与深度复制,
 # input:type=number
 # 支持属性：max,min,step
 # 可通过$(selector).numberUI()进行初始化
+
+# placerholder属性
+# 可通过$(selector).placeholder()进行初始化
+
