@@ -87,7 +87,7 @@
         <input type="submit"></span>
     </form>
     <h1 class="mb10 f24">切换全选</h1>
-    <p class="p5 toggleCheck">
+    <p class="mb20 p5 toggleCheck">
       <label>
         <input type="checkbox" name="fuck[]" class="checkAll">全选
       </label><span class="p5">
@@ -112,6 +112,31 @@
         <label>
           <input type="checkbox" name="fuck[]">dd
         </label></span>
+    </p>
+    <h1 class="mb10 f24">Observer示例</h1>
+    <p class="p5">
+      <!-- 这是一个模板-->
+      <!-- 模板语法参见http://juicer.name-->
+      <script type="text/juicer" name="optionItem">
+        {@each list as item}
+        <option value="${item.id}" {@if item.selected}selected{@/if}>${item.text}</option>
+        {@/each}
+      </script>
+      <!-- 这是一个模板-->
+      <script type="text/juicer" name="checkboxItem">
+        {@each list as item}
+        <label><input type="checkbox" value="${item.id}" {@if item.selected}checked{@/if}>${item.text}</label>
+        {@/each}
+      </script>
+      <!-- 设置 autoload 属性以在页面载入时便请求数据-->
+      <!-- 作为被观察的对象，表单元素需要有 name 属性以便传递请求参数-->
+      <select data-observer="#obTest1" name="aaa" data-item-after="optionItem" data-source="json/autoload.json" data-method="get" autoload>
+        <option>下面的项目是动态追加的</option>
+      </select>
+      <select id="obTest1" data-observer="#obTest2" name="bbb" data-template-name="optionItem" data-source="json/list.json" data-method="get">
+        <option>先选择地区</option>
+      </select>
+      <!-- 除了在模板中设置 selected 和 checked 属性外，还可在容器上使用 data-selected 属性预设置选中的项目,注意须使用标准的json格式，双引号不可以用单引号代替。--><span id="obTest2" data-template-name="checkboxItem" data-source="json/list.json" data-method="get" data-selected="[&quot;b4&quot;,&quot;b7&quot;]"></span>
     </p>
   </div>
   <!--主内容区结束-->

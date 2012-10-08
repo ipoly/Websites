@@ -2,6 +2,119 @@
 (function() {
   var ValiditAble, tabMethod, _ref, _ref1;
 
+  (function($, global) {
+    return $(function() {
+      var root;
+      root = $("body");
+      root.on("change.observer submit.observer", "[data-observer]", function(e) {
+        var observer, param, t;
+        t = $(this);
+        if (t.is("form") && e.type === "change") {
+          return true;
+        }
+        if (e.type === "submit") {
+          e.preventDefault();
+        }
+        observer = $(t.data("observer"));
+        param = t.serializeArray();
+        if (!param.length) {
+          param = t.find(":input").serializeArray();
+        }
+        if (param.length) {
+          return observer.trigger("dataChange", [param]);
+        }
+      });
+      root.on("dataChange.observer", "[data-source]", function(e, data) {
+        var t;
+        if (e.target === this) {
+          t = $(this);
+          return $[t.data("method") || "post"](t.data("source"), data, null, "json").done(function(data) {
+            return t.trigger("dataRender", data);
+          }).fail(function(a, b, c) {
+            return $.error("获取JSON数据失败:" + b);
+          });
+        }
+      });
+      root.on("dataRender.observer", "[data-template-name]", function(e, data) {
+        var t, tmpName, _ref;
+        if (!(data && e.target === this)) {
+          return false;
+        }
+        t = $(this);
+        tmpName = t.data("template-name");
+        if ((_ref = this.tpl) == null) {
+          this.tpl = $("script[name=" + tmpName + "]").html();
+        }
+        if (this.tpl) {
+          t.html(juicer(this.tpl, data));
+          if (t.is("select")) {
+            t.toggleClass("zoom").toggleClass("zoom");
+          }
+          return setTimeout(function() {
+            if (t.is("[data-selected]")) {
+              return t.trigger("setDefault");
+            } else {
+              return t.trigger("change");
+            }
+          }, 0);
+        }
+      });
+      root.on("setDefault.observer", "[data-selected]", function() {
+        var filter, filterStr, n, t;
+        t = $(this);
+        filterStr = t.data("selected");
+        if (!filterStr) {
+          return true;
+        }
+        if ($.type(filterStr) === "string") {
+          filter = "[value='" + filterStr + "'],:contains('" + filterStr + "')";
+        } else {
+          filter = ((function() {
+            var _i, _len, _results;
+            _results = [];
+            for (_i = 0, _len = filterStr.length; _i < _len; _i++) {
+              n = filterStr[_i];
+              _results.push("[value='" + n + "'],:contains('" + n + "')");
+            }
+            return _results;
+          })()).join(",");
+        }
+        t.find(filter).attr({
+          "checked": true,
+          "selected": true
+        });
+        return t.trigger("change");
+      });
+      root.on("dataRender.observer", "[data-item-before],[data-item-after]", function(e, data) {
+        var dom, method, t, tmpName, _ref;
+        if (!(data && e.target === this)) {
+          return false;
+        }
+        t = $(this);
+        method = t.is("[data-item-before]") ? "prepend" : "append";
+        tmpName = t.data("item-before") || t.data("item-after");
+        if ((_ref = this.tpl) == null) {
+          this.tpl = $("script[name=" + tmpName + "]").html();
+        }
+        if (this.tpl) {
+          dom = $(juicer(this.tpl, data)).hide();
+          t[method](dom);
+          dom.fadeIn();
+          return setTimeout(function() {
+            return t.trigger("change");
+          }, 0);
+        }
+      });
+      return $("[data-source][autoload]").trigger("dataChange");
+    });
+  })(jQuery, this);
+
+  /* --------------------------------------------
+       Begin validity.coffee
+  --------------------------------------------
+  */
+
+
   ValiditAble = (function() {
 
     function ValiditAble(el) {
@@ -141,7 +254,7 @@
         }
         return true;
       },
-      id: function() {
+      idCard: function() {
         var reg, t, val;
         t = $(this);
         val = t.val();

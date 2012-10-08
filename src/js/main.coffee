@@ -1,4 +1,5 @@
 # 导入coffee文档
+# @codekit-prepend observer
 # @codekit-prepend validity
 # @codekit-prepend cloneable
 # @codekit-prepend checkall
