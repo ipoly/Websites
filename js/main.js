@@ -184,14 +184,13 @@
         return true;
       },
       number: function() {
-        var reg, t, val;
+        var t, val;
         t = $(this);
         val = t.val();
         if (!val.length) {
           return "pending";
         }
-        reg = /^\d*\.?\d+$/;
-        if (!reg.test(val)) {
+        if (isNaN(Number(val))) {
           this.vMsg = "请输入数字。";
           return false;
         }
@@ -319,6 +318,60 @@
   });
 
   /* --------------------------------------------
+       Begin number.coffee
+  --------------------------------------------
+  */
+
+
+  $.fn.numberUI = function() {
+    this.each(function() {
+      var it, t, wrapper;
+      t = $(this);
+      it = typeof Modernizr !== "undefined" && Modernizr !== null ? Modernizr.inputtypes : void 0;
+      if (!it) {
+        return true;
+      }
+      if (!it.number) {
+        wrapper = $("<span class='number'><i class='less'>&#x2d;</i><i class='more'>&#x2b;</i></span>");
+        t.after(wrapper);
+        return wrapper.find(".less").after(t);
+      }
+    });
+    return this;
+  };
+
+  $(function() {
+    $("input[type=number]").numberUI();
+    $("body").on("click dblclick", ".number", function(e) {
+      var input, step, tango, val;
+      tango = $(e.target);
+      input = $("input", this);
+      step = Number(input.attr("step")) || 1;
+      val = Number(input.val()) || 0;
+      if (tango.is(".less")) {
+        val -= step;
+      } else if (tango.is(".more")) {
+        val += step;
+      }
+      return input.val(val).trigger("change");
+    });
+    $("body").on("change keyup", ".number input", function() {
+      var max, min, t, val;
+      t = $(this);
+      val = Number(t.val()) || 0;
+      max = Number(t.attr("max")) || val;
+      min = Number(t.attr("min")) || val;
+      val = Math.max(Math.min(val, max), min);
+      return t.val(val);
+    });
+    if ($.browser.msie) {
+      return $("body").on("selectstart", ".number i", function() {
+        return false;
+      });
+    }
+  });
+
+  /* --------------------------------------------
        Begin main.coffee
   --------------------------------------------
   */
@@ -351,27 +404,6 @@
   if ($.browser.msie) {
     null;
   }
-
-  $("input[type=number]").each(function() {
-    var that, wrapper;
-    that = $(this);
-    wrapper = $("<span class='number'><i class='less'/><i class='more'/></span>");
-    that.after(wrapper);
-    return wrapper.find(".less").after(that);
-  });
-
-  $(".number").on("click", function(e) {
-    var input, tango, val;
-    tango = $(e.target);
-    input = $("input", this);
-    val = parseInt(input.val(), 10) || 0;
-    if (tango.is(".less")) {
-      val--;
-    } else if (tango.is(".more")) {
-      val++;
-    }
-    return input.val(val).trigger("change");
-  });
 
   $("ol").each(function() {
     return $("i", this).each(function(i) {

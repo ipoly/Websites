@@ -2,6 +2,7 @@
 # @codekit-prepend validity
 # @codekit-prepend cloneable
 # @codekit-prepend checkall
+# @codekit-prepend number
 $ ->
 	# 默认的表单验证提示
     $("body").on("invalid",":input,[needone]",(e)->
@@ -26,24 +27,6 @@ $ ->
 	if $.browser.msie
 		null
 
-
-	# 初始化number控件
-	$("input[type=number]").each(->
-		that = $(@)
-		wrapper = $("<span class='number'><i class='less'/><i class='more'/></span>")
-		that.after(wrapper)
-		wrapper.find(".less").after(that)
-	)
-	$(".number").on("click",(e)->
-		tango = $(e.target)
-		input = $("input",@)
-		val = parseInt(input.val(),10)||0
-		if tango.is(".less")
-			val--
-		else if tango.is(".more")
-			val++
-		input.val(val).trigger("change")
-	)
 
 	# 初始化ol序号
 	$("ol").each(->

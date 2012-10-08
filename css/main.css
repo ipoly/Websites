@@ -55,6 +55,27 @@
 .invalid span {
   display: block;
 }
+.number {
+  margin: 0 5px;
+}
+.number input {
+  margin: 0 3px;
+}
+.number i {
+  font-size: 14px;
+  vertical-align: middle;
+  font-family: icons;
+  cursor: pointer;
+  color: #999;
+  -moz-user-select: none;
+}
+.number i:hover {
+  color: #990000;
+}
+.number i:active {
+  position: relative;
+  top: 1px;
+}
 .ul1 {
   line-height: 150%;
 }

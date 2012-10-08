@@ -65,6 +65,28 @@
 	.block;
 }
 
+.number {
+	margin: 0 5px;
+	input {
+		margin: 0 3px;
+	}
+	i {
+		.f14;
+		.vm;
+		font-family: icons;
+		cursor: pointer;
+		color: #999;
+		-moz-user-select: none;
+	}
+	i:hover {
+		color: @red1;
+	}
+	i:active {
+		.pr;
+		top:1px;
+	}
+}
+
 @import "header.less";
 @import "list.less";
 @import "labels.less";
