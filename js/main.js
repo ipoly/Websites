@@ -373,12 +373,15 @@
       });
       return !invalidInputs.length;
     });
-    return $("body").on("change keyup", ":input", function() {
+    $("body").on("change keyup", ":input", function() {
       if (!this.isValidtAble) {
         new ValiditAble(this);
       }
       clearTimeout(this.vTimer);
       return this.vTimer = setTimeout($.proxy(this, "checkValidity"), 300);
+    });
+    return $("body").on("afterClone", ".cloneAble", function() {
+      return $(this).find(".validityMsg").remove();
     });
   });
 
@@ -390,14 +393,12 @@
 
   $(function() {
     $("body").on("click", ".cloneAble .add", function(e) {
-      var clone, root, _base;
+      var clone, root;
       root = $(this).closest(".cloneAble");
+      root.trigger("beforeClone");
       clone = root.clone(root.is("[events]"), root.is("[deepevents]")).hide();
-      if (typeof (_base = clone.find(":input").val("")).placeholder === "function") {
-        _base.placeholder();
-      }
-      clone.find(".validityMsg").remove();
       root.toggleClass("cloneAble delAble").after(clone);
+      clone.trigger("afterClone");
       clone.fadeIn();
       return e.preventDefault();
     });
@@ -497,7 +498,7 @@
     };
     $(function() {
       $("input[placeholder]").placeholder();
-      return $("body").on("focus", "input.placeholder", function() {
+      $("body").on("focus", "input.placeholder", function() {
         return $(this).removeClass("placeholder").val("");
       }).on("blur", "input[placeholder]", function() {
         var t, val;
@@ -507,6 +508,10 @@
           t.val(t.attr("placeholder"));
           return t.addClass("placeholder");
         }
+      });
+      return $("body").on("afterClone", function(e) {
+        var _base;
+        return typeof (_base = $(e.target).find(":input").val("")).placeholder === "function" ? _base.placeholder() : void 0;
       });
     });
   }

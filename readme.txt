@@ -46,6 +46,7 @@ icoMoon.pdf是目前所使用的字体图标一览表
 
 容器元素增加类 .cloneAble 或 .delAble ,内部放置按钮 .add 和 .del
 events 和 deepevents 属性以指定是否复制事件处理函数与深度复制,与 jquery 的 clone 方法对应
+节点克隆会抛出beforeClone和afterClone事件，方便受影响的控件处理
 
 
 # 切换全选
