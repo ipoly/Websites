@@ -66,7 +66,8 @@ observer 观察者
 2.1 可用 autoload 属性让拥有 data-source 属性的元素在页面载入时即请求数据
 2.2 可用 data-selected 属性指定模板刷新后的默认选择项目，如 data-selected="value1" 或 data-selected='["value2","value3"]'
 2.3 可用 data-method 属性指定ajax请求的方法，默认是 post 方法
-3.用 <script type="text/juicer" name="模板名称">模板内容</script> 设置模板
+3.用 <script type="text/juicer" name="模板名称">模板内容</script> 设置模板。(语法:http://juicer.name)
+
 
 
 

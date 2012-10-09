@@ -89,8 +89,8 @@ block main
         select#obTest1(data-observer="#obTest2",name="bbb",data-template-name="optionItem",data-source="json/list.json",data-method="get")
             option 先选择地区
 
-        // 除了在模板中设置 selected 和 checked 属性外，还可在容器上使用 data-selected 属性预设置选中的项目,注意须使用标准的json格式，双引号不可以用单引号代替。
-        span#obTest2(data-template-name="checkboxItem",data-source="json/list.json",data-method="get",data-selected='["b4","b7"]')
+    // 除了在模板中设置 selected 和 checked 属性外，还可在容器上使用 data-selected 属性预设置选中的项目,注意须使用标准的json格式，双引号不可以用单引号代替。
+    div#obTest2(data-template-name="checkboxItem",data-source="json/list.json",data-method="get",data-selected='["b4","b7"]')
 
 
 

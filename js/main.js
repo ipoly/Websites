@@ -47,9 +47,6 @@
         }
         if (this.tpl) {
           t.html(juicer(this.tpl, data));
-          if (t.is("select")) {
-            t.toggleClass("zoom").toggleClass("zoom");
-          }
           return setTimeout(function() {
             if (t.is("[data-selected]")) {
               return t.trigger("setDefault");
@@ -99,7 +96,9 @@
         if (this.tpl) {
           dom = $(juicer(this.tpl, data)).hide();
           t[method](dom);
-          dom.fadeIn();
+          if (!dom.is("option")) {
+            dom.fadeIn();
+          }
           return setTimeout(function() {
             return t.trigger("change");
           }, 0);
