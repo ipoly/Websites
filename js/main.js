@@ -7,7 +7,7 @@
       var root;
       root = $("body");
       root.on("change.observer submit.observer", "[data-observer]", function(e) {
-        var observer, param, t;
+        var observer, t;
         t = $(this);
         if (t.is("form") && e.type === "change") {
           return true;
@@ -16,18 +16,17 @@
           e.preventDefault();
         }
         observer = $(t.data("observer"));
-        param = t.serializeArray();
-        if (!param.length) {
-          param = t.find(":input").serializeArray();
-        }
-        if (param.length) {
-          return observer.trigger("dataChange", [param]);
-        }
+        return observer.trigger("dataChange", [this]);
       });
-      root.on("dataChange.observer", "[data-source]", function(e, data) {
-        var t;
+      root.on("dataChange.observer", "[data-source]", function(e, el) {
+        var data, t;
         if (e.target === this) {
           t = $(this);
+          el = $(el);
+          data = el.serializeArray();
+          if (!data.length) {
+            data = el.find(":input").serializeArray();
+          }
           return $[t.data("method") || "post"](t.data("source"), data, null, "json").done(function(data) {
             return t.trigger("dataRender", data);
           }).fail(function(a, b, c) {
@@ -124,9 +123,6 @@
     ValiditAble.prototype.checkValidity = function() {
       var method, t;
       t = $(this);
-      if (t.is(":text,textarea,:password")) {
-        t.val($.trim(t.val()));
-      }
       for (method in this.vMethods) {
         if (t.is("[" + method + "],[type=" + method + "]")) {
           this.isValid = this.vMethods[method].call(this);
@@ -147,9 +143,10 @@
 
     ValiditAble.prototype.vMethods = {
       required: function() {
-        var t;
+        var t, val;
         t = $(this);
-        if (!t.val() || t.val() === t.attr("placeholder")) {
+        val = $.trim(t.val());
+        if (!val || val === t.attr("placeholder")) {
           this.vMsg = "该项目是必须的。";
           return false;
         }
@@ -513,6 +510,38 @@
       });
     });
   }
+
+  /* --------------------------------------------
+       Begin lengthctrl.coffee
+  --------------------------------------------
+  */
+
+
+  (function($, global) {
+    return $(function() {
+      return $("body").on("keyup", ".lengthCtrl", function(e) {
+        var left, length, limit, msg, root, tango, val;
+        root = $(this);
+        tango = $(e.target);
+        if (!tango.data("maxlength")) {
+          tango.data("maxlength", Number(tango.attr("maxlength")));
+          tango.removeAttr("maxlength");
+        }
+        limit = tango.data("maxlength");
+        val = tango.val().split("");
+        length = val.length;
+        left = limit - length;
+        msg = root.find(".lengthLeft");
+        while (left < 0) {
+          val.pop();
+          left++;
+          tango.val(val.join(""));
+        }
+        msg.html(left);
+        return msg.toggleClass("lengthAlert", left < 11);
+      });
+    });
+  })(jQuery, this);
 
   /* --------------------------------------------
        Begin main.coffee

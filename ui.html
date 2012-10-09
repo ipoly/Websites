@@ -138,7 +138,12 @@
       </select>
     </p>
     <!-- 除了在模板中设置 selected 和 checked 属性外，还可在容器上使用 data-selected 属性预设置选中的项目,注意须使用标准的json格式，双引号不可以用单引号代替。-->
-    <div id="obTest2" data-template-name="checkboxItem" data-source="json/list.json" data-method="get" data-selected="[&quot;b4&quot;,&quot;b7&quot;]"></div>
+    <div id="obTest2" data-template-name="checkboxItem" data-source="json/list.json" data-method="get" data-selected="[&quot;b4&quot;,&quot;b7&quot;]" class="mb20"></div>
+    <h1 class="mb10 f24">长度控制示例</h1>
+    <div class="mb20 p5 lengthCtrl">
+      <textarea maxlength="40"></textarea>
+      <div>还可输入<span class="lengthLeft">40</span>个字符</div>
+    </div>
   </div>
   <!--主内容区结束-->
   <!--页脚开始-->

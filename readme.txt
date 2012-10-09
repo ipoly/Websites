@@ -70,6 +70,8 @@ observer 观察者
 
 
 
+# 长度控制组件，父容器添加类 .lengthCtrl, input 和 textarea 增加属性 maxlength , 数字容器添加类 .lengthLeft
+# 在可输入小于10时，.lengthLeft 会增加类 lengthAlert
 
 
 

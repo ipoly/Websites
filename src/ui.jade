@@ -90,7 +90,14 @@ block main
             option 先选择地区
 
     // 除了在模板中设置 selected 和 checked 属性外，还可在容器上使用 data-selected 属性预设置选中的项目,注意须使用标准的json格式，双引号不可以用单引号代替。
-    div#obTest2(data-template-name="checkboxItem",data-source="json/list.json",data-method="get",data-selected='["b4","b7"]')
+    div.mb20#obTest2(data-template-name="checkboxItem",data-source="json/list.json",data-method="get",data-selected='["b4","b7"]')
+
+    h1.mb10.f24 长度控制示例
+    div.mb20.p5.lengthCtrl
+        textarea(maxlength="40")
+        div 还可输入<span class="lengthLeft">40</span>个字符
+
+
 
 
 
