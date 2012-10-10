@@ -2,110 +2,108 @@
 (function() {
   var ValiditAble, tabMethod, _ref, _ref1;
 
-  (function($, global) {
-    return $(function() {
-      var root;
-      root = $("body");
-      root.on("change.observer submit.observer", "[data-observer]", function(e) {
-        var observer, t;
-        t = $(this);
-        if (t.is("form") && e.type === "change") {
-          return true;
-        }
-        if (e.type === "submit") {
-          e.preventDefault();
-        }
-        observer = $(t.data("observer"));
-        return observer.trigger("dataChange", [this]);
-      });
-      root.on("dataChange.observer", "[data-source]", function(e, el) {
-        var data, t;
-        if (e.target === this) {
-          t = $(this);
-          el = $(el);
-          data = el.serializeArray();
-          if (!data.length) {
-            data = el.find(":input").serializeArray();
-          }
-          return $[t.data("method") || "post"](t.data("source"), data, null, "json").done(function(data) {
-            return t.trigger("dataRender", data);
-          }).fail(function(a, b, c) {
-            return $.error("获取JSON数据失败:" + b);
-          });
-        }
-      });
-      root.on("dataRender.observer", "[data-template-name]", function(e, data) {
-        var t, tmpName, _ref;
-        if (!(data && e.target === this)) {
-          return false;
-        }
-        t = $(this);
-        tmpName = t.data("template-name");
-        if ((_ref = this.tpl) == null) {
-          this.tpl = $("script[name=" + tmpName + "]").html();
-        }
-        if (this.tpl) {
-          t.html(juicer(this.tpl, data));
-          return setTimeout(function() {
-            if (t.is("[data-selected]")) {
-              return t.trigger("setDefault");
-            } else {
-              return t.trigger("change");
-            }
-          }, 0);
-        }
-      });
-      root.on("setDefault.observer", "[data-selected]", function() {
-        var filter, filterStr, n, t;
-        t = $(this);
-        filterStr = t.data("selected");
-        if (!filterStr) {
-          return true;
-        }
-        if ($.type(filterStr) === "string") {
-          filter = "[value='" + filterStr + "'],:contains('" + filterStr + "')";
-        } else {
-          filter = ((function() {
-            var _i, _len, _results;
-            _results = [];
-            for (_i = 0, _len = filterStr.length; _i < _len; _i++) {
-              n = filterStr[_i];
-              _results.push("[value='" + n + "'],:contains('" + n + "')");
-            }
-            return _results;
-          })()).join(",");
-        }
-        t.find(filter).attr({
-          "checked": true,
-          "selected": true
-        });
-        return t.trigger("change");
-      });
-      root.on("dataRender.observer", "[data-item-before],[data-item-after]", function(e, data) {
-        var dom, method, t, tmpName, _ref;
-        if (!(data && e.target === this)) {
-          return false;
-        }
-        t = $(this);
-        method = t.is("[data-item-before]") ? "prepend" : "append";
-        tmpName = t.data("item-before") || t.data("item-after");
-        if ((_ref = this.tpl) == null) {
-          this.tpl = $("script[name=" + tmpName + "]").html();
-        }
-        if (this.tpl) {
-          dom = $(juicer(this.tpl, data)).hide();
-          t[method](dom);
-          if (!dom.is("option")) {
-            dom.fadeIn();
-          }
-          return setTimeout(function() {
-            return t.trigger("change");
-          }, 0);
-        }
-      });
-      return $("[data-source][autoload]").trigger("dataChange");
+  $(function() {
+    var root;
+    root = $("body");
+    root.on("change.observer submit.observer", "[data-observer]", function(e) {
+      var observer, t;
+      t = $(this);
+      if (t.is("form") && e.type === "change") {
+        return true;
+      }
+      if (e.type === "submit") {
+        e.preventDefault();
+      }
+      observer = $(t.data("observer"));
+      return observer.trigger("dataChange", [this]);
     });
-  })(jQuery, this);
+    root.on("dataChange.observer", "[data-source]", function(e, el) {
+      var data, t;
+      if (e.target === this) {
+        t = $(this);
+        el = $(el);
+        data = el.serializeArray();
+        if (!data.length) {
+          data = el.find(":input").serializeArray();
+        }
+        return $[t.data("method") || "post"](t.data("source"), data, null, "json").done(function(data) {
+          return t.trigger("dataRender", data);
+        }).fail(function(a, b, c) {
+          return $.error("获取JSON数据失败:" + b);
+        });
+      }
+    });
+    root.on("dataRender.observer", "[data-template-name]", function(e, data) {
+      var t, tmpName, _ref;
+      if (!(data && e.target === this)) {
+        return false;
+      }
+      t = $(this);
+      tmpName = t.data("template-name");
+      if ((_ref = this.tpl) == null) {
+        this.tpl = $("script[name=" + tmpName + "]").html();
+      }
+      if (this.tpl) {
+        t.html(juicer(this.tpl, data));
+        return setTimeout(function() {
+          if (t.is("[data-selected]")) {
+            return t.trigger("setDefault");
+          } else {
+            return t.trigger("change");
+          }
+        }, 0);
+      }
+    });
+    root.on("setDefault.observer", "[data-selected]", function() {
+      var filter, filterStr, n, t;
+      t = $(this);
+      filterStr = t.data("selected");
+      if (!filterStr) {
+        return true;
+      }
+      if ($.type(filterStr) === "string") {
+        filter = "[value='" + filterStr + "'],:contains('" + filterStr + "')";
+      } else {
+        filter = ((function() {
+          var _i, _len, _results;
+          _results = [];
+          for (_i = 0, _len = filterStr.length; _i < _len; _i++) {
+            n = filterStr[_i];
+            _results.push("[value='" + n + "'],:contains('" + n + "')");
+          }
+          return _results;
+        })()).join(",");
+      }
+      t.find(filter).attr({
+        "checked": true,
+        "selected": true
+      });
+      return t.trigger("change");
+    });
+    root.on("dataRender.observer", "[data-item-before],[data-item-after]", function(e, data) {
+      var dom, method, t, tmpName, _ref;
+      if (!(data && e.target === this)) {
+        return false;
+      }
+      t = $(this);
+      method = t.is("[data-item-before]") ? "prepend" : "append";
+      tmpName = t.data("item-before") || t.data("item-after");
+      if ((_ref = this.tpl) == null) {
+        this.tpl = $("script[name=" + tmpName + "]").html();
+      }
+      if (this.tpl) {
+        dom = $(juicer(this.tpl, data)).hide();
+        t[method](dom);
+        if (!dom.is("option")) {
+          dom.fadeIn();
+        }
+        return setTimeout(function() {
+          return t.trigger("change");
+        }, 0);
+      }
+    });
+    return $("[data-source][autoload]").trigger("dataChange");
+  });
 
   /* --------------------------------------------
        Begin validity.coffee
@@ -522,31 +520,29 @@
   */
 
 
-  (function($, global) {
-    return $(function() {
-      return $("body").on("keyup", ".lengthCtrl", function(e) {
-        var left, length, limit, msg, root, tango, val;
-        root = $(this);
-        tango = $(e.target);
-        if (!tango.data("maxlength")) {
-          tango.data("maxlength", Number(tango.attr("maxlength")));
-          tango.removeAttr("maxlength");
-        }
-        limit = tango.data("maxlength");
-        val = tango.val().split("");
-        length = val.length;
-        left = limit - length;
-        msg = root.find(".lengthLeft");
-        while (left < 0) {
-          val.pop();
-          left++;
-          tango.val(val.join(""));
-        }
-        msg.html(left);
-        return msg.toggleClass("lengthAlert", left < 11);
-      });
+  $(function() {
+    return $("body").on("keyup", ".lengthCtrl", function(e) {
+      var left, length, limit, msg, root, tango, val;
+      root = $(this);
+      tango = $(e.target);
+      if (!tango.data("maxlength")) {
+        tango.data("maxlength", Number(tango.attr("maxlength")));
+        tango.removeAttr("maxlength");
+      }
+      limit = tango.data("maxlength");
+      val = tango.val().split("");
+      length = val.length;
+      left = limit - length;
+      msg = root.find(".lengthLeft");
+      while (left < 0) {
+        val.pop();
+        left++;
+        tango.val(val.join(""));
+      }
+      msg.html(left);
+      return msg.toggleClass("lengthAlert", left < 11);
     });
-  })(jQuery, this);
+  });
 
   /* --------------------------------------------
        Begin main.coffee
@@ -636,20 +632,5 @@
       });
     });
   }).trigger("gun");
-
-  $("#questionForm").on("keyup", function(e) {
-    var limit, t, txt;
-    t = $(e.target);
-    console.log(11);
-    if (t.is("textarea")) {
-      txt = t.val().split("");
-      limit = parseInt(t.attr("max"), 10);
-      while (txt.length > limit) {
-        txt.pop();
-      }
-      t.val(txt.join(""));
-      return $("h2 span", this).html("还可以输入" + (limit - txt.length) + "个字");
-    }
-  });
 
 }).call(this);
