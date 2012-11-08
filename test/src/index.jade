@@ -1,0 +1,10 @@
+extends base/QUnit
+
+append configs
+    - config.title = "My Test"
+
+block tests
+    :coffeescript
+        test("My first test",->
+            ok(1,"Test running good")
+        )
